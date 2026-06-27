@@ -1,1 +1,21 @@
 @import "tailwindcss";
+@keyframes backgroundPulse {
+  0% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+
+  50% {
+    opacity: 0.82;
+    filter: brightness(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+}
+
+.animate-background {
+  animation: backgroundPulse 5s ease-in-out infinite;
+}
