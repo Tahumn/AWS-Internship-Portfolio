@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGame } from "../context/GameContext";
+import MapDetective from "./maps/MapDetective";
 
 export default function GameEngine() {
   const { sessionId, currentRole, roleSequence, hp, resetGame } = useGame();
   const navigate = useNavigate();
+  const [isMapStarted, setIsMapStarted] = useState(false);
 
   // If no session, redirect to landing page
   useEffect(() => {
@@ -14,6 +16,20 @@ export default function GameEngine() {
   }, [sessionId, navigate]);
 
   if (!sessionId) return null;
+
+  if (isMapStarted) {
+     if (currentRole === "Detective") {
+        return <MapDetective />;
+     }
+     // Optional: Future maps
+     // if (currentRole === "Engineer") return <MapEngineer />;
+     
+     return (
+        <div className="min-h-screen flex items-center justify-center bg-black text-white p-8">
+           <h1 className="text-2xl text-yellow-400 animate-pulse">SYSTEM WARNING: {currentRole} PROTOCOL IS STILL UNDER DEVELOPMENT.</h1>
+        </div>
+     )
+  }
 
   return (
     <div className="min-h-screen bg-black text-green-400 p-8 font-mono">
@@ -46,6 +62,7 @@ export default function GameEngine() {
              ABORT MISSION
            </button>
            <button 
+             onClick={() => setIsMapStarted(true)}
              className="px-6 py-2 bg-green-900/50 text-green-300 border border-green-500 hover:bg-green-800 transition"
            >
              PROCEED TO MAP

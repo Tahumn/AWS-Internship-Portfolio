@@ -31,8 +31,9 @@ export function GameProvider({ children }) {
       // TODO: Replace with real AWS API Gateway POST /v1/game/start
       console.log(`Starting game for ${playerName}...`);
       
-      // Mocking AWS Lambda response
-      const mockRoles = ["Detective", "Engineer", "Courier", "Archivist", "Arbiter"].sort(() => Math.random() - 0.5);
+      // Force Detective as first role for testing
+      const baseRoles = ["Engineer", "Courier", "Archivist", "Arbiter"].sort(() => Math.random() - 0.5);
+      const mockRoles = ["Detective", ...baseRoles];
       const mockSession = uuidv4(); // Generate unique session
 
       setSessionId(mockSession);
