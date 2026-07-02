@@ -37,6 +37,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import SplashScreen from "./pages/SplashScreen";
 import LandingPage from "./pages/LandingPage";
+import GameEngine from "./pages/GameEngine";
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -56,6 +57,10 @@ function App() {
         <Route
           path="/"
           element={<LandingPage />}
+        />
+        <Route
+          path="/game"
+          element={<GameEngine />}
         />
 
       </Routes>

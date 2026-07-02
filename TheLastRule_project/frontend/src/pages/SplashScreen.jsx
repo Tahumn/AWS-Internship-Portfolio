@@ -62,12 +62,24 @@
 
 
 
+import { useEffect } from "react";
 import splashBg from "../assets/backgrounds/splash-bg.jpg";
 
 import SplashLogo from "../components/SplashLogo";
 import PressAnyKey from "../components/PressAnyKey";
 
 function SplashScreen({ onFinish }) {
+  useEffect(() => {
+    const handleKeyDown = () => {
+      onFinish();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onFinish]);
   return (
     <div
       onClick={onFinish}

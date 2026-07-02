@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
+import { useGame } from "../context/GameContext";
 
 function LandingPage() {
   const navigate = useNavigate();
+  const { startNewGame } = useGame();
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black text-white">
@@ -16,7 +18,10 @@ function LandingPage() {
         </p>
 
         <button
-          onClick={() => navigate("/character")}
+          onClick={async () => {
+             await startNewGame("Player 1");
+             navigate("/game");
+          }}
           className="
             px-10
             py-4
