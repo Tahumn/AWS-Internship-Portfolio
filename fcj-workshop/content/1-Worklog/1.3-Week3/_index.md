@@ -1,57 +1,63 @@
 ---
 title: "Week 3 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-06-29
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice warning %}}
+⚠️ **Note:** The following content reflects the actual learning activities completed during the second internship week.
 {{% /notice %}}
 
+### Week 2 Objectives
 
-### Week 3 Objectives:
+* Learn the core AWS services required for the project.
+* Complete basic AWS hands-on labs.
+* Start developing the personal project.
+* Complete the project proposal and architecture design.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+---
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Weekly Tasks
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| ---- | ---- | ---------- | --------------- | ------------------ |
+| Mon | - Learn AWS IAM (Users, Groups, Roles, Policies) <br>- Practice basic access management | 29/06/2026 | 29/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Tue | - Learn Amazon S3 <br>- Practice creating S3 Buckets and Static Website Hosting <br>- Understand the S3 Free Tier | 30/06/2026 | 30/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Wed | - Learn AWS Lambda and Serverless Architecture <br>- Study Amazon API Gateway <br>- Design the backend workflow of the project | 01/07/2026 | 01/07/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Thu | - Learn Amazon DynamoDB <br>- Design the project database <br>- Prepare the initial data model | 02/07/2026 | 02/07/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Fri | - Create the GitHub repository <br>- Complete the project proposal <br>- Design the system architecture using Draw.io <br>- Initialize the frontend and backend project structure | 03/07/2026 | 03/07/2026 | GitHub, Draw.io |
 
-### Week 3 Achievements:
+---
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Personal Project Progress
 
-* Successfully created and configured an AWS Free Tier account.
+**Project Name**
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+Chronicles AI: Serverless RPG Adventure Platform on AWS
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+**Completed Tasks**
 
-* Used AWS CLI to perform basic operations such as:
+* Analyzed project requirements and scope.
+* Completed the project proposal.
+* Designed the serverless architecture.
+* Selected AWS services:
+  * Amazon S3
+  * Amazon API Gateway
+  * AWS Lambda
+  * Amazon DynamoDB
+  * Amazon CloudWatch
+* Designed the initial database schema.
+* Initialized the GitHub repository and project structure.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+---
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+### Week 2 Achievements
+
+* Understood the AWS Serverless architecture.
+* Learned how IAM, S3, Lambda and DynamoDB work together.
+* Completed the project proposal.
+* Finished the system architecture diagram.
+* Designed the initial database schema.
+* Initialized the project repository and development environment.

@@ -7,120 +7,218 @@ pre: " <b> 4.1. </b> "
 ---
 
 {{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
+⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report.
 {{% /notice %}}
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# Event Summary Report: AI & AWS Community Sharing
 
-### Event Objectives
+## Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+The event was organized to provide participants with a comprehensive understanding of how Artificial Intelligence (AI) is transforming modern businesses. Instead of focusing solely on Generative AI, the workshop covered a wide range of practical topics, including AI Voice, AI Agents, Amazon Q, FinOps, DevOps automation, AI-powered Human Resources, and real-world experiences of building AI startups.
 
-### Speakers
+Through presentations delivered by industry experts who have hands-on experience implementing AI solutions, participants gained valuable insights into:
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- The latest AI trends in enterprises.
+- Best practices for developing AI solutions from Proof of Concept (PoC) to Production.
+- How AWS services support modern AI applications.
+- Cost optimization and operational strategies for AI workloads.
+- The role of AI in improving productivity and business decision-making.
 
-### Key Highlights
+---
 
-#### Identifying the drawbacks of legacy application architecture
+# Key Highlights
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+## 1. AI Startup – From Ideas to Real Products
 
-#### Transitioning to modern application architecture – Microservices
+One of the opening sessions focused on the journey of building AI startups.
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+The speaker emphasized that many development teams spend excessive time perfecting their ideas instead of validating them in the real market. Rather than waiting for a perfect solution, startups should quickly develop a Minimum Viable Product (MVP), launch it to customers, gather feedback, and continuously improve the product. :contentReference[oaicite:0]{index=0}
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+Some important lessons included:
 
-#### Domain-Driven Design (DDD)
+- Always begin with a real business problem.
+- Do not build AI simply because it is a trending technology.
+- Continuously iterate based on customer feedback.
+- Find champion customers to validate product value.
+- Be prepared to pivot when market conditions change.
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+These principles provide a practical mindset for anyone interested in building AI-powered products.
 
-#### Event-Driven Architecture
+---
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+## 2. AI Voice and Conversational AI
 
-#### Compute Evolution
+This was one of the most interesting sessions throughout the event.
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+The speaker explained how modern AI Voice systems go far beyond traditional Speech-to-Text and Text-to-Speech technologies. A production-ready conversational AI must understand context, determine when to respond, and recognize when users are still speaking. :contentReference[oaicite:1]{index=1}
 
-#### Amazon Q Developer
+Besides speech processing, enterprise AI Voice solutions also require several supporting components, including:
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+- Prompt Management
+- Knowledge Base
+- Versioning
+- Audit Logs
+- Human Handoff
+- Multi-turn Conversations
+- Context Memory
 
-### Key Takeaways
+A particularly valuable concept introduced during the session was the Human-in-the-loop approach. When AI cannot confidently resolve a customer's request or detects user dissatisfaction, the conversation should automatically be transferred to a human support agent. This hybrid AI architecture significantly improves customer experience while maintaining operational efficiency. :contentReference[oaicite:2]{index=2}
 
-#### Design Mindset
+---
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+## 3. AI Agents and DevOps Automation
 
-#### Technical Architecture
+Another notable topic was the application of AI Agents in modern software operations.
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+The speakers demonstrated how AI Agents can assist engineers by:
 
-#### Modernization Strategy
+- Analyzing system logs.
+- Detecting operational issues.
+- Recommending possible solutions.
+- Generating remediation plans.
+- Integrating with DevOps platforms.
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+One particularly interesting point was that AI Agents are highly extensible through MCP, Skills, and Extensions, enabling them to communicate with multiple enterprise tools and automate repetitive operational tasks. Combined with AWS Lambda and AWS Systems Manager, AI Agents can become powerful automation assistants for infrastructure management. :contentReference[oaicite:3]{index=3}
 
-### Applying to Work
+However, the speakers also stressed that AI Agents are designed to support engineers rather than replace them. The quality of AI-generated recommendations depends heavily on enterprise knowledge, structured processes, and high-quality data. :contentReference[oaicite:4]{index=4}
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+---
 
-### Event Experience
+## 4. AI for Human Resources
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+Another practical session focused on applying AI to Human Resource management.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+The presenters discussed several common HR challenges faced by modern organizations:
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+- Time-consuming recruitment processes.
+- Difficulty evaluating candidates objectively.
+- Limited data for decision-making.
+- High hiring costs.
+- Challenges in long-term workforce planning.
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+To address these issues, the speakers introduced Amazon Q as an intelligent AI assistant for HR teams. Amazon Q can summarize documents, analyze candidate profiles, generate reports, and provide useful recommendations that enable HR professionals to make better and faster decisions. :contentReference[oaicite:5]{index=5} :contentReference[oaicite:6]{index=6}
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+---
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+## 5. Amazon Q and Enterprise AI
 
-#### Some event photos
-*Add your event photos here*  
+One of the most anticipated sessions introduced **Amazon Q**, AWS's AI-powered assistant designed specifically for enterprise environments.
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+Unlike general-purpose AI chatbots, Amazon Q integrates with multiple enterprise knowledge sources, including documentation, internal wikis, source code repositories, project management platforms, and AWS services. This enables employees to quickly retrieve accurate information without manually searching across different systems. :contentReference[oaicite:7]{index=7}
+
+The speakers presented several practical use cases, including:
+
+- Assisting developers in understanding existing source code.
+- Automatically generating technical documentation.
+- Creating unit tests.
+- Supporting code reviews.
+- Searching enterprise knowledge bases.
+- Assisting HR, Sales, Marketing, and Customer Support teams.
+
+A major advantage of Amazon Q is its enterprise-grade security model. It respects existing user permissions, ensuring that employees can only access information they are authorized to view. This provides organizations with greater confidence when adopting AI technologies in production environments. :contentReference[oaicite:8]{index=8}
+
+The presenters also highlighted Amazon Q's extensibility through Agents, Skills, and Extensions, allowing integration with services such as GitHub, Jira, Slack, Microsoft Teams, and various AWS services to automate business workflows.
+
+---
+
+## 6. AI for FinOps and Cloud Cost Optimization
+
+Another valuable topic discussed during the workshop was **FinOps**, a methodology for optimizing cloud spending while maximizing business value.
+
+As AI adoption continues to grow, infrastructure costs can increase significantly if organizations lack proper governance strategies. The speakers emphasized that cost optimization is a shared responsibility involving engineering, operations, and finance teams.
+
+Some recommended best practices included:
+
+- Continuously monitoring cloud resource utilization.
+- Building dashboards to track cloud spending.
+- Selecting appropriate compute services for each workload.
+- Removing unused resources.
+- Setting budgets and cost alerts.
+- Leveraging Reserved Instances or Savings Plans when appropriate.
+- Measuring the return on investment (ROI) before expanding AI projects. :contentReference[oaicite:9]{index=9}
+
+Rather than focusing solely on reducing costs, FinOps aims to maximize the overall value delivered by cloud investments.
+
+---
+
+# Key Takeaways
+
+## Product Development Mindset
+
+Throughout the workshop, I learned several valuable principles regarding product development:
+
+- Always begin with business problems instead of technology.
+- Build MVPs quickly to validate ideas.
+- Continuously improve products based on customer feedback.
+- AI only creates value when solving real business challenges.
+
+## AI and System Architecture
+
+The event significantly improved my understanding of enterprise AI systems, including:
+
+- Designing AI Agents.
+- Integrating LLMs with enterprise knowledge bases.
+- Managing conversational context effectively.
+- Applying Human-in-the-loop principles.
+- Extending AI capabilities through Agents and MCP.
+
+## AWS Services
+
+The workshop also strengthened my understanding of AWS services used in modern AI solutions, particularly:
+
+- Amazon Q
+- AWS Lambda
+- Amazon Bedrock
+- AI Agent development services
+- DevOps automation tools
+
+More importantly, I realized that building enterprise AI systems requires balancing scalability, security, maintainability, and operational costs—not simply deploying AI models.
+
+---
+
+# Applying the Knowledge
+
+Many of the concepts introduced during the workshop can be applied directly to my current projects.
+
+For my game development project **The Last Rule**, I plan to explore AI Agents that allow NPCs to generate context-aware conversations instead of relying solely on predefined dialogue trees.
+
+During software development, I also intend to use Amazon Q to improve code comprehension, automate documentation, and accelerate software development tasks.
+
+Furthermore, the FinOps concepts introduced during the workshop have increased my awareness of cloud cost management when deploying applications on AWS.
+
+Finally, the startup experiences shared by the speakers encouraged me to focus on building Minimum Viable Products first, collecting user feedback, and continuously improving the product rather than attempting to develop a perfect solution from the beginning.
+
+---
+
+# Event Experience
+
+This workshop was one of the most practical AI events I have attended.
+
+What impressed me the most was that the speakers did not simply introduce new technologies. Instead, they shared real implementation experiences, practical challenges, and lessons learned while deploying AI solutions in production environments.
+
+The real-world examples demonstrated that building enterprise AI systems involves much more than calling Large Language Model APIs. Organizations must also consider knowledge management, security, authorization, scalability, operational costs, and user experience.
+
+The event also broadened my understanding of emerging trends such as AI Agents, Enterprise AI, Amazon Q, and AI-powered software engineering tools, all of which are becoming increasingly important across industries.
+
+Additionally, the workshop provided valuable insights into how AI can improve Human Resources, Customer Service, Software Development, and Cloud Infrastructure Management.
+
+---
+
+# Lessons Learned
+
+After attending the event, I gained several important insights:
+
+- AI should enhance human productivity rather than replace human expertise.
+- Successful AI adoption begins with solving business problems instead of following technology trends.
+- Enterprise AI requires the integration of AI models, data, business processes, and human collaboration.
+- Amazon Q and AI Agents have enormous potential to automate repetitive tasks, allowing engineers to focus on higher-value activities.
+- When deploying AI workloads on AWS, organizations must carefully balance performance, scalability, and operational costs.
+- The workshop inspired many ideas that I can apply to my academic projects, research activities, and future software development work.
+
+---
+
+## Event Photos
+
+*Add your event photos here.*
+
+> Overall, the workshop provided a comprehensive overview of the AWS AI ecosystem, covering AI product development, AI Agents, Amazon Q for enterprise applications, and FinOps for cloud cost optimization. The knowledge and practical experiences gained from this event will serve as a valuable foundation for my future studies, research projects, and professional software engineering career.
