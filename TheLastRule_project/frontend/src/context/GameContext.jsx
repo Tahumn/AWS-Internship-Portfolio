@@ -32,7 +32,8 @@ export function GameProvider({ children }) {
       console.log(`Starting game for ${playerName}...`);
       
       // Mocking AWS Lambda response
-      const mockRoles = ["Detective", "Engineer", "Courier", "Archivist", "Arbiter"].sort(() => Math.random() - 0.5);
+      // For development/testing, fix "Detective" as the first role instead of random
+      const mockRoles = ["Detective", "Engineer", "Courier", "Archivist", "Arbiter"];
       const mockSession = uuidv4(); // Generate unique session
 
       setSessionId(mockSession);

@@ -38,6 +38,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SplashScreen from "./pages/SplashScreen";
 import LandingPage from "./pages/LandingPage";
 import GameEngine from "./pages/GameEngine";
+import MapDetective from "./pages/maps/MapDetective";
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -61,6 +62,10 @@ function App() {
         <Route
           path="/game"
           element={<GameEngine />}
+        />
+        <Route
+          path="/game/detective"
+          element={<MapDetective />}
         />
 
       </Routes>
