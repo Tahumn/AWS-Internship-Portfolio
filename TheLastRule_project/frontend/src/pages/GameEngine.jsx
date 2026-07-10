@@ -46,7 +46,14 @@ export default function GameEngine() {
              ABORT MISSION
            </button>
            <button 
-             onClick={() => navigate(`/game/${currentRole?.toLowerCase() || 'detective'}`)}
+             onClick={() => {
+               const roleMap = {
+                 detective: 'detective',
+                 datacrypt: 'datacrypt',
+               };
+               const slug = roleMap[currentRole?.toLowerCase()] || currentRole?.toLowerCase() || 'datacrypt';
+               navigate(`/game/${slug}`);
+             }}
              className="px-6 py-2 bg-green-900/50 text-green-300 border border-green-500 hover:bg-green-800 transition"
            >
              PROCEED TO MAP
