@@ -1,6 +1,6 @@
 ---
 title: "Week 2 Worklog"
-date: 2026-06-29
+date: "2026-06-29"
 weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
@@ -12,10 +12,10 @@ pre: " <b> 1.2. </b> "
 
 ### Week 2 Objectives
 
-* Learn the core AWS services required for the project.
-* Complete basic AWS hands-on labs.
-* Start developing the personal project.
-* Complete the project proposal and architecture design.
+* Practice core AWS services.
+* Complete fundamental AWS hands-on labs.
+* Build the internship portfolio and initialize the personal project.
+* Prepare the foundation for AWS-based application development.
 
 ---
 
@@ -23,11 +23,11 @@ pre: " <b> 1.2. </b> "
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | ---- | ---- | ---------- | --------------- | ------------------ |
-| Mon | - Learn AWS IAM (Users, Groups, Roles, Policies) <br>- Practice basic access management | 29/06/2026 | 29/06/2026 | https://cloudjourney.awsstudygroup.com/ |
-| Tue | - Learn Amazon S3 <br>- Practice creating S3 Buckets and Static Website Hosting <br>- Understand the S3 Free Tier | 30/06/2026 | 30/06/2026 | https://cloudjourney.awsstudygroup.com/ |
-| Wed | - Learn AWS Lambda and Serverless Architecture <br>- Study Amazon API Gateway <br>- Design the backend workflow of the project | 01/07/2026 | 01/07/2026 | https://cloudjourney.awsstudygroup.com/ |
-| Thu | - Learn Amazon DynamoDB <br>- Design the project database <br>- Prepare the initial data model | 02/07/2026 | 02/07/2026 | https://cloudjourney.awsstudygroup.com/ |
-| Fri | - Create the GitHub repository <br>- Complete the project proposal <br>- Design the system architecture using Draw.io <br>- Initialize the frontend and backend project structure | 03/07/2026 | 03/07/2026 | GitHub, Draw.io |
+| Mon | - Create and configure an AWS Free Tier account <br>- Enable Multi-Factor Authentication (MFA) <br>- Explore the AWS Management Console | 29/06/2026 | 29/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Tue | - Learn AWS Identity and Access Management (IAM) <br>- Practice creating Users, Groups and Policies <br>- Manage permissions following the Least Privilege principle | 30/06/2026 | 30/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Wed | - Learn Amazon VPC <br>- Practice creating a VPC, Subnets and Security Groups <br>- Launch an Amazon EC2 Instance, create a Key Pair and connect to the instance | 01/07/2026 | 01/07/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Thu | - Learn Amazon S3 <br>- Practice creating Buckets and managing objects <br>- Configure AWS Budgets for cost monitoring and control | 02/07/2026 | 02/07/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Fri | - Practice designing AWS architecture diagrams using Draw.io <br>- Create the GitHub repository for the internship portfolio <br>- Update the Worklog and Workshop on Hugo <br>- Initialize the Personal Finance Management System project and project structure | 03/07/2026 | 03/07/2026 | Hugo, Draw.io <br>https://github.com/Tahumn/AWS-Internship-Portfolio https://github.com/Tahumn/cloud-finance-platform |
 
 ---
 
@@ -35,29 +35,23 @@ pre: " <b> 1.2. </b> "
 
 **Project Name**
 
-Chronicles AI: Serverless RPG Adventure Platform on AWS
+Personal Finance Management System on AWS
 
 **Completed Tasks**
 
-* Analyzed project requirements and scope.
-* Completed the project proposal.
-* Designed the serverless architecture.
-* Selected AWS services:
-  * Amazon S3
-  * Amazon API Gateway
-  * AWS Lambda
-  * Amazon DynamoDB
-  * Amazon CloudWatch
-* Designed the initial database schema.
-* Initialized the GitHub repository and project structure.
+* Analyzed the requirements and project scope.
+* Created the initial project structure.
+* Designed the initial Frontend and Backend architecture.
+* Initialized the GitHub repository and source code management workflow.
+* Prepared the project architecture for future AWS service integration.
 
 ---
 
 ### Week 2 Achievements
 
-* Understood the AWS Serverless architecture.
-* Learned how IAM, S3, Lambda and DynamoDB work together.
-* Completed the project proposal.
-* Finished the system architecture diagram.
-* Designed the initial database schema.
-* Initialized the project repository and development environment.
+* Successfully created and configured an AWS Free Tier account.
+* Learned how to manage identities and permissions using AWS IAM.
+* Understood the fundamentals of Amazon VPC and Amazon EC2.
+* Practiced using Amazon S3 and AWS Budgets for storage and cost management.
+* Completed the internship portfolio setup with Hugo and GitHub.
+* Successfully initialized the Personal Finance Management System project and development environment.

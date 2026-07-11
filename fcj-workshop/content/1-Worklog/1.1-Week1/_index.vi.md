@@ -12,10 +12,10 @@ pre: " <b> 1.1. </b> "
 
 ### Mục tiêu tuần 1
 
-* Làm quen với chương trình FCAJ Workforce và môi trường thực tập.
-* Hiểu tổng quan về điện toán đám mây (Cloud Computing) và AWS.
-* Nắm được các nhóm dịch vụ AWS cơ bản.
-* Chuẩn bị tài khoản AWS để bắt đầu thực hành trong các tuần tiếp theo.
+* Làm quen với môi trường và công cụ phục vụ quá trình thực tập.
+* Tìm hiểu kiến thức nền tảng về Cloud Computing và Amazon Web Services (AWS).
+* Làm quen với Hugo và Draw.io để phục vụ xây dựng Portfolio và thiết kế kiến trúc hệ thống.
+* Chuẩn bị kiến thức cho các bài thực hành AWS trong các tuần tiếp theo.
 
 ---
 
@@ -23,26 +23,19 @@ pre: " <b> 1.1. </b> "
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | ---- | --------- | ------------ | --------------- | -------------- |
-| 2 | - Làm quen với chương trình FCAJ Workforce <br>- Đọc nội quy và quy định của đơn vị thực tập <br>- Tìm hiểu yêu cầu về Worklog, Blog, Workshop và Project | 22/06/2026 | 22/06/2026 | Tài liệu FCAJ |
-| 3 | - Tìm hiểu tổng quan về Cloud Computing <br>- Tìm hiểu AWS Global Infrastructure (Region, Availability Zone) <br>- Tìm hiểu các nhóm dịch vụ AWS (Compute, Storage, Database, Networking, Security...) | 23/06/2026 | 23/06/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 4 | - Đăng ký tài khoản AWS <br>- Tìm hiểu AWS Free Tier và AWS Credits <br>- Hoàn thành các nhiệm vụ khởi động để nhận AWS Credits <br>- Làm quen với giao diện AWS Management Console | 24/06/2026 | 24/06/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 5 | - Xem các video hướng dẫn AWS cơ bản do AWS Study Group cung cấp <br>- Tìm hiểu các dịch vụ sẽ sử dụng trong Project (IAM, S3, Lambda, DynamoDB, CloudWatch) | 25/06/2026 | 25/06/2026 | AWS Study Group |
-| 6 | - Nghiên cứu các ý tưởng Project cá nhân <br>- Đánh giá các phương án triển khai trên AWS <br>- Lựa chọn hướng phát triển dự án AI-powered Serverless RPG Game | 26/06/2026 | 26/06/2026 | AWS Study Group |
+| 2 | - Cài đặt Git, GitHub Desktop (nếu cần), Visual Studio Code và Hugo <br>- Cấu hình môi trường làm việc phục vụ thực tập | 22/06/2026 | 22/06/2026 | Git, Hugo Documentation |
+| 3 | - Tìm hiểu tổng quan về Cloud Computing <br>- Nghiên cứu các mô hình Cloud và hệ sinh thái Amazon Web Services (AWS) <br>- Tìm hiểu AWS Global Infrastructure (Region, Availability Zone) | 23/06/2026 | 23/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 4 | - Nghiên cứu tài liệu AWS Documentation và video hướng dẫn của AWS Study Group <br>- Làm quen với các nhóm dịch vụ AWS (Compute, Storage, Networking, Database, Security) | 24/06/2026 | 24/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 5 | - Làm quen với Draw.io <br>- Tìm hiểu AWS Architecture Icons <br>- Thực hành xây dựng sơ đồ kiến trúc AWS cơ bản | 25/06/2026 | 25/06/2026 | AWS Architecture Center |
+| 6 | - Tìm hiểu Hugo Static Site Generator <br>- Làm quen với cấu trúc website Hugo và Markdown <br>- Thực hành tạo và chỉnh sửa nội dung Website Portfolio | 26/06/2026 | 26/06/2026 | Hugo Documentation https://github.com/Tahumn/AWS-Internship-Portfolio |
 
 ---
 
 ### Kết quả đạt được tuần 1
 
-* Hiểu được khái niệm Cloud Computing và vai trò của AWS.
+* Cài đặt và cấu hình thành công môi trường phục vụ thực tập.
+* Hiểu các khái niệm cơ bản về Cloud Computing và hệ sinh thái AWS.
 * Nắm được cấu trúc hạ tầng AWS gồm Region và Availability Zone.
-* Hiểu các nhóm dịch vụ chính của AWS:
-  * Compute
-  * Storage
-  * Networking
-  * Database
-  * Security
-  * Monitoring
-* Đăng ký tài khoản AWS và hoàn thành các nhiệm vụ khởi động để nhận AWS Credits.
-* Làm quen với AWS Management Console.
-* Nắm được yêu cầu của chương trình thực tập và định hướng triển khai Project cá nhân.
-* Lựa chọn ý tưởng dự án **AI-powered Serverless RPG Game** để triển khai trong chương trình thực tập.
+* Hiểu các nhóm dịch vụ chính của AWS như Compute, Storage, Networking, Database và Security.
+* Làm quen với Draw.io và AWS Architecture Icons để thiết kế sơ đồ hệ thống.
+* Nắm được cấu trúc website Hugo và cách quản lý nội dung bằng Markdown.
