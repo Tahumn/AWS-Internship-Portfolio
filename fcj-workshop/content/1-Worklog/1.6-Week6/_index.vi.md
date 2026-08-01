@@ -1,58 +1,60 @@
 ---
 title: "Worklog Tuần 6"
-date: 2024-01-01
-weight: 1
+date: 2026-07-27
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
+
 {{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+⚠️ **Lưu ý:** Nội dung dưới đây phản ánh quá trình học tập và triển khai thực tế trong tuần thứ sáu của chương trình thực tập.
 {{% /notice %}}
 
+### Mục tiêu tuần 6
 
-### Mục tiêu tuần 6:
+* Tiếp tục triển khai hệ thống Personal Finance Management System trên AWS.
+* Cấu hình và kết nối các dịch vụ AWS phục vụ hệ thống.
+* Kiểm thử quá trình triển khai của các Microservices.
+* Đánh giá hiệu năng và khả năng mở rộng của hệ thống.
+* Cập nhật tài liệu và Portfolio thực tập.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+---
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Các công việc triển khai trong tuần
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| ---- | --------- | ------------ | --------------- | -------------- |
+| 2 | - Triển khai các Backend Microservices lên Amazon ECS <br>- Cấu hình ECS Service và Task Definition <br>- Kiểm tra trạng thái Container | 27/07/2026 | 27/07/2026 | AWS Documentation |
+| 3 | - Kết nối Backend với Amazon RDS PostgreSQL <br>- Kiểm tra kết nối cơ sở dữ liệu <br>- Kiểm tra dữ liệu giữa các Service | 28/07/2026 | 28/07/2026 | AWS Documentation |
+| 4 | - Tích hợp Amazon S3 với Backend <br>- Kiểm tra Upload bằng Presigned URL <br>- Kiểm tra quyền truy cập dữ liệu | 29/07/2026 | 29/07/2026 | AWS Documentation |
+| 5 | - Cấu hình Application Load Balancer <br>- Kiểm tra Routing và Health Check <br>- Kiểm thử giao tiếp giữa các Microservices | 30/07/2026 | 30/07/2026 | AWS Documentation |
+| 6 | - Đánh giá kết quả triển khai <br>- Cập nhật Worklog và Portfolio <br>- Đồng bộ mã nguồn và tài liệu lên GitHub Repository | 31/07/2026 | 31/07/2026 | GitHub, Hugo |
 
-### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+---
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+### Công việc thực hiện cho Project cá nhân
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+**Tên Project**
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+Personal Finance Management System
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+**Các nội dung đã thực hiện**
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Triển khai các Backend Microservices lên Amazon ECS.
+* Cấu hình ECS Service và Task Definition.
+* Kết nối Backend với Amazon RDS PostgreSQL.
+* Tích hợp Amazon S3 phục vụ lưu trữ dữ liệu.
+* Cấu hình Application Load Balancer và Health Check.
+* Kiểm thử giao tiếp giữa các Microservices.
+* Đánh giá kết quả triển khai và cập nhật tài liệu kỹ thuật.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+---
 
+### Kết quả đạt được tuần 6
 
+* Các Microservices có thể triển khai và vận hành trên Amazon ECS.
+* Backend kết nối thành công với Amazon RDS PostgreSQL.
+* Amazon S3 được tích hợp cho chức năng lưu trữ tệp.
+* Application Load Balancer hoạt động đúng với cấu hình Routing.
+* Hoàn thành kiểm thử các chức năng chính sau khi triển khai.
+* Cập nhật đầy đủ Worklog, Portfolio và tài liệu kỹ thuật.
