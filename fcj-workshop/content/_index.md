@@ -29,7 +29,7 @@ This report summarizes my learning activities, project development, AWS deployme
 
 &emsp; **Internship Duration:** From 22/06/2026 to 15/08/2026
 
-![Your profile picture](/images/avatar.jpg)
+<img src="/images/avatar.jpg" alt="Profile picture of Dang Nguyen Tam Nhu" class="profile-avatar">
 
 ### Report Content
 

@@ -6,6 +6,7 @@ chapter: false
 ---
 
 # Báo cáo thực tập
+
 ### Thông tin sinh viên:
 &emsp; **Họ và tên:** Đặng Nguyễn Tâm Như
 
@@ -25,9 +26,7 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 22/06/2026 đến ngày 15/08/2026
 
-![Ảnh đại diện của bạn](/images/avatar.jpg)
-
-
+<img src="/images/avatar.jpg" alt="Ảnh đại diện của Đặng Nguyễn Tâm Như" class="profile-avatar">
 
 ### Nội dung báo cáo
 
