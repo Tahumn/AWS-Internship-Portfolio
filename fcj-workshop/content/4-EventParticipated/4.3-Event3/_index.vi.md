@@ -39,7 +39,7 @@ Chương trình cũng giới thiệu nhiều nội dung về AI Agent, hệ th�
 ## Hình ảnh sự kiện
 
 {{< figure
-    src="/AWS-Internship-Portfolio/images/event3_1.jpg"
+    src="/images/event3_1.jpg"
     title="FCAJ x Agentic AI Build Week: Show Up. Build. Pitch. WIN!"
 >}}
 

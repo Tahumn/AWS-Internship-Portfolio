@@ -69,7 +69,7 @@ This is one of the clear differences between deploying applications in the cloud
 
 ## Architecture Illustration
 
-{{< figure src="/AWS-Internship-Portfolio/images/blog2.jpg" title="AWS application architecture using Amazon ECS Fargate and Application Load Balancer" >}}
+{{< figure src="/images/blog2.jpg" title="AWS application architecture using Amazon ECS Fargate and Application Load Balancer" >}}
 
 **Suggested caption:** Application architecture using Amazon ECS Fargate, Application Load Balancer, Amazon S3, Amazon SQS and Amazon DynamoDB for traffic distribution, asynchronous processing and data storage.
 

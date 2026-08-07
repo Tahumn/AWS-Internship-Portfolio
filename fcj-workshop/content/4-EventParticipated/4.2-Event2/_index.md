@@ -39,7 +39,7 @@ The sessions covered several topics, including AI startups, AI Voice, AI Agents,
 ## Event Photo
 
 {{< figure
-    src="/AWS-Internship-Portfolio/images/event2_1.jpg"
+    src="/images/event2_1.jpg"
     title="FCAJ Community Day - June 2026"
 >}}
 

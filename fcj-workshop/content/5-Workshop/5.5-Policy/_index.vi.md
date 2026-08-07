@@ -265,19 +265,19 @@ Nhóm chỉ nghiệm thu hạ tầng sau khi các luồng người dùng tạo r
 
 ### 14.1. AI tách nhiều giao dịch
 
-![Trợ lý AI tách một câu thành nhiều giao dịch](/AWS-Internship-Portfolio/images/5-Workshop/Chatbox.png)
+![Trợ lý AI tách một câu thành nhiều giao dịch](/images/5-Workshop/Chatbox.png)
 
 Câu tiếng Việt chứa nhiều khoản thu/chi trong cùng một yêu cầu. Trợ lý AI tách từng khoản thành các giao dịch riêng, đồng thời gán loại giao dịch và danh mục phù hợp thay vì cộng thành một số tiền duy nhất. Tổng trên dashboard được cập nhật sau khi dữ liệu được persist. Kết quả này kiểm chứng luồng Browser -> Gateway -> AI Agent -> Gemini -> Finance và quy tắc tạo mới không cần xác nhận; thao tác sửa hoặc xóa có tính phá hủy vẫn phải xác nhận.
 
 ### 14.2. Kết quả OCR hóa đơn
 
-![Kết quả trích xuất hóa đơn bằng OCR](/AWS-Internship-Portfolio/images/5-Workshop/OCR.png)
+![Kết quả trích xuất hóa đơn bằng OCR](/images/5-Workshop/OCR.png)
 
 Màn hình OCR hiển thị ảnh hóa đơn đã upload cùng ngày giao dịch, merchant, tổng tiền, giảm giá, loại giao dịch, độ tin cậy và danh mục gợi ý. Điều này chứng minh OCR workload trả dữ liệu có cấu trúc thay vì chỉ trả raw text. Người dùng được kiểm tra kết quả trước khi lưu; phần tự động lưu object hóa đơn vào S3 bucket đã provision vẫn được ghi rõ là tích hợp đang hoàn thiện, tránh phóng đại phạm vi đã làm.
 
 ### 14.3. Bằng chứng gửi email qua SES
 
-![Thống kê gửi email Amazon SES tại Singapore](/AWS-Internship-Portfolio/images/5-Workshop/email_ecs.png)
+![Thống kê gửi email Amazon SES tại Singapore](/images/5-Workshop/email_ecs.png)
 
 SES dashboard tại `ap-southeast-1` ghi nhận request gửi thành công và không có reject trong khoảng thời gian được chụp. Hình này hỗ trợ kết quả kiểm thử OTP/email thông báo với identity đã verify. Tuy nhiên, nó không đồng nghĩa tài khoản được gửi tự do đến mọi địa chỉ: tài khoản vẫn chịu giới hạn SES Sandbox cho đến khi production access được duyệt. Báo cáo vì vậy phân biệt rõ tích hợp kỹ thuật thành công với quyền gửi production.
 

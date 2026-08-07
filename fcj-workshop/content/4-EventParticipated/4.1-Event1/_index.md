@@ -254,14 +254,14 @@ After participating in the competition, I learned that:
 ### Tournament Bracket
 
 {{< figure
-    src="/AWS-Internship-Portfolio/images/Sodothidau.jpg"
+    src="/images/Sodothidau.jpg"
     title="Cloud Architect tournament bracket with eight participating teams"
 >}}
 
 ### Photos taken at the event
 
 {{< figure
-    src="/AWS-Internship-Portfolio/images/AnhSuKien1.JPG"
+    src="/images/AnhSuKien1.JPG"
     title="Group photo at the end of the event"
 >}}
 

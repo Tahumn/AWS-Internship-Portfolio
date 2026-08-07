@@ -46,7 +46,7 @@ Sau workshop, người thực hành có thể:
 
 Môi trường demo tối ưu chi phí sử dụng một NAT Gateway, RDS Single-AZ và một Redis primary. ECS task được phân bố trên hai private application subnet. Với production, hệ thống nên nâng cấp lên một NAT Gateway cho mỗi AZ, RDS Multi-AZ, Redis automatic failover, autoscaling, deletion protection, kiểm thử khôi phục và custom domain bằng Route 53.
 
-![Sơ đồ kiến trúc Cloud Finance trên AWS](/AWS-Internship-Portfolio/images/5-Workshop/5.1-Workshop-overview/ArchitechtureFinal.drawio.png)
+![Sơ đồ kiến trúc Cloud Finance trên AWS](/images/5-Workshop/5.1-Workshop-overview/ArchitechtureFinal.drawio.png)
 
 ## Phạm vi công việc đã thực hiện
 
@@ -171,6 +171,6 @@ Qua quá trình này, nhóm không chỉ triển khai được website mà còn 
 
 Màn hình dưới đây là điểm truy cập công khai được phục vụ từ CloudFront domain của môi trường demo. Hình này không chỉ minh họa giao diện frontend mà còn chứng minh trình duyệt nhận được React SPA qua HTTPS, CloudFront truy cập được S3 origin private thông qua Origin Access Control và thành phần Google Sign-In đã được khởi tạo bằng cấu hình frontend của môi trường triển khai.
 
-![Trang đăng nhập Finanzy được phục vụ qua CloudFront](/AWS-Internship-Portfolio/images/5-Workshop/WEPTrienKhai.png)
+![Trang đăng nhập Finanzy được phục vụ qua CloudFront](/images/5-Workshop/WEPTrienKhai.png)
 
 Trang đăng nhập được sử dụng như checkpoint end-to-end đầu tiên. Nếu HTML tải được nhưng JavaScript asset bị trả về với MIME type `text/html`, trang sẽ trắng; nếu behavior API cấu hình sai, request xác thực sẽ thất bại. Vì vậy, việc trang hoạt động tại CloudFront domain cho thấy luồng phân phối static asset và cấu hình phía trình duyệt đã phối hợp đúng.

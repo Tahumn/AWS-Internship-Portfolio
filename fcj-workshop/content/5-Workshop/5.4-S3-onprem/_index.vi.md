@@ -120,7 +120,7 @@ Workflow Deploy AWS build image có tag theo Git SHA, đăng ký task-definition
 
 ## Danh sách hình cần chụp
 
-Lưu dưới static/AWS-Internship-Portfolio/images/5-Workshop/5.4-S3-onprem/:
+Lưu dưới static/images/5-Workshop/5.4-S3-onprem/:
 
 - ecr-images.png: ECR → cloud-finance-backend → Images, chụp SHA tag và thời gian push.
 - rds.png: RDS → Databases → cloud-finance-postgres, chụp Available, encrypted, non-public.
@@ -367,25 +367,25 @@ Các hình dưới đây được chụp từ môi trường demo thực tế, k
 
 ### 12.1. CloudFront distribution
 
-![CloudFront distribution của Cloud Finance đang Enabled](/AWS-Internship-Portfolio/images/5-Workshop/CloudFront.png)
+![CloudFront distribution của Cloud Finance đang Enabled](/images/5-Workshop/CloudFront.png)
 
 Distribution đang ở trạng thái Enabled và cung cấp domain được dùng trong workshop. Trong cấu hình đã triển khai, default behavior phục vụ frontend asset từ S3 origin private, còn các behavior `/api/*` và `/ws/*` chuyển traffic động đến ALB. Cách tách này cho phép cache SPA nhưng không cache response API có xác thực.
 
 ### 12.2. Các ECS Fargate Service
 
-![Chín ECS Fargate Service đang hoạt động](/AWS-Internship-Portfolio/images/5-Workshop/ECS_Service.png)
+![Chín ECS Fargate Service đang hoạt động](/images/5-Workshop/ECS_Service.png)
 
 ECS cluster có 9 service hoạt động gồm Gateway, Auth, Finance, AI, Notification API, Notification Worker, Planning, Recurring và OCR. Mỗi dòng có một task đang chạy, chứng minh các khối trong sơ đồ kiến trúc tương ứng với workload được quản lý độc lập chứ không chỉ là module nằm trong một container monolith. Cấu hình một task là lựa chọn tiết kiệm cho demo; production cần autoscaling, nhiều task và cơ chế bảo vệ deployment chặt chẽ hơn.
 
 ### 12.3. Metric vận hành của RDS
 
-![Metric vận hành của RDS PostgreSQL](/AWS-Internship-Portfolio/images/5-Workshop/rds.png)
+![Metric vận hành của RDS PostgreSQL](/images/5-Workshop/rds.png)
 
 RDS Console ghi nhận CPU utilization, số kết nối, bộ nhớ trống, dung lượng trống, read IOPS, read latency, throughput và write IOPS của `cloud-finance-postgres`. Các chỉ số cho thấy database có traffic thật và tạo baseline cho quyết định mở rộng tài nguyên. Demo dùng một PostgreSQL instance mã hóa với 6 logical database để giảm chi phí và vẫn giữ quyền sở hữu dữ liệu theo service; đổi lại, mô hình này chưa có mức cô lập lỗi như tách instance vật lý cho từng service.
 
 ### 12.4. GitHub Actions triển khai thành công
 
-![GitHub Actions workflow triển khai thành công](/AWS-Internship-Portfolio/images/5-Workshop/CI_CD.png)
+![GitHub Actions workflow triển khai thành công](/images/5-Workshop/CI_CD.png)
 
 Workflow thành công ghi lại đầy đủ chuỗi phát hành: checkout source, nhận AWS credential tạm thời qua OIDC, đăng nhập ECR, build và push backend image, cập nhật ECS Service, chờ ổn định, build frontend và upload lên S3. Bằng chứng này quan trọng vì cho thấy deployment có thể lặp lại từ source control, không phụ thuộc hoàn toàn vào thao tác Console thủ công. Cảnh báo hiển thị trong GitHub không làm workflow thất bại; job đã hoàn tất thành công.
 

@@ -27,7 +27,7 @@ Dưới đây là bảy nguyên tắc quan trọng giúp AWS Account an toàn v�
 
 ---
 
-{{< figure src="/AWS-Internship-Portfolio/images/IAMbaomat.png" title="Các nguyên tắc bảo mật AWS IAM" >}}
+{{< figure src="/images/IAMbaomat.png" title="Các nguyên tắc bảo mật AWS IAM" >}}
 
 ---
 
@@ -245,7 +245,7 @@ Chỉ với những thay đổi cơ bản như bật MFA, loại bỏ Access Key
 
 ---
 
-{{< figure src="/AWS-Internship-Portfolio/images/Blog1IAM.png" title="AWS IAM Security Best Practices" >}}
+{{< figure src="/images/Blog1IAM.png" title="AWS IAM Security Best Practices" >}}
 
 https://www.facebook.com/groups/awsstudygroupfcj?locale=vi_VN
 
