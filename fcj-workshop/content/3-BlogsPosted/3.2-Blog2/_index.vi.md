@@ -69,7 +69,7 @@ Thay vì phải đoán trước chính xác sẽ cần bao nhiêu server, ngư�
 
 ## Hình ảnh kiến trúc
 
-{{< figure src="/images/blog2.jpg" title="Kiến trúc ứng dụng AWS sử dụng Amazon ECS Fargate và Application Load Balancer" >}}
+{{< figure src="/AWS-Internship-Portfolio/images/blog2.jpg" title="Kiến trúc ứng dụng AWS sử dụng Amazon ECS Fargate và Application Load Balancer" >}}
 
 **Chú thích gợi ý:** Kiến trúc triển khai ứng dụng sử dụng Amazon ECS Fargate, Application Load Balancer, Amazon S3, Amazon SQS và Amazon DynamoDB để phân phối lưu lượng, xử lý bất đồng bộ và lưu trữ dữ liệu.
 

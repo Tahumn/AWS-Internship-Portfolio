@@ -254,14 +254,14 @@ Sau khi tham gia cuộc thi, mình rút ra một số bài học:
 ### Sơ đồ thi đấu
 
 {{< figure
-    src="/images/Sodothidau.jpg"
+    src="/AWS-Internship-Portfolio/images/Sodothidau.jpg"
     title="Sơ đồ thi đấu của tám đội tham gia sự kiện Cloud Architect"
 >}}
 
 ### Ảnh chụp sự kiện
 
 {{< figure
-    src="/images/AnhSuKien1.JPG"
+    src="/AWS-Internship-Portfolio/images/AnhSuKien1.JPG"
     title="Ảnh chụp chung cuối sự kiện"
 >}}
 

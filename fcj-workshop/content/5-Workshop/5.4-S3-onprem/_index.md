@@ -124,7 +124,7 @@ The Deploy AWS workflow builds one immutable SHA-tagged image, registers task-de
 
 ## Screenshot checklist
 
-Save under static/images/5-Workshop/5.4-S3-onprem/:
+Save under static/AWS-Internship-Portfolio/images/5-Workshop/5.4-S3-onprem/:
 
 - ecr-images.png: ECR → cloud-finance-backend → Images; show SHA tags and push time.
 - rds.png: RDS → Databases → cloud-finance-postgres; show Available, encrypted, non-public.
@@ -305,25 +305,25 @@ The following screenshots were captured from the actual demo environment rather 
 
 ### 12.1. CloudFront distribution
 
-![Enabled CloudFront distribution for Cloud Finance](/images/5-Workshop/CloudFront.png)
+![Enabled CloudFront distribution for Cloud Finance](/AWS-Internship-Portfolio/images/5-Workshop/CloudFront.png)
 
 The distribution is enabled and exposes the domain used by the workshop. In the implemented design, its default behavior serves immutable frontend assets from the private S3 origin, while `/api/*` and `/ws/*` behaviors forward dynamic traffic to the ALB. This separation allows SPA caching without caching authenticated API responses.
 
 ### 12.2. ECS Fargate services
 
-![Nine active ECS Fargate services](/images/5-Workshop/ECS_Service.png)
+![Nine active ECS Fargate services](/AWS-Internship-Portfolio/images/5-Workshop/ECS_Service.png)
 
 The ECS cluster contains nine active services: Gateway, Auth, Finance, AI, Notification API, Notification Worker, Planning, Recurring, and OCR. Each row shows one running task, which confirms that the architecture diagram maps to independently managed runtime workloads rather than labels inside one monolithic container. The one-task setting is a cost-conscious demo choice; production would add autoscaling, multiple tasks, and stricter deployment protection.
 
 ### 12.3. RDS operational metrics
 
-![RDS PostgreSQL operational metrics](/images/5-Workshop/rds.png)
+![RDS PostgreSQL operational metrics](/AWS-Internship-Portfolio/images/5-Workshop/rds.png)
 
 The RDS console records CPU utilization, database connections, free memory, free storage, read IOPS, read latency, throughput, and write IOPS for `cloud-finance-postgres`. The metrics demonstrate active application traffic and provide a baseline for capacity decisions. The demo uses one encrypted PostgreSQL instance with six logical databases; this reduces cost while preserving logical ownership by service, but it does not provide the failure isolation of one physical instance per service.
 
 ### 12.4. Successful GitHub Actions release
 
-![Successful GitHub Actions deployment workflow](/images/5-Workshop/CI_CD.png)
+![Successful GitHub Actions deployment workflow](/AWS-Internship-Portfolio/images/5-Workshop/CI_CD.png)
 
 The successful workflow records the complete release sequence: checkout, AWS authentication through OIDC, ECR login, backend image build and push, ECS service deployment, stability verification, frontend build, and S3 upload. This evidence is important because it proves that deployment is reproducible from source control and does not depend only on manual console changes. The warning shown by GitHub is non-blocking; the job itself completed successfully.
 

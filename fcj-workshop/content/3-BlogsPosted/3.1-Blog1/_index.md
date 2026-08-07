@@ -27,7 +27,7 @@ Below are seven important practices that can make an AWS Account more secure and
 
 ---
 
-{{< figure src="/images/IAMbaomat.png" title="AWS IAM Security Best Practices" >}}
+{{< figure src="/AWS-Internship-Portfolio/images/IAMbaomat.png" title="AWS IAM Security Best Practices" >}}
 
 ---
 
@@ -245,7 +245,7 @@ Basic improvements such as enabling MFA, removing unused Access Keys, narrowing 
 
 ---
 
-{{< figure src="/images/Blog1IAM.png" title="AWS IAM Security Best Practices" >}}
+{{< figure src="/AWS-Internship-Portfolio/images/Blog1IAM.png" title="AWS IAM Security Best Practices" >}}
 
 https://www.facebook.com/groups/awsstudygroupfcj?locale=vi_VN
 

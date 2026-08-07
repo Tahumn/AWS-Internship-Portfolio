@@ -39,7 +39,7 @@ Nội dung chương trình bao gồm nhiều chủ đề như AI Startup, AI Voi
 ## Hình ảnh sự kiện
 
 {{< figure
-    src="/images/event2_1.jpg"
+    src="/AWS-Internship-Portfolio/images/event2_1.jpg"
     title="FCAJ Community Day - June 2026"
 >}}
 

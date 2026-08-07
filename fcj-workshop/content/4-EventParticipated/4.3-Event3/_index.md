@@ -39,7 +39,7 @@ The event also introduced practical approaches to AI Agent development, Multi-Ag
 ## Event Photo
 
 {{< figure
-    src="/images/event3_1.jpg"
+    src="/AWS-Internship-Portfolio/images/event3_1.jpg"
     title="FCAJ x Agentic AI Build Week: Show Up. Build. Pitch. WIN!"
 >}}
 

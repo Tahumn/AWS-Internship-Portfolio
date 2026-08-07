@@ -105,7 +105,7 @@ This model provides logical data ownership for each service while controlling th
 Amazon ElastiCache for Redis provides the processing queue between the Notification API and Notification Worker. AWS Secrets Manager stores sensitive configuration. Amazon CloudWatch collects logs and metrics. Amazon SES delivers OTP and transactional emails. The AI Agent and OCR Service communicate with the Gemini API through outbound connectivity provided by the NAT Gateway.
 
 {{< figure
-    src="/images/5-Workshop/5.1-Workshop-overview/ArchitechtureFinal.drawio.png"
+    src="/AWS-Internship-Portfolio/images/5-Workshop/5.1-Workshop-overview/ArchitechtureFinal.drawio.png"
     title="Cloud Finance Platform - AWS Deployable Architecture"
 >}}
 

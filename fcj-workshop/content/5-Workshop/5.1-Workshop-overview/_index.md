@@ -46,7 +46,7 @@ After completing this workshop, you can:
 
 The cost-optimized demo uses one NAT Gateway, Single-AZ RDS, and one Redis primary. ECS tasks are distributed across two application subnets. Production should use one NAT Gateway per AZ, Multi-AZ RDS, Redis automatic failover, autoscaling, deletion protection, tested recovery, and a custom domain in Route 53.
 
-![Cloud Finance AWS architecture](/images/5-Workshop/5.1-Workshop-overview/ArchitechtureFinal.drawio.png)
+![Cloud Finance AWS architecture](/AWS-Internship-Portfolio/images/5-Workshop/5.1-Workshop-overview/ArchitechtureFinal.drawio.png)
 
 
 ## Work completed in the deployed environment
@@ -119,6 +119,6 @@ This approach developed practical understanding across application code, contain
 
 The following screen is the public entry point served from the CloudFront domain used by the demo. It verifies more than the frontend layout: the browser receives the SPA through CloudFront over HTTPS, the private S3 origin is reachable through the configured origin access control, and the Google Sign-In component is initialized with the production frontend configuration.
 
-![Finanzy login page served through CloudFront](/images/5-Workshop/WEPTrienKhai.png)
+![Finanzy login page served through CloudFront](/AWS-Internship-Portfolio/images/5-Workshop/WEPTrienKhai.png)
 
 The login page is therefore used as the first end-to-end checkpoint. If the HTML is returned but JavaScript assets are served as `text/html`, the screen becomes blank; if the API behavior is incorrect, authentication requests fail. A usable page at the CloudFront domain confirms that the static delivery path and browser-side configuration are operating together.

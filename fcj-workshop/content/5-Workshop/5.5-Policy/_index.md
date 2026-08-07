@@ -227,19 +227,19 @@ Infrastructure health was accepted only after user-facing flows also produced th
 
 ### 14.1. AI multi-transaction extraction
 
-![AI assistant splitting one sentence into multiple transactions](/images/5-Workshop/Chatbox.png)
+![AI assistant splitting one sentence into multiple transactions](/AWS-Internship-Portfolio/images/5-Workshop/Chatbox.png)
 
 The Vietnamese request contains three expenses in one sentence. The AI assistant separates breakfast, fuel, and clothing into three transactions and assigns different categories instead of merging them into one amount. The dashboard totals update after persistence. This validates the Browser â†’ Gateway â†’ AI Agent â†’ Gemini â†’ Finance flow and the create-without-confirmation rule; destructive edit and delete operations still require confirmation.
 
 ### 14.2. Receipt OCR result
 
-![Receipt OCR extraction result](/images/5-Workshop/OCR.png)
+![Receipt OCR extraction result](/AWS-Internship-Portfolio/images/5-Workshop/OCR.png)
 
 The OCR screen shows an uploaded receipt preview together with extracted transaction date, merchant, total, discount, transaction type, confidence values, and category suggestion. This confirms that the OCR workload performs structured extraction rather than returning raw text only. The result is reviewed before persistence, while automatic receipt-object storage in the provisioned S3 bucket remains explicitly documented as a pending integration.
 
 ### 14.3. SES sending evidence
 
-![Amazon SES sending statistics in Singapore](/images/5-Workshop/email_ecs.png)
+![Amazon SES sending statistics in Singapore](/AWS-Internship-Portfolio/images/5-Workshop/email_ecs.png)
 
 The SES dashboard in `ap-southeast-1` records successful sends and no rejects for the captured interval. This supports the OTP/notification email test for verified identities. It does not imply unrestricted public delivery: the account remains subject to SES Sandbox limitations until production access is approved, so the report distinguishes successful technical integration from production sending eligibility.
 

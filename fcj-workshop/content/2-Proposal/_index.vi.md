@@ -105,7 +105,7 @@ Mô hình này bảo đảm quyền sở hữu dữ liệu theo từng service �
 Amazon ElastiCache for Redis được sử dụng làm hàng đợi giữa Notification API và Notification Worker. AWS Secrets Manager lưu trữ thông tin nhạy cảm. Amazon CloudWatch thu thập log và metrics. Amazon SES gửi OTP và email thông báo. AI Agent và OCR Service tích hợp với Gemini API thông qua kết nối outbound từ NAT Gateway.
 
 {{< figure
-    src="/images/5-Workshop/5.1-Workshop-overview/ArchitechtureFinal.drawio.png"
+    src="/AWS-Internship-Portfolio/images/5-Workshop/5.1-Workshop-overview/ArchitechtureFinal.drawio.png"
     title="Kiến trúc Cloud Finance Platform - AWS"
 >}}
 
