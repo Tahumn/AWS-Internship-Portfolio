@@ -229,7 +229,7 @@ div.notices.info p {
 
 .profile-avatar {
   display: block;
-  width: 220px;
+  width: 253px;
   max-width: 45vw;
   height: auto;
   margin: 24px 0;
@@ -238,7 +238,7 @@ div.notices.info p {
 
 @media (max-width: 600px) {
   .profile-avatar {
-    width: 160px;
+    width: 184px;
     max-width: 60vw;
   }
 }
