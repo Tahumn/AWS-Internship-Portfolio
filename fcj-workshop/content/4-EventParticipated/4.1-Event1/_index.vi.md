@@ -1,223 +1,276 @@
 ---
-title: "Event 1"
-date: 2024-01-01
+title: "Sự kiện 1 – Cloud Architect"
+date: 2026-06-20
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn.
+{{% notice info %}}
+🏆 **Vai trò:** Thí sinh – Thành viên đội **Gặp phải thằng liều**
 {{% /notice %}}
 
-# Bài thu hoạch sự kiện AI & AWS Community Sharing
+# BÁO CÁO SỰ KIỆN: CLOUD ARCHITECT
+
+## Thông tin sự kiện
+
+&emsp;**Tên sự kiện:** Cloud Architect  
+
+&emsp;**Ngày tổ chức:** 20/06/2026  
+
+&emsp;**Địa điểm:** Tầng 26, Tòa nhà Bitexco Financial Tower, số 02 Hải Triều, phường Sài Gòn, Thành phố Hồ Chí Minh  
+
+&emsp;**Hình thức:** Cuộc thi kiến thức AWS theo đội  
+
+&emsp;**Vai trò:** Thí sinh  
+
+&emsp;**Đội thi:** Gặp phải thằng liều  
+
+---
 
 ## Mục đích của sự kiện
 
-Sự kiện được tổ chức nhằm mang đến cho người tham dự cái nhìn toàn diện về xu hướng ứng dụng Trí tuệ nhân tạo (AI) trong doanh nghiệp hiện nay. Nội dung chương trình không chỉ tập trung vào các mô hình AI tạo sinh (Generative AI) mà còn mở rộng sang nhiều chủ đề thực tiễn như AI Voice, AI Agent, Amazon Q, FinOps, DevOps Agent, AI trong quản trị nhân sự và kinh nghiệm xây dựng Startup AI.
+Ngày **21/06/2026**, mình tham gia sự kiện **Cloud Architect** với vai trò thí sinh.
 
-Thông qua các bài trình bày của những chuyên gia đang trực tiếp triển khai các giải pháp AI tại doanh nghiệp, người tham dự có cơ hội tiếp cận:
+Sự kiện được tổ chức theo hình thức thi đấu kiến thức theo đội. Nội dung câu hỏi tập trung vào Cloud Computing, các dịch vụ AWS và kỹ năng thiết kế kiến trúc hệ thống trên nền tảng đám mây.
 
-- Những xu hướng AI mới nhất trong doanh nghiệp.
-- Kinh nghiệm triển khai AI từ Proof of Concept (PoC) đến Production.
-- Cách ứng dụng các dịch vụ AWS để xây dựng hệ thống AI thực tế.
-- Những bài học về tối ưu chi phí, vận hành và mở rộng hệ thống.
-- Vai trò của AI trong việc nâng cao năng suất làm việc và hỗ trợ ra quyết định.
+Mình không chỉ tham dự để theo dõi mà trực tiếp thi đấu với tư cách thành viên của đội **Gặp phải thằng liều**. Sự kiện giúp mình ôn tập kiến thức AWS, rèn luyện khả năng giải quyết vấn đề trong thời gian giới hạn và cải thiện kỹ năng làm việc nhóm.
+
+Các câu hỏi được sắp xếp từ kiến thức Cloud cơ bản đến những tình huống thiết kế kiến trúc có độ khó cao hơn. Vì vậy, thí sinh cần kết hợp kiến thức lý thuyết với khả năng phân tích yêu cầu kỹ thuật.
 
 ---
 
-# Các chủ đề nổi bật của sự kiện
+## Các đội tham gia
 
-## 1. AI Startup – Từ ý tưởng đến sản phẩm thực tế
+Cuộc thi có **8 đội**, mỗi đội gồm 5 thành viên:
 
-Một trong những phiên chia sẻ đầu tiên tập trung vào quá trình xây dựng Startup AI.
+1. **KLKAT**
+2. **PrimeOps**
+3. **Team newbie**
+4. **Young Flame IT**
+5. **Loser**
+6. **Ngũ Đại Hiệp**
+7. **Gặp phải thằng liều**
+8. **Lifelong Learners**
 
-Diễn giả nhấn mạnh rằng rất nhiều nhóm phát triển thường dành quá nhiều thời gian để hoàn thiện ý tưởng nhưng lại thiếu hành động. Theo kinh nghiệm thực tế, điều quan trọng nhất không phải là ý tưởng hoàn hảo mà là nhanh chóng xây dựng MVP (Minimum Viable Product), đưa sản phẩm tới khách hàng và liên tục cải tiến dựa trên phản hồi thực tế. :contentReference[oaicite:0]{index=0}
+Mình là thành viên của **đội số 7 – Gặp phải thằng liều**.
 
-Một số kinh nghiệm đáng chú ý:
+Các cặp đấu ở vòng tứ kết gồm:
 
-- Luôn bắt đầu từ bài toán thực tế của doanh nghiệp.
-- Không xây dựng AI chỉ vì công nghệ mới.
-- Liên tục thử nghiệm và cải tiến.
-- Tìm "champion customer" để kiểm chứng giá trị sản phẩm.
-- Chấp nhận thay đổi khi thị trường thay đổi.
+- KLKAT đối đầu PrimeOps
+- Team newbie đối đầu Young Flame IT
+- Loser đối đầu Ngũ Đại Hiệp
+- Gặp phải thằng liều đối đầu Lifelong Learners
 
-Đây là tư duy rất phù hợp đối với các nhóm phát triển Startup AI hiện nay.
-
----
-
-## 2. AI Voice và Conversational AI
-
-Đây là một trong những phiên chia sẻ mình thấy thú vị nhất.
-
-Diễn giả giới thiệu cách xây dựng hệ thống AI Voice có khả năng giao tiếp tự nhiên với người dùng thay vì chỉ chuyển đổi Speech-to-Text và Text-to-Speech đơn thuần. AI cần hiểu được ngữ cảnh, biết khi nào nên trả lời và khi nào nên chờ người dùng tiếp tục nói. :contentReference[oaicite:1]{index=1}
-
-Ngoài việc xử lý giọng nói, hệ thống thực tế còn phải giải quyết nhiều bài toán khác như:
-
-- Prompt Management.
-- Knowledge Base.
-- Versioning.
-- Audit Log.
-- Human Handoff.
-- Multi-turn Conversation.
-- Context Memory.
-
-Đặc biệt, diễn giả nhấn mạnh rằng trong môi trường doanh nghiệp, AI không thể hoạt động độc lập mà cần phối hợp với con người. Khi AI không thể xử lý một tình huống hoặc nhận thấy khách hàng không hài lòng, hệ thống cần tự động chuyển cuộc hội thoại sang nhân viên hỗ trợ. Đây là một kiến trúc Hybrid AI rất phổ biến hiện nay. :contentReference[oaicite:2]{index=2}
+Các thành viên trong một đội không bắt buộc phải thuộc cùng nhóm thực tập. Tuy nhiên, mỗi người chỉ được tham gia một đội.
 
 ---
 
-## 3. AI Agent và DevOps Automation
+## Thể thức thi đấu
 
-Một chủ đề khác được quan tâm là việc ứng dụng AI Agent trong vận hành hệ thống.
+Cuộc thi được tổ chức theo thể thức loại trực tiếp, gồm:
 
-Các diễn giả trình bày cách AI Agent có thể:
+- 4 trận tứ kết
+- 2 trận bán kết
+- 1 trận chung kết
 
-- Phân tích log.
-- Phát hiện lỗi.
-- Đề xuất hướng xử lý.
-- Tự động tạo kế hoạch sửa lỗi.
-- Tích hợp với các công cụ DevOps.
+Trong mỗi trận, hai đội lần lượt trả lời các câu hỏi của bộ đề theo mức độ từ dễ đến khó.
 
-Điểm đáng chú ý là AI Agent không chỉ dừng lại ở việc đưa ra gợi ý mà còn có thể mở rộng thông qua MCP, Skills hoặc các Extension để tương tác với nhiều công cụ khác nhau. Ngoài ra, AI Agent hoàn toàn có khả năng kết hợp với AWS Lambda hoặc AWS Systems Manager nhằm tự động hóa nhiều quy trình vận hành. :contentReference[oaicite:3]{index=3}
+Đội có tổng điểm cao hơn sẽ giành quyền đi tiếp vào vòng sau.
 
-Tuy nhiên, diễn giả cũng nhấn mạnh rằng AI Agent chỉ đóng vai trò hỗ trợ. Chất lượng của AI phụ thuộc rất nhiều vào kiến thức, quy trình và dữ liệu của doanh nghiệp. AI không thể thay thế hoàn toàn kỹ sư mà chỉ giúp họ làm việc nhanh và hiệu quả hơn. :contentReference[oaicite:4]{index=4}
+Nếu hai đội bằng điểm sau 10 câu hỏi chính, ban tổ chức sẽ sử dụng **câu hỏi số 11** để phân định kết quả. Đội trả lời đúng trong thời gian nhanh hơn sẽ giành chiến thắng.
 
----
-
-## 4. AI trong quản trị nhân sự
-
-Một phiên chia sẻ rất thực tế đến từ đội ngũ Noventiq tập trung vào việc ứng dụng AI trong quản trị nhân sự.
-
-Các diễn giả chỉ ra rằng doanh nghiệp hiện nay đang gặp nhiều khó khăn như:
-
-- Tuyển dụng mất nhiều thời gian.
-- Khó đánh giá ứng viên.
-- Thiếu dữ liệu hỗ trợ ra quyết định.
-- Chi phí tuyển dụng cao.
-- Khó xây dựng chiến lược nhân sự dài hạn.
-
-Để giải quyết các vấn đề trên, nhóm diễn giả giới thiệu Amazon Q như một trợ lý AI dành cho bộ phận HR. Amazon Q có thể hỗ trợ tổng hợp dữ liệu, phân tích hồ sơ ứng viên, tạo báo cáo và đưa ra các gợi ý giúp bộ phận nhân sự ra quyết định nhanh hơn. :contentReference[oaicite:5]{index=5} :contentReference[oaicite:6]{index=6}
+Thể thức này yêu cầu các đội phải cân bằng giữa độ chính xác, tốc độ trả lời và khả năng phối hợp.
 
 ---
 
-## 5. Amazon Q và Enterprise AI
+## Cấp độ câu hỏi và cách tính điểm
 
-Một trong những nội dung được quan tâm nhiều nhất trong sự kiện là phần giới thiệu về **Amazon Q**, trợ lý AI dành cho doanh nghiệp được Amazon Web Services phát triển nhằm hỗ trợ tăng năng suất làm việc của cả đội ngũ kỹ thuật và các phòng ban nghiệp vụ.
+Các bộ đề bao gồm ba cấp độ kiến thức AWS.
 
-Khác với các chatbot AI thông thường, Amazon Q được xây dựng hướng đến môi trường doanh nghiệp với khả năng kết nối nhiều nguồn dữ liệu nội bộ như tài liệu, wiki, hệ thống quản lý dự án, kho mã nguồn và các dịch vụ AWS. Nhờ đó, người dùng có thể tìm kiếm thông tin nhanh chóng mà không cần mất nhiều thời gian tra cứu từ nhiều hệ thống khác nhau. :contentReference[oaicite:0]{index=0}
+### AWS Cloud Practitioner
 
-Diễn giả cũng chia sẻ nhiều ví dụ thực tế về việc ứng dụng Amazon Q trong doanh nghiệp:
+Nhóm câu hỏi nền tảng tập trung vào:
 
-- Hỗ trợ lập trình viên phân tích và giải thích source code.
-- Sinh tài liệu kỹ thuật từ mã nguồn.
-- Hỗ trợ tạo unit test và review code.
-- Tìm kiếm thông tin trong tài liệu nội bộ.
-- Hỗ trợ các phòng ban như HR, Sales, Marketing và Customer Support.
+- Khái niệm Cloud Computing
+- AWS Global Infrastructure
+- Các dịch vụ AWS cơ bản
+- IAM và bảo mật
+- Billing và Pricing
+- AWS Well-Architected Framework
 
-Một điểm đặc biệt là Amazon Q được thiết kế với các cơ chế phân quyền và bảo mật dữ liệu doanh nghiệp. AI chỉ có thể truy cập các tài nguyên mà người dùng được cấp quyền, giúp đảm bảo tính bảo mật và tuân thủ các chính sách quản trị dữ liệu của tổ chức. Điều này giúp doanh nghiệp yên tâm hơn khi triển khai AI vào môi trường sản xuất. :contentReference[oaicite:1]{index=1}
+Mỗi câu trả lời đúng được tính **10 điểm**.
 
-Ngoài ra, diễn giả cũng giới thiệu khả năng mở rộng của Amazon Q thông qua các **Agent**, **Skills** và **Extensions**, cho phép AI tương tác với nhiều hệ thống khác nhau như Jira, GitHub, Slack, Microsoft Teams và các dịch vụ AWS để tự động hóa nhiều quy trình làm việc.
+### AWS Solutions Architect – Associate
 
----
+Nhóm câu hỏi Associate tập trung vào:
 
-## 6. AI trong FinOps và tối ưu chi phí Cloud
+- Amazon EC2
+- Amazon S3
+- Amazon VPC
+- Elastic Load Balancing
+- Auto Scaling
+- Amazon RDS
+- High Availability
+- Disaster Recovery
+- Thiết kế hệ thống có khả năng mở rộng
 
-Một chủ đề rất thiết thực được chia sẻ trong workshop là **FinOps** – phương pháp quản lý và tối ưu chi phí điện toán đám mây.
+Mỗi câu trả lời đúng được tính **20 điểm**.
 
-Theo diễn giả, khi doanh nghiệp bắt đầu sử dụng AI với quy mô lớn, chi phí hạ tầng có thể tăng rất nhanh nếu không có chiến lược quản lý phù hợp. Việc tối ưu chi phí không chỉ là trách nhiệm của bộ phận tài chính mà cần có sự phối hợp giữa các nhóm kỹ thuật, vận hành và quản lý.
+### AWS Solutions Architect – Professional
 
-Một số kinh nghiệm được chia sẻ bao gồm:
+Đây là nhóm câu hỏi có độ khó cao nhất, gồm:
 
-- Theo dõi mức sử dụng tài nguyên thường xuyên.
-- Xây dựng dashboard theo dõi chi phí.
-- Lựa chọn đúng loại dịch vụ phù hợp với từng workload.
-- Tắt các tài nguyên không còn sử dụng.
-- Thiết lập ngân sách và cảnh báo chi phí.
-- Sử dụng Reserved Instances hoặc Savings Plans khi phù hợp.
-- Đánh giá ROI của từng dự án AI trước khi mở rộng quy mô. :contentReference[oaicite:2]{index=2}
+- Enterprise Architecture
+- Hybrid Cloud
+- Multi-Account Architecture
+- Migration Strategy
+- Cost Optimization
+- Security Architecture
+- Triển khai hệ thống AWS quy mô lớn
 
-Diễn giả cũng nhấn mạnh rằng mục tiêu của FinOps không phải chỉ là giảm chi phí mà còn tối ưu hiệu quả đầu tư, đảm bảo doanh nghiệp đạt được giá trị cao nhất từ các dịch vụ Cloud.
-
-Đây là một góc nhìn rất thực tế vì nhiều dự án AI hiện nay thường chỉ tập trung vào mô hình mà chưa quan tâm đầy đủ đến chi phí vận hành lâu dài.
-
----
-
-# Những gì học được
-
-Qua sự kiện, mình học được rất nhiều kiến thức cả về công nghệ lẫn tư duy triển khai AI trong doanh nghiệp.
-
-## Về tư duy phát triển sản phẩm
-
-- Không nên bắt đầu từ công nghệ mà cần xuất phát từ bài toán kinh doanh thực tế.
-- Luôn xây dựng MVP trước để kiểm chứng ý tưởng.
-- Liên tục cải tiến sản phẩm dựa trên phản hồi của người dùng.
-- AI chỉ thực sự có giá trị khi giải quyết được nhu cầu cụ thể của doanh nghiệp.
-
-## Về AI và kiến trúc hệ thống
-
-- Hiểu rõ hơn cách xây dựng AI Agent trong doanh nghiệp.
-- Biết cách kết hợp LLM với Knowledge Base và các hệ thống hiện có.
-- Hiểu vai trò của Context Management trong các hệ thống AI hội thoại.
-- Nhận thức được tầm quan trọng của Human-in-the-loop trong các ứng dụng AI.
-- Biết thêm về khả năng mở rộng AI thông qua Agent và MCP.
-
-## Về AWS
-
-Workshop giúp mình hiểu rõ hơn vai trò của các dịch vụ AWS trong hệ sinh thái AI hiện đại, đặc biệt là:
-
-- Amazon Q
-- AWS Lambda
-- Amazon Bedrock
-- Các dịch vụ phục vụ xây dựng AI Agent
-- Các công cụ hỗ trợ DevOps và tự động hóa
-
-Ngoài ra, mình cũng hiểu rằng khi xây dựng ứng dụng AI trên AWS cần quan tâm đến khả năng mở rộng, bảo mật, chi phí và khả năng bảo trì lâu dài thay vì chỉ tập trung vào mô hình AI.
+Mỗi câu trả lời đúng được tính **50 điểm**.
 
 ---
 
-# Ứng dụng vào công việc và đồ án
+## Các kỹ năng đặc biệt
 
-Sau khi tham gia workshop, mình nhận thấy nhiều kiến thức có thể áp dụng trực tiếp vào các dự án đang thực hiện.
+Mỗi đội được sử dụng hai kỹ năng đặc biệt trong một trận đấu.
 
-Đối với đồ án game **The Last Rule**, mình có thể nghiên cứu xây dựng AI Agent để hỗ trợ NPC đưa ra các phản hồi thông minh hơn dựa trên ngữ cảnh của trò chơi thay vì chỉ sử dụng các đoạn hội thoại cố định.
+### Rủi ro tối thiểu – Sử dụng một lần
 
-Trong quá trình phát triển phần mềm, mình cũng muốn thử nghiệm sử dụng Amazon Q để hỗ trợ đọc hiểu source code, tạo tài liệu kỹ thuật và tăng tốc quá trình lập trình.
+Đội có thể sử dụng kỹ năng này khi chưa chắc chắn về đáp án.
 
-Bên cạnh đó, các kiến thức về FinOps giúp mình có ý thức hơn trong việc quản lý tài nguyên Cloud, đặc biệt khi triển khai ứng dụng trên AWS nhằm tránh phát sinh các chi phí không cần thiết.
+- Nếu trả lời sai, đội không bị trừ điểm.
+- Nếu trả lời đúng, đội chỉ nhận một nửa số điểm của câu hỏi.
 
-Những chia sẻ về Startup AI cũng giúp mình thay đổi tư duy phát triển sản phẩm. Thay vì cố gắng xây dựng một hệ thống quá lớn ngay từ đầu, mình sẽ ưu tiên phát triển phiên bản tối thiểu khả dụng (MVP), thu thập phản hồi của người dùng rồi tiếp tục cải tiến.
+Kỹ năng này giúp giảm rủi ro khi gặp câu hỏi khó hoặc khi các thành viên chưa thống nhất hoàn toàn về đáp án.
 
----
+### Ngôi sao hy vọng – Sử dụng một lần
 
-# Trải nghiệm trong sự kiện
+Đội sử dụng kỹ năng này cho câu trả lời mà mình tự tin nhất.
 
-Đây là một trong những workshop mang lại cho mình nhiều kiến thức thực tế nhất về việc ứng dụng AI trong doanh nghiệp.
+- Nếu trả lời đúng, đội được cộng gấp đôi số điểm.
+- Nếu trả lời sai, đội bị trừ gấp đôi số điểm.
 
-Điểm mình ấn tượng nhất là các diễn giả không chỉ giới thiệu công nghệ mà còn chia sẻ nhiều kinh nghiệm triển khai thực tế, những khó khăn gặp phải và cách giải quyết khi đưa AI vào môi trường sản xuất.
-
-Các ví dụ minh họa giúp mình hiểu rõ rằng xây dựng một hệ thống AI hoàn chỉnh không chỉ đơn giản là gọi API của một mô hình ngôn ngữ lớn mà còn cần giải quyết nhiều vấn đề như quản lý dữ liệu, bảo mật, phân quyền, chi phí, khả năng mở rộng và trải nghiệm người dùng.
-
-Ngoài ra, workshop còn giúp mình hiểu rõ hơn xu hướng phát triển AI hiện nay, đặc biệt là AI Agent, Enterprise AI và các công cụ hỗ trợ lập trình như Amazon Q. Đây đều là những công nghệ đang được nhiều doanh nghiệp lớn áp dụng.
-
-Thông qua chương trình, mình cũng có cơ hội tiếp cận với nhiều góc nhìn mới về cách ứng dụng AI trong các lĩnh vực như nhân sự, chăm sóc khách hàng, phát triển phần mềm và quản lý hạ tầng Cloud.
+Đây là kỹ năng có mức rủi ro cao nhưng có thể tạo ra lợi thế lớn nếu được sử dụng đúng thời điểm.
 
 ---
 
-# Bài học rút ra
+## Trải nghiệm thi đấu của mình
 
-Sau khi tham gia sự kiện, mình rút ra một số bài học quan trọng:
+Là thành viên của đội **Gặp phải thằng liều**, mình trực tiếp tham gia thảo luận và lựa chọn đáp án.
 
-- AI không thể thay thế hoàn toàn con người mà đóng vai trò là công cụ hỗ trợ nâng cao năng suất làm việc.
-- Muốn triển khai AI thành công cần xuất phát từ bài toán kinh doanh thay vì chạy theo xu hướng công nghệ.
-- Việc xây dựng AI trong doanh nghiệp đòi hỏi sự kết hợp giữa mô hình AI, dữ liệu, quy trình và con người.
-- Amazon Q và các AI Agent mở ra nhiều cơ hội để tự động hóa các công việc lặp lại, giúp đội ngũ kỹ thuật tập trung hơn vào các nhiệm vụ mang lại giá trị cao.
-- Khi triển khai AI trên Cloud cần luôn cân nhắc giữa hiệu năng, khả năng mở rộng và chi phí vận hành.
-- Workshop giúp mình có thêm nhiều ý tưởng để áp dụng AI vào đồ án, nghiên cứu khoa học và các dự án cá nhân trong tương lai.
+Trước khi gửi câu trả lời, cả đội cần:
+
+1. Xác định chủ đề AWS của câu hỏi.
+2. Phân tích các yêu cầu được đưa ra.
+3. Loại bỏ những phương án không phù hợp.
+4. Thống nhất đáp án tốt nhất.
+5. Quyết định có sử dụng kỹ năng đặc biệt hay không.
+
+Do thời gian trả lời bị giới hạn, khả năng phối hợp giữa các thành viên có vai trò rất quan trọng. Mỗi người cần trình bày ý kiến ngắn gọn, rõ ràng và tránh tranh luận quá lâu cho một câu hỏi.
+
+Cuộc thi cũng cho mình thấy rằng chỉ ghi nhớ tên dịch vụ AWS là chưa đủ. Nhiều câu hỏi yêu cầu thí sinh hiểu vì sao một giải pháp phù hợp hơn giải pháp khác khi xét đến bảo mật, tính sẵn sàng, khả năng mở rộng và chi phí.
 
 ---
 
-## Một số hình ảnh khi tham gia sự kiện
+## Diễn biến và kết quả
 
-* Thêm các hình ảnh của các bạn tại đây.
+Cuộc thi diễn ra trong không khí sôi nổi và có tính cạnh tranh cao.
 
-> Nhìn chung, workshop đã mang đến cho mình cái nhìn toàn diện hơn về hệ sinh thái AI trên AWS, từ việc xây dựng sản phẩm, phát triển AI Agent, ứng dụng Amazon Q cho doanh nghiệp đến tối ưu chi phí Cloud với FinOps. Những kiến thức và kinh nghiệm thu nhận được sẽ là nền tảng quan trọng giúp mình áp dụng vào quá trình học tập, nghiên cứu và phát triển các dự án thực tế trong tương lai.
+Theo kết quả của sự kiện:
+
+- **KLKAT** giành quyền vào chung kết.
+- **Ngũ Đại Hiệp** giành quyền vào chung kết.
+- **Young Flame IT** đạt hạng Ba.
+
+Trận chung kết giữa KLKAT và Ngũ Đại Hiệp được dự kiến tổ chức vào ngày **11/07/2026**.
+
+Dù kết quả của từng đội khác nhau, cả tám đội đều có cơ hội kiểm tra kiến thức AWS, trao đổi cách giải và học hỏi từ những phương án của các đội khác.
+
+---
+
+## Kiến thức và kỹ năng đạt được
+
+### Kiến thức AWS
+
+Thông qua cuộc thi, mình đã ôn tập:
+
+- Kiến thức nền tảng về Cloud Computing
+- AWS Region và Availability Zone
+- IAM và kiểm soát quyền truy cập
+- Amazon EC2, S3, VPC và RDS
+- Elastic Load Balancing và Auto Scaling
+- High Availability và Disaster Recovery
+- Bảo mật và tối ưu chi phí
+- Các nguyên tắc thiết kế kiến trúc AWS
+
+### Kỹ năng mềm
+
+Sự kiện cũng giúp mình cải thiện:
+
+- Kỹ năng làm việc nhóm
+- Giao tiếp về kỹ thuật
+- Tư duy phản biện
+- Quản lý thời gian
+- Ra quyết định dưới áp lực
+- Đánh giá rủi ro khi sử dụng kỹ năng đặc biệt
+
+---
+
+## Áp dụng vào dự án cá nhân
+
+Những kiến thức từ cuộc thi Cloud Architect có thể áp dụng vào dự án **Cloud Finance Platform – Personal Finance Management System**.
+
+Các câu hỏi thiết kế kiến trúc giúp mình hiểu rõ hơn:
+
+- Cách phân chia tầng mạng public, application và database.
+- Cách Security Group kiểm soát kết nối giữa các dịch vụ.
+- Trường hợp sử dụng Amazon RDS, Amazon S3 và Amazon ECS.
+- Vai trò của Load Balancing và Auto Scaling đối với tính sẵn sàng.
+- Lý do IAM Policy nên tuân theo nguyên tắc cấp quyền tối thiểu.
+- Cách cân bằng hiệu năng, bảo mật và chi phí khi lựa chọn dịch vụ AWS.
+
+Những kiến thức này hỗ trợ mình trong quá trình thiết kế và triển khai dự án trên AWS ở các tuần tiếp theo.
+
+---
+
+## Bài học rút ra
+
+Sau khi tham gia cuộc thi, mình rút ra một số bài học:
+
+- Kiến thức AWS nền tảng rất quan trọng trước khi tiếp cận các câu hỏi kiến trúc nâng cao.
+- Hiểu trường hợp sử dụng quan trọng hơn việc chỉ ghi nhớ tên dịch vụ.
+- Khả năng giao tiếp trong đội ảnh hưởng trực tiếp đến tốc độ ra quyết định.
+- Các kỹ năng đặc biệt cần được sử dụng dựa trên mức độ tự tin và rủi ro.
+- Câu hỏi kiến trúc cần được đánh giá theo nhiều yếu tố như bảo mật, tính sẵn sàng, khả năng mở rộng và chi phí.
+- Cuộc thi là cơ hội tốt để nhận biết những phần kiến thức còn thiếu và tiếp tục cải thiện.
+
+---
+
+## Một số hình ảnh sự kiện
+
+### Sơ đồ thi đấu
+
+{{< figure
+    src="/images/Sodothidau.jpg"
+    title="Sơ đồ thi đấu của tám đội tham gia sự kiện Cloud Architect"
+>}}
+
+### Ảnh chụp sự kiện
+
+{{< figure
+    src="/images/AnhSuKien1.JPG"
+    title="Ảnh chụp chung cuối sự kiện"
+>}}
+
+---
+
+## Kết luận
+
+Sự kiện **Cloud Architect** là cơ hội hữu ích để mình trực tiếp thi đấu, ôn tập kiến thức AWS và rèn luyện khả năng giải quyết các tình huống thiết kế kiến trúc Cloud.
+
+Với vai trò thành viên đội **Gặp phải thằng liều**, mình có thêm kinh nghiệm thảo luận nhóm, ra quyết định trong thời gian giới hạn và đánh giá các giải pháp AWS trong môi trường cạnh tranh.
+
+Sự kiện không chỉ giúp củng cố kiến thức kỹ thuật mà còn mang lại nhiều bài học có thể áp dụng trực tiếp vào quá trình phát triển và triển khai dự án Cloud Finance Platform.

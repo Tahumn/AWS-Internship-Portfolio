@@ -1,31 +1,169 @@
 ---
-title: "Blog 3"
-date: 2024-01-01
-weight: 1
+
+title: "Managing secrets on AWS: When .env is no longer the best choice"
+date: 2026-08-06
+weight: 3
 chapter: false
 pre: " <b> 3.3. </b> "
----
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
+----------------------
+
+{{% notice info %}}
+🔐 **Security Note:** Sensitive information such as database credentials, API keys, and application secrets should be separated from source code and container images in production environments.
 {{% /notice %}}
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+# MANAGING SECRETS ON AWS: WHEN `.ENV` IS NO LONGER THE BEST CHOICE
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+During local development, using a `.env` file to store configuration such as a Database URL, API Key, or JWT Secret is very common.
 
-Key points to know:
+However, when an application moves to a production environment on AWS, copying the `.env` file to a server, embedding it in a Docker Image, or hardcoding credentials directly in source code can create significant security risks.
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+---
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
+## Why Should `.env` Files Be Avoided in Production?
 
-...Image...
+### Risk of Credential Exposure
 
-...Link...
+If a `.env` file is accidentally committed to Git or included in a Docker Image, sensitive credentials may be exposed.
 
-...Guide...
+Examples include:
+
+* Database passwords
+* API keys
+* JWT secrets
+* Email credentials
+* External service credentials
+
+Once exposed, these credentials may allow unauthorized access to important resources.
+
+### Difficult Secret Updates
+
+When credentials are stored directly in files or container images, changing a database password or API key may require updating configuration, rebuilding the image, and redeploying the application.
+
+This makes secret management harder to maintain as the system grows.
+
+---
+
+## AWS Solutions: Secrets Manager and Parameter Store
+
+AWS provides services designed to separate sensitive configuration from application code.
+
+### AWS Secrets Manager
+
+AWS Secrets Manager is designed for storing and managing sensitive information such as:
+
+* Database credentials
+* API keys
+* Application secrets
+* Authentication credentials
+
+### AWS Systems Manager Parameter Store
+
+Parameter Store can be used for application configuration and can also store encrypted values using the `SecureString` parameter type.
+
+Depending on the AWS service and deployment configuration, applications can retrieve these values at runtime or have them securely injected when a workload starts.
+
+A simplified flow looks like this:
+
+```text
+Application / ECS Task
+        ↓
+       IAM Role
+        ↓
+AWS Secrets Manager / Parameter Store
+        ↓
+Retrieve authorized configuration
+```
+
+The application therefore does not need to store long-term secret values directly in the source code.
+
+---
+
+## Best Practices for Managing Secrets
+
+### 1. Store References, Not Secret Values
+
+Deployment configuration should reference the secret rather than contain the real credential.
+
+For example, an ECS Task Definition can reference a secret stored in AWS Secrets Manager instead of containing the database password directly.
+
+---
+
+### 2. Apply Least Privilege
+
+Each service should only have permission to access the secrets it actually requires.
+
+For example:
+
+```text
+Auth Service
+   ↓
+JWT Secret
+
+Finance Service
+   ↓
+Finance Database Secret
+```
+
+The Auth Service should not automatically receive permission to read the Finance Service database credentials.
+
+---
+
+### 3. Use a Clear Naming Structure
+
+Organizing secrets by environment and service makes them easier to manage.
+
+For example:
+
+```text
+/production/finance/db_password
+/staging/ai/gemini_key
+/production/auth/jwt_secret
+```
+
+This becomes especially useful when an application has development, staging, and production environments.
+
+---
+
+### 4. Never Print Secrets to Logs
+
+Moving credentials to Secrets Manager does not help if the application later prints them into CloudWatch Logs.
+
+Source code should therefore be reviewed to ensure sensitive values are never exposed through:
+
+* Debug output
+* Exception messages
+* Application logs
+* CI/CD logs
+
+---
+
+## What I Learned
+
+For local development, `.env` files are convenient and easy to use.
+
+For production workloads on AWS, however, separating secrets from source code and Docker Images provides much better security and maintainability.
+
+Using **AWS Secrets Manager**, **Parameter Store**, and properly scoped **IAM Roles** helps applications access only the information they need without embedding sensitive values directly in the codebase.
+
+For my Cloud Finance Platform, this approach also makes it easier to separate database, email, and external-service credentials between different backend services.
+
+The main principle is simple:
+
+> **Keep configuration and secrets outside the application code, and give each workload only the permissions it actually needs.**
+
+---
+
+## Article Link
+
+⏳ Status: Submitted to AWS Study Group – pending approval.
+
+The article has been submitted to AWS Study Group and is currently awaiting administrator approval.
+
+---
+
+## References
+
+* AWS Secrets Manager Documentation
+* AWS Systems Manager Parameter Store Documentation
+* IAM Roles for Amazon ECS Tasks
+* AWS Security Best Practices

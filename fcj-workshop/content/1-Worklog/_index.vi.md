@@ -1,40 +1,46 @@
 ---
+
 title: "Nhật ký công việc"
-date: 2024-01-01
+date: 2026-06-22
 weight: 1
 chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+{{% notice info %}}
+Phần này tổng hợp các hoạt động học tập, phát triển dự án và triển khai hệ thống trên AWS đã thực hiện trong tám tuần thực tập.
 {{% /notice %}}
 
-**Trong trang này** bạn sẽ cần giới thiệu worklog của bạn **như thế nào**? Bạn hoàn thành chương trình trong vòng **bao nhiêu tuần**? Bạn **đã làm gì** trong các tuần đó?
+### Tổng quan Worklog
 
+Chương trình thực tập được thực hiện trong **8 tuần**, từ ngày **22/06/2026 đến ngày 15/08/2026**.
 
-Thông thường và cũng là tiêu chuẩn, một worklog được thực hiện trong khoảng 3 tháng (trong suốt thời gian thực tập) với nội dung các tuần như sau:
+Trong thời gian này, tôi đã tìm hiểu các kiến thức và dịch vụ AWS nền tảng, phát triển dự án **Cloud Finance Platform – Personal Finance Management System**, thiết kế kiến trúc đám mây và triển khai các thành phần chính của hệ thống trên AWS.
 
-**Tuần 1:** [Làm quen với AWS và các dịch vụ cơ bản trong AWS](1.1-week1/)
+Nội dung công việc được thực hiện theo từng giai đoạn, từ học kiến thức nền tảng, phân tích hệ thống, phát triển ứng dụng đến triển khai hạ tầng, kiểm thử và hoàn thiện báo cáo.
 
-**Tuần 2:** [Làm công việc A...](1.2-week2/)
+**Tuần 1:** [Công cụ phát triển, kiến thức AWS nền tảng, Draw.io và Hugo](1.1-week1/)
 
-**Tuần 3:** [Làm công việc B...](1.3-week3/)
+**Tuần 2:** [Các dịch vụ AWS cơ bản và khởi tạo dự án](1.2-week2/)
 
-**Tuần 4:** [Làm công việc C...](1.4-week4/)
+**Tuần 3:** [Phân tích hệ thống, thiết kế kiến trúc và đánh giá giải pháp AWS](1.3-week3/)
 
-**Tuần 5:** [Làm công việc D...](1.5-week5/)
+**Tuần 4:** [Phát triển ứng dụng và tích hợp trên môi trường local](1.4-week4/)
 
-**Tuần 6:** [Làm công việc E...](1.6-week6/)
+**Tuần 5:** [Hạ tầng mạng AWS và Amazon ECR](1.5-week5/)
 
-**Tuần 7:** [Làm công việc G...](1.7-week7/)
+**Tuần 6:** [Amazon RDS, Redis, Secrets Manager và ECS Fargate](1.6-week6/)
 
-**Tuần 8:** [Làm công việc H...](1.8-week8/)
+**Tuần 7:** [ALB, S3, CloudFront, WAF, SES, CloudWatch và CI/CD](1.7-week7/)
 
-**Tuần 9:** [Làm công việc I...](1.9-week9/)
+**Tuần 8:** [Kiểm thử end-to-end, đánh giá chi phí và hoàn thiện báo cáo](1.8-week8/)
 
-**Tuần 10:** [Làm công việc L...](1.10-week10/)
+### Kết quả chính
 
-**Tuần 11:** [Làm công việc M...](1.11-week11/)
-
-**Tuần 12:** [Làm công việc N...](1.12-week12/)
+* Xây dựng và tổ chức dự án Cloud Finance Platform theo kiến trúc microservices.
+* Thiết kế hạ tầng AWS gồm Public Subnet, Private Application Subnet và Private Database Subnet.
+* Triển khai các Backend Service bằng Amazon ECS Fargate.
+* Cấu hình Amazon RDS PostgreSQL, Redis, AWS Secrets Manager và ECS Service Connect.
+* Triển khai Frontend bằng Amazon S3 và CloudFront.
+* Cấu hình ALB, AWS WAF, Amazon SES, Amazon CloudWatch và GitHub Actions CI/CD.
+* Kiểm thử các luồng chính của hệ thống và hoàn thiện tài liệu kỹ thuật, Portfolio cùng báo cáo thực tập.

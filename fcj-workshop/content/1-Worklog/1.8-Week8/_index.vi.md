@@ -1,59 +1,63 @@
 ---
+
 title: "Worklog Tuần 8"
-date: 2024-01-01
-weight: 1
+date: 2026-08-01
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
+
 {{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+⚠️ **Lưu ý:** Nội dung dưới đây phản ánh các hoạt động kiểm thử, đánh giá và hoàn thiện báo cáo thực tế trong tuần thứ tám của chương trình thực tập.
 {{% /notice %}}
 
+### Mục tiêu tuần 8
 
-### Mục tiêu tuần 8:
+* Kiểm thử end-to-end hệ thống Cloud Finance Platform đã triển khai.
+* Xác nhận các luồng chính của ứng dụng, mạng, cơ sở dữ liệu và thông báo.
+* Rà soát giao diện, cấu hình bảo mật và chi phí vận hành AWS.
+* Ghi nhận và khắc phục các lỗi còn tồn tại.
+* Hoàn thiện video demo, tài liệu kỹ thuật, Portfolio và báo cáo thực tập.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+---
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Các công việc triển khai trong tuần
 
+| Thứ   | Công việc                                                                                                                                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                                                                                                                                                               |
+| ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Thứ 2 | - Kiểm thử luồng end-to-end từ Frontend qua CloudFront, ALB và Gateway Service đến các Backend Microservices.<br>- Kiểm tra giao tiếp qua ECS Service Connect, kết nối Amazon RDS và log trên Amazon CloudWatch.<br>- Ghi nhận S3 Receipts/Exports là hạng mục chưa tích hợp hoàn chỉnh.                    | 10/08/2026   | 10/08/2026      | Repository đồ án:<br>https://github.com/Tahumn/cloud-finance-platform                                                                                                        |
+| Thứ 3 | - Kiểm thử các chức năng xác thực, giao dịch, danh mục, ngân sách và mục tiêu tiết kiệm.<br>- Kiểm thử chức năng lập kế hoạch và giao dịch định kỳ.<br>- Ghi nhận các lỗi chức năng và phản hồi chưa đúng để xử lý.                                                                                         | 11/08/2026   | 11/08/2026      | Repository đồ án:<br>https://github.com/Tahumn/cloud-finance-platform                                                                                                        |
+| Thứ 4 | - Kiểm thử các chức năng OCR và AI Agent đã tích hợp.<br>- Kiểm thử luồng Notification API, Redis Queue và Notification Worker.<br>- Gửi email thử nghiệm qua Amazon SES đến identity đã xác minh.<br>- Kiểm tra log ứng dụng và ECS trên Amazon CloudWatch.                                                | 12/08/2026   | 12/08/2026      | Repository đồ án:<br>https://github.com/Tahumn/cloud-finance-platform<br><br>Nguồn học:<br>https://cloudjourney.awsstudygroup.com/<br>https://www.youtube.com/@AWSStudyGroup |
+| Thứ 5 | - Kiểm tra giao diện responsive trên các kích thước màn hình khác nhau.<br>- Rà soát AWS WAF, IAM Role, IAM Policy, Security Group và AWS Secrets Manager.<br>- Kiểm tra quyền truy cập tài nguyên và bảo đảm không để lộ thông tin nhạy cảm trong Repository.                                              | 13/08/2026   | 13/08/2026      | Repository đồ án:<br>https://github.com/Tahumn/cloud-finance-platform                                                                                                        |
+| Thứ 6 | - Ghi nhận và khắc phục các lỗi triển khai còn tồn tại.<br>- Kiểm tra Health Check của ALB và ECS Service.<br>- Thử nghiệm khả năng khôi phục ECS Task khi container gặp lỗi.<br>- Rà soát mức sử dụng dịch vụ, AWS Budgets và chi phí vận hành dự kiến.                                                    | 14/08/2026   | 14/08/2026      | Nguồn học:<br>https://cloudjourney.awsstudygroup.com/<br>https://www.youtube.com/@AWSStudyGroup                                                                              |
+| Thứ 7 | - Quay video demo các chức năng chính của hệ thống.<br>- Hoàn thiện sơ đồ kiến trúc AWS, tài liệu triển khai và tài liệu CI/CD.<br>- Tổng hợp các lỗi đã gặp và giải pháp xử lý.<br>- Cập nhật Worklog tuần 8 và Portfolio Hugo.<br>- Đồng bộ tài liệu cuối cùng lên GitHub và hoàn thiện báo cáo thực tập. | 15/08/2026   | 15/08/2026      | Repository Portfolio:<br>https://github.com/Tahumn/AWS-Internship-Portfolio<br><br>Repository đồ án:<br>https://github.com/Tahumn/cloud-finance-platform                     |
 
-### Kết quả đạt được tuần 8:
+---
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Công việc thực hiện cho dự án cá nhân
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+**Tên dự án**
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+Cloud Finance Platform – Personal Finance Management System
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+**Các nội dung đã thực hiện**
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Kiểm thử luồng end-to-end trên kiến trúc AWS đã triển khai.
+* Kiểm tra các chức năng xác thực, tài chính, lập kế hoạch, giao dịch định kỳ, OCR và AI.
+* Kiểm thử luồng thông báo qua Redis và gửi email Amazon SES đến identity đã xác minh.
+* Kiểm tra ECS Service Connect, kết nối Amazon RDS và log Amazon CloudWatch.
+* Kiểm thử giao diện responsive và rà soát các cấu hình bảo mật chính.
+* Ghi nhận S3 Receipts/Exports là hạng mục chưa tích hợp hoàn chỉnh.
+* Kiểm tra Health Check, khả năng khôi phục ECS Task và chi phí sử dụng AWS.
+* Hoàn thiện video demo, tài liệu kiến trúc và báo cáo thực tập.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+---
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+### Kết quả đạt được tuần 8
 
-
+* Hoàn thành kiểm thử end-to-end các luồng chính của hệ thống.
+* Xác nhận hoạt động của Frontend, Backend Microservices, Amazon RDS và Redis.
+* Kiểm thử gửi email Amazon SES trong giới hạn Sandbox.
+* Ghi nhận và khắc phục các lỗi ứng dụng và triển khai còn tồn tại.
+* Rà soát cấu hình bảo mật và chi phí sử dụng dịch vụ AWS.
+* Hoàn thiện Worklog, Portfolio, video demo và báo cáo thực tập.

@@ -1,62 +1,64 @@
 ---
+
 title: "Worklog Tuần 4"
 date: 2026-07-13
 weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
----
+----------------------
 
 {{% notice warning %}}
-⚠️ **Lưu ý:** Nội dung dưới đây phản ánh quá trình học tập và thực hiện thực tế trong tuần thứ tư của chương trình thực tập.
+⚠️ **Lưu ý:** Nội dung dưới đây phản ánh các hoạt động học tập và công việc dự án thực tế đã thực hiện trong tuần thứ tư của chương trình thực tập.
 {{% /notice %}}
 
 ### Mục tiêu tuần 4
 
-* Tiếp tục nghiên cứu các dịch vụ AWS phục vụ triển khai hệ thống.
-* Tìm hiểu Amazon DynamoDB, AWS CLI và AWS Cloud9.
-* Tiếp tục hoàn thiện và tối ưu dự án Personal Finance Management System.
-* Chuẩn bị các thành phần cần thiết để tích hợp dịch vụ AWS vào dự án.
-* Hoàn thiện tài liệu kỹ thuật và Portfolio thực tập.
+* Tiếp tục phát triển dự án Cloud Finance Platform.
+* Cải thiện cấu trúc Frontend, Backend và các microservice.
+* Tích hợp các chức năng tài chính, xác thực, OCR, AI và thông báo.
+* Củng cố môi trường phát triển cục bộ bằng Docker Compose, PostgreSQL và Redis.
+* Kiểm thử các API đã xây dựng và cập nhật tài liệu dự án.
 
 ---
 
 ### Các công việc triển khai trong tuần
 
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| ---- | --------- | ------------ | --------------- | -------------- |
-| 2 | - Nghiên cứu Amazon DynamoDB và mô hình cơ sở dữ liệu NoSQL <br>- So sánh NoSQL với cơ sở dữ liệu quan hệ <br>- Thực hành Table, Item, Attribute, Partition Key và Sort Key <br>- Thực hành CRUD, Query, Scan và Global Secondary Index (GSI) | 13/07/2026 | 13/07/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 3 | - Cài đặt và cấu hình AWS CLI <br>- Thiết lập Access Key, Secret Access Key và Region mặc định <br>- Thực hành quản lý tài nguyên AWS bằng CLI <br>- Tìm hiểu AWS Cloud9 và khả năng tích hợp với GitHub | 14/07/2026 | 14/07/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 4 | - Rà soát kiến trúc tổng thể của hệ thống <br>- Kiểm tra luồng xử lý giữa Frontend, Backend và Database <br>- Chuẩn hóa cấu trúc thư mục và REST API <br>- Chuẩn hóa Request, Response và Error Handling | 15/07/2026 | 15/07/2026 | AWS Documentation |
-| 5 | - Rà soát và tối ưu giao diện <br>- Chuẩn hóa cấu trúc source code <br>- Đánh giá khả năng chuyển đổi dữ liệu sang Amazon DynamoDB <br>- Phân tích các API phù hợp để triển khai bằng AWS Lambda | 16/07/2026 | 16/07/2026 | AWS Documentation |
-| 6 | - Xây dựng kế hoạch tích hợp Amazon API Gateway, AWS Lambda và Amazon DynamoDB <br>- Nghiên cứu mô hình phân quyền IAM <br>- Xây dựng lộ trình triển khai hệ thống lên AWS <br>- Cập nhật Worklog, Portfolio và GitHub Repository | 17/07/2026 | 17/07/2026 | https://github.com/Tahumn/AWS-Internship-Portfolio https://github.com/Tahumn/cloud-finance-platform |
+| Thứ   | Công việc                                                                                                                                                                                                                                                                                                | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                                                                                                                                                               |
+| ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Thứ 2 | - Rà soát cấu trúc Frontend và Backend hiện có.<br>- Chuẩn hóa thư mục, quy tắc đặt tên và cách tổ chức mã nguồn.<br>- Kiểm tra luồng giao tiếp giữa Frontend, Gateway Service và các Backend Microservices.                                                                                             | 13/07/2026   | 13/07/2026      | Repository đồ án:<br>https://github.com/Tahumn/cloud-finance-platform                                                                                                        |
+| Thứ 3 | - Tiếp tục phát triển Gateway Service bằng FastAPI và Socket.IO.<br>- Cải thiện chức năng xác thực, quản lý phiên đăng nhập và phân quyền.<br>- Rà soát quy ước Request, Response và Error Handling cho REST API.                                                                                        | 14/07/2026   | 14/07/2026      | Repository đồ án:<br>https://github.com/Tahumn/cloud-finance-platform                                                                                                        |
+| Thứ 4 | - Tiếp tục phát triển chức năng quản lý tài khoản, danh mục và giao dịch.<br>- Bổ sung và cải thiện chức năng ngân sách và mục tiêu tiết kiệm.<br>- Kiểm thử các REST API liên quan trên môi trường local.                                                                                               | 15/07/2026   | 15/07/2026      | Repository đồ án:<br>https://github.com/Tahumn/cloud-finance-platform                                                                                                        |
+| Thứ 5 | - Tiếp tục xây dựng chức năng lập kế hoạch và quản lý giao dịch định kỳ.<br>- Phát triển bước đầu OCR Service để nhận dạng thông tin từ hóa đơn.<br>- Tiếp tục tích hợp AI Agent với Gemini để hỗ trợ phân tích và gợi ý tài chính.                                                                      | 16/07/2026   | 16/07/2026      | Repository đồ án:<br>https://github.com/Tahumn/cloud-finance-platform<br><br>Nguồn học:<br>https://cloudjourney.awsstudygroup.com/<br>https://www.youtube.com/@AWSStudyGroup |
+| Thứ 6 | - Xây dựng và tích hợp Notification API cùng Notification Worker.<br>- Thiết lập PostgreSQL và Redis phục vụ phát triển và kiểm thử local.<br>- Điều chỉnh Dockerfile, Docker Compose và các biến môi trường cho các service.<br>- Kiểm tra khả năng giao tiếp giữa các microservice đang được tích hợp. | 17/07/2026   | 17/07/2026      | Repository đồ án:<br>https://github.com/Tahumn/cloud-finance-platform                                                                                                        |
+| Thứ 7 | - Kiểm thử các chức năng xác thực, giao dịch, lập kế hoạch, OCR và AI trên môi trường local.<br>- Ghi nhận và khắc phục lỗi Frontend, Backend và kết nối cơ sở dữ liệu.<br>- Cập nhật tài liệu API và thiết kế cơ sở dữ liệu.<br>- Cập nhật Worklog tuần 4 và đồng bộ tài liệu dự án lên GitHub.         | 18/07/2026   | 18/07/2026      | Repository Portfolio:<br>https://github.com/Tahumn/AWS-Internship-Portfolio<br><br>Repository đồ án:<br>https://github.com/Tahumn/cloud-finance-platform                     |
 
 ---
 
-### Công việc thực hiện cho Project cá nhân
+### Công việc thực hiện cho dự án cá nhân
 
-**Tên Project**
+**Tên dự án**
 
-Personal Finance Management System
+Cloud Finance Platform – Personal Finance Management System
 
 **Các nội dung đã thực hiện**
 
-* Rà soát và đánh giá kiến trúc tổng thể của hệ thống.
-* Chuẩn hóa cấu trúc Frontend, Backend và quy trình quản lý mã nguồn.
-* Kiểm tra, tối ưu các REST API và chuẩn hóa Request, Response, Error Handling.
-* Rà soát luồng xử lý giữa Frontend, Backend và cơ sở dữ liệu.
-* Phân tích khả năng chuyển đổi mô hình dữ liệu sang Amazon DynamoDB.
-* Đánh giá các thành phần phù hợp để triển khai theo kiến trúc Serverless.
-* Lập kế hoạch tích hợp Amazon API Gateway, AWS Lambda và Amazon DynamoDB.
-* Cập nhật tài liệu kiến trúc hệ thống, tài liệu cơ sở dữ liệu và Repository của dự án.
+* Rà soát và chuẩn hóa cấu trúc Frontend, Backend và các microservice.
+* Tiếp tục phát triển Gateway Service bằng FastAPI và Socket.IO.
+* Cải thiện chức năng xác thực, quản lý phiên và phân quyền.
+* Tiếp tục xây dựng các chức năng tài khoản, danh mục, giao dịch, ngân sách và mục tiêu tiết kiệm.
+* Tích hợp chức năng lập kế hoạch và giao dịch định kỳ vào hệ thống.
+* Phát triển bước đầu OCR Service và tiếp tục tích hợp AI Agent với Gemini.
+* Xây dựng Notification API và Notification Worker.
+* Cải thiện môi trường local bằng Docker Compose, PostgreSQL và Redis.
+* Kiểm thử các REST API đã xây dựng và khắc phục lỗi trong quá trình tích hợp.
 
 ---
 
 ### Kết quả đạt được tuần 4
 
-* Hiểu kiến trúc và nguyên lý hoạt động của Amazon DynamoDB.
-* Nắm được mô hình dữ liệu NoSQL, Partition Key, Sort Key và Global Secondary Index.
-* Thực hành quản lý tài nguyên AWS bằng AWS CLI.
-* Làm quen với môi trường phát triển AWS Cloud9.
-* Hoàn thành việc rà soát kiến trúc hệ thống và chuẩn bị các thành phần cần thiết trước khi tích hợp AWS.
-* Hoàn thiện kế hoạch triển khai Amazon API Gateway, AWS Lambda và DynamoDB cho dự án.
-* Cập nhật đầy đủ Worklog, Portfolio và tài liệu kỹ thuật của dự án.
+* Cải thiện tính tổ chức và nhất quán của mã nguồn dự án.
+* Mở rộng các chức năng quản lý tài chính chính của ứng dụng.
+* Tích hợp thêm các thành phần lập kế hoạch, OCR, AI và thông báo.
+* Xây dựng môi trường local ổn định hơn để chạy nhiều service.
+* Kiểm tra được luồng giao tiếp giữa Frontend, Gateway Service, các microservice và cơ sở dữ liệu.
+* Cập nhật tài liệu API, cơ sở dữ liệu và Worklog trên GitHub.

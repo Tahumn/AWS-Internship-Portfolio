@@ -1,6 +1,6 @@
 ---
 title: "Internship Report"
-date: 2024-01-01
+date: 2026-06-22
 weight: 1
 chapter: false
 ---
@@ -8,9 +8,7 @@ chapter: false
     
 # Internship Report
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+This report summarizes my learning activities, project development, AWS deployment tasks, technical workshops, community events, and personal achievements during the eight-week internship program.
 
 ### Student Information:
 &emsp; **Full Name:** Dang Nguyen Tam Nhu

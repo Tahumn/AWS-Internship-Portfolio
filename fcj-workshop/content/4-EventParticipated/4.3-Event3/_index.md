@@ -1,224 +1,241 @@
 ---
-title: "Event 3"
-date: 2024-01-01
+title: "Event 3 – FCAJ x Agentic AI Build Week: Show Up. Build. Pitch. WIN!"
+date: 2026-07-25
 weight: 3
 chapter: false
 pre: " <b> 4.3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report.
+{{% notice info %}}
+ **Role:** Attendee
 {{% /notice %}}
 
-# Event Summary Report: AI & AWS Community Sharing
+# EVENT REPORT: FCAJ X AGENTIC AI BUILD WEEK – SHOW UP. BUILD. PITCH. WIN!
 
-## Event Objectives
+## Event Information
 
-The event was organized to provide participants with a comprehensive understanding of how Artificial Intelligence (AI) is transforming modern businesses. Instead of focusing solely on Generative AI, the workshop covered a wide range of practical topics, including AI Voice, AI Agents, Amazon Q, FinOps, DevOps automation, AI-powered Human Resources, and real-world experiences of building AI startups.
+&emsp;**Event Name:** FCAJ x Agentic AI Build Week: Show Up. Build. Pitch. WIN!  
 
-Through presentations delivered by industry experts who have hands-on experience implementing AI solutions, participants gained valuable insights into:
+&emsp;**Date:** July 25, 2026  
 
-- The latest AI trends in enterprises.
-- Best practices for developing AI solutions from Proof of Concept (PoC) to Production.
-- How AWS services support modern AI applications.
-- Cost optimization and operational strategies for AI workloads.
-- The role of AI in improving productivity and business decision-making.
+&emsp;**Location:** 26th Floor, Bitexco Financial Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
 
----
+&emsp;**Event Format:** Agentic AI project sharing and presentation event  
 
-# Key Highlights
-
-## 1. AI Startup – From Ideas to Real Products
-
-One of the opening sessions focused on the journey of building AI startups.
-
-The speaker emphasized that many development teams spend excessive time perfecting their ideas instead of validating them in the real market. Rather than waiting for a perfect solution, startups should quickly develop a Minimum Viable Product (MVP), launch it to customers, gather feedback, and continuously improve the product. :contentReference[oaicite:0]{index=0}
-
-Some important lessons included:
-
-- Always begin with a real business problem.
-- Do not build AI simply because it is a trending technology.
-- Continuously iterate based on customer feedback.
-- Find champion customers to validate product value.
-- Be prepared to pivot when market conditions change.
-
-These principles provide a practical mindset for anyone interested in building AI-powered products.
+&emsp;**Role:** Attendee  
 
 ---
 
-## 2. AI Voice and Conversational AI
+## Event Overview
 
-This was one of the most interesting sessions throughout the event.
+On **July 25, 2026**, I attended **FCAJ x Agentic AI Build Week: Show Up. Build. Pitch. WIN!** at Bitexco Financial Tower in Ho Chi Minh City.
 
-The speaker explained how modern AI Voice systems go far beyond traditional Speech-to-Text and Text-to-Speech technologies. A production-ready conversational AI must understand context, determine when to respond, and recognize when users are still speaking. :contentReference[oaicite:1]{index=1}
+The event focused on practical experiences in developing Agentic AI products within a limited period. Through presentations from AWS representatives and project teams, attendees learned how ideas could be transformed into working prototypes, presented to an audience and evaluated based on technical feasibility and business value.
 
-Besides speech processing, enterprise AI Voice solutions also require several supporting components, including:
-
-- Prompt Management
-- Knowledge Base
-- Versioning
-- Audit Logs
-- Human Handoff
-- Multi-turn Conversations
-- Context Memory
-
-A particularly valuable concept introduced during the session was the Human-in-the-loop approach. When AI cannot confidently resolve a customer's request or detects user dissatisfaction, the conversation should automatically be transferred to a human support agent. This hybrid AI architecture significantly improves customer experience while maintaining operational efficiency. :contentReference[oaicite:2]{index=2}
+The event also introduced practical approaches to AI Agent development, Multi-Agent systems, AWS architecture, Minimum Viable Product development, teamwork and pitching skills.
 
 ---
 
-## 3. AI Agents and DevOps Automation
+## Event Photo
 
-Another notable topic was the application of AI Agents in modern software operations.
-
-The speakers demonstrated how AI Agents can assist engineers by:
-
-- Analyzing system logs.
-- Detecting operational issues.
-- Recommending possible solutions.
-- Generating remediation plans.
-- Integrating with DevOps platforms.
-
-One particularly interesting point was that AI Agents are highly extensible through MCP, Skills, and Extensions, enabling them to communicate with multiple enterprise tools and automate repetitive operational tasks. Combined with AWS Lambda and AWS Systems Manager, AI Agents can become powerful automation assistants for infrastructure management. :contentReference[oaicite:3]{index=3}
-
-However, the speakers also stressed that AI Agents are designed to support engineers rather than replace them. The quality of AI-generated recommendations depends heavily on enterprise knowledge, structured processes, and high-quality data. :contentReference[oaicite:4]{index=4}
+{{< figure
+    src="/images/event3_1.jpg"
+    title="FCAJ x Agentic AI Build Week: Show Up. Build. Pitch. WIN!"
+>}}
 
 ---
 
-## 4. AI for Human Resources
+## Main Topics
 
-Another practical session focused on applying AI to Human Resource management.
+### 1. Agentic AI and the Future of Work
 
-The presenters discussed several common HR challenges faced by modern organizations:
+The opening session introduced Agentic AI as a development direction in which AI systems do more than answer individual questions.
 
-- Time-consuming recruitment processes.
-- Difficulty evaluating candidates objectively.
-- Limited data for decision-making.
-- High hiring costs.
-- Challenges in long-term workforce planning.
+An AI Agent may be able to:
 
-To address these issues, the speakers introduced Amazon Q as an intelligent AI assistant for HR teams. Amazon Q can summarize documents, analyze candidate profiles, generate reports, and provide useful recommendations that enable HR professionals to make better and faster decisions. :contentReference[oaicite:5]{index=5} :contentReference[oaicite:6]{index=6}
+- Analyze a problem.
+- Plan a sequence of tasks.
+- Use external tools.
+- Maintain context.
+- Perform multiple steps toward a defined objective.
+- Return results for human review.
 
----
-
-## 5. Amazon Q and Enterprise AI
-
-One of the most anticipated sessions introduced **Amazon Q**, AWS's AI-powered assistant designed specifically for enterprise environments.
-
-Unlike general-purpose AI chatbots, Amazon Q integrates with multiple enterprise knowledge sources, including documentation, internal wikis, source code repositories, project management platforms, and AWS services. This enables employees to quickly retrieve accurate information without manually searching across different systems. :contentReference[oaicite:7]{index=7}
-
-The speakers presented several practical use cases, including:
-
-- Assisting developers in understanding existing source code.
-- Automatically generating technical documentation.
-- Creating unit tests.
-- Supporting code reviews.
-- Searching enterprise knowledge bases.
-- Assisting HR, Sales, Marketing, and Customer Support teams.
-
-A major advantage of Amazon Q is its enterprise-grade security model. It respects existing user permissions, ensuring that employees can only access information they are authorized to view. This provides organizations with greater confidence when adopting AI technologies in production environments. :contentReference[oaicite:8]{index=8}
-
-The presenters also highlighted Amazon Q's extensibility through Agents, Skills, and Extensions, allowing integration with services such as GitHub, Jira, Slack, Microsoft Teams, and various AWS services to automate business workflows.
+The speakers emphasized that AI should enhance human productivity rather than completely replace human decision-making. People still need to define objectives, validate results and control important actions.
 
 ---
 
-## 6. AI for FinOps and Cloud Cost Optimization
+### 2. AI Conversational Ordering
 
-Another valuable topic discussed during the workshop was **FinOps**, a methodology for optimizing cloud spending while maximizing business value.
+One of the featured solutions was an AI conversational ordering system for the food-service industry.
 
-As AI adoption continues to grow, infrastructure costs can increase significantly if organizations lack proper governance strategies. The speakers emphasized that cost optimization is a shared responsibility involving engineering, operations, and finance teams.
+Instead of requiring users to open a separate application, browse a menu and complete many manual steps, the system allowed customers to place orders through messaging platforms.
 
-Some recommended best practices included:
+The AI Agent could support users by:
 
-- Continuously monitoring cloud resource utilization.
-- Building dashboards to track cloud spending.
-- Selecting appropriate compute services for each workload.
-- Removing unused resources.
-- Setting budgets and cost alerts.
-- Leveraging Reserved Instances or Savings Plans when appropriate.
-- Measuring the return on investment (ROI) before expanding AI projects. :contentReference[oaicite:9]{index=9}
+- Searching for menu items.
+- Recommending suitable products.
+- Adding or modifying items in the cart.
+- Suggesting promotions.
+- Summarizing the order.
+- Requesting confirmation before submission.
 
-Rather than focusing solely on reducing costs, FinOps aims to maximize the overall value delivered by cloud investments.
-
----
-
-# Key Takeaways
-
-## Product Development Mindset
-
-Throughout the workshop, I learned several valuable principles regarding product development:
-
-- Always begin with business problems instead of technology.
-- Build MVPs quickly to validate ideas.
-- Continuously improve products based on customer feedback.
-- AI only creates value when solving real business challenges.
-
-## AI and System Architecture
-
-The event significantly improved my understanding of enterprise AI systems, including:
-
-- Designing AI Agents.
-- Integrating LLMs with enterprise knowledge bases.
-- Managing conversational context effectively.
-- Applying Human-in-the-loop principles.
-- Extending AI capabilities through Agents and MCP.
-
-## AWS Services
-
-The workshop also strengthened my understanding of AWS services used in modern AI solutions, particularly:
-
-- Amazon Q
-- AWS Lambda
-- Amazon Bedrock
-- AI Agent development services
-- DevOps automation tools
-
-More importantly, I realized that building enterprise AI systems requires balancing scalability, security, maintainability, and operational costs—not simply deploying AI models.
+A valuable design principle was **Human-in-the-loop**. The AI did not automatically complete an order without confirmation. This reduced the risk of mistakes involving products, quantities or customer requirements.
 
 ---
 
-# Applying the Knowledge
+### 3. Multi-Channel and Monitoring Architecture
 
-Many of the concepts introduced during the workshop can be applied directly to my current projects.
+The conversational ordering solution used an Adapter layer to convert messages from different communication platforms into a common format.
 
-For my game development project **The Last Rule**, I plan to explore AI Agents that allow NPCs to generate context-aware conversations instead of relying solely on predefined dialogue trees.
+This design provides several benefits:
 
-During software development, I also intend to use Amazon Q to improve code comprehension, automate documentation, and accelerate software development tasks.
+- New communication channels can be added more easily.
+- AI processing components can be reused.
+- The system is less dependent on one platform.
+- Maintenance and future expansion become simpler.
 
-Furthermore, the FinOps concepts introduced during the workshop have increased my awareness of cloud cost management when deploying applications on AWS.
+The project also included a monitoring dashboard for reviewing conversation history, AI responses and operational issues.
 
-Finally, the startup experiences shared by the speakers encouraged me to focus on building Minimum Viable Products first, collecting user feedback, and continuously improving the product rather than attempting to develop a perfect solution from the beginning.
-
----
-
-# Event Experience
-
-This workshop was one of the most practical AI events I have attended.
-
-What impressed me the most was that the speakers did not simply introduce new technologies. Instead, they shared real implementation experiences, practical challenges, and lessons learned while deploying AI solutions in production environments.
-
-The real-world examples demonstrated that building enterprise AI systems involves much more than calling Large Language Model APIs. Organizations must also consider knowledge management, security, authorization, scalability, operational costs, and user experience.
-
-The event also broadened my understanding of emerging trends such as AI Agents, Enterprise AI, Amazon Q, and AI-powered software engineering tools, all of which are becoming increasingly important across industries.
-
-Additionally, the workshop provided valuable insights into how AI can improve Human Resources, Customer Service, Software Development, and Cloud Infrastructure Management.
+This demonstrated that a production AI system needs more than a chatbot interface. It also requires monitoring, logging, error handling and human-intervention mechanisms.
 
 ---
 
-# Lessons Learned
+### 4. Multi-Agent Systems
 
-After attending the event, I gained several important insights:
+Another project introduced a Multi-Agent approach for complex analysis and strategy development.
 
-- AI should enhance human productivity rather than replace human expertise.
-- Successful AI adoption begins with solving business problems instead of following technology trends.
-- Enterprise AI requires the integration of AI models, data, business processes, and human collaboration.
-- Amazon Q and AI Agents have enormous potential to automate repetitive tasks, allowing engineers to focus on higher-value activities.
-- When deploying AI workloads on AWS, organizations must carefully balance performance, scalability, and operational costs.
-- The workshop inspired many ideas that I can apply to my academic projects, research activities, and future software development work.
+Instead of assigning all responsibilities to one Agent, the system divided the workflow among several specialized Agents, such as:
+
+- Data Collection Agent.
+- Analysis Agent.
+- Market Evaluation Agent.
+- Risk Assessment Agent.
+- Strategy Recommendation Agent.
+
+The Agents collaborated to produce the final result.
+
+This approach can make responsibilities clearer and allow individual components to be developed independently. However, it also requires orchestration, state management and result-validation mechanisms.
 
 ---
 
-## Event Photos
+### 5. AWS Architecture for Agentic AI
 
-*Add your event photos here.*
+The presented solutions used several AWS services, including:
 
-> Overall, the workshop provided a comprehensive overview of the AWS AI ecosystem, covering AI product development, AI Agents, Amazon Q for enterprise applications, and FinOps for cloud cost optimization. The knowledge and practical experiences gained from this event will serve as a valuable foundation for my future studies, research projects, and professional software engineering career.
+- **AWS Amplify** for Frontend development and deployment.
+- **AWS WAF** for application protection.
+- **Amazon Cognito** for authentication.
+- **AWS Lambda** for Serverless processing.
+- **Amazon S3** for file and data storage.
+- **Amazon DynamoDB** for NoSQL data and workflow state.
+- **Amazon Bedrock** for foundation-model access.
+- **AgentCore** for building and operating AI Agents.
+
+The architecture showed that a complete AI application requires more than a Large Language Model. Authentication, storage, security, orchestration, monitoring and cost management are also necessary.
+
+---
+
+### 6. Building an MVP
+
+Because the teams worked within a limited period, they needed to control project scope and prioritize essential functions.
+
+A practical MVP should demonstrate:
+
+- The problem being solved.
+- The intended users.
+- The value delivered by AI.
+- The main workflow.
+- A functional demonstration.
+- A reasonable path for future expansion.
+
+One important lesson was that a smaller working product is more valuable than a large idea that cannot be demonstrated successfully.
+
+---
+
+### 7. Pitching and Teamwork
+
+The event also highlighted the importance of teamwork and presentation skills.
+
+Team members may be responsible for different areas, including research, architecture, programming, testing, interface design and presentation preparation.
+
+An effective project pitch should clearly explain:
+
+- The problem.
+- The proposed solution.
+- The target users.
+- The role of AI.
+- The AWS architecture.
+- The product demonstration.
+- Estimated costs.
+- Business value.
+
+Technical quality is important, but teams must also communicate their ideas clearly within the available presentation time.
+
+---
+
+## What I Learned
+
+After attending the event, I gained a better understanding of:
+
+- How AI Agents can plan and execute multi-step tasks.
+- The difference between a single Agent and a Multi-Agent system.
+- The importance of Human-in-the-loop.
+- The role of context memory and monitoring.
+- How AWS services support Agentic AI applications.
+- How to define and prioritize an MVP.
+- How teamwork and pitching affect project outcomes.
+
+I also learned that architecture decisions should be based on project requirements, security, scalability, maintainability and budget.
+
+---
+
+## Applying the Knowledge to My Project
+
+The knowledge gained from the event can be applied to my **Cloud Finance Platform – Personal Finance Management System**.
+
+An AI Agent in the platform could support users by:
+
+- Analyzing income and expenses.
+- Explaining financial transactions.
+- Detecting unusual spending.
+- Warning users when budgets are nearly exceeded.
+- Suggesting basic saving plans.
+- Summarizing financial activity.
+
+Human confirmation should still be required before the AI performs sensitive actions such as deleting transactions, modifying budgets or changing financial plans.
+
+The event also encouraged me to focus first on a practical MVP before expanding the financial assistant with more complex Agentic AI functions.
+
+---
+
+## Personal Experience
+
+I attended the event as an audience member and followed the presentations and project demonstrations.
+
+What impressed me most was that the teams shared not only their final solutions but also the development process, technical difficulties and decisions made under time pressure.
+
+The event showed that successful AI products require a combination of technical skills, business understanding, user experience, teamwork and presentation ability.
+
+It also provided useful ideas for applying Agentic AI and AWS services to future academic and software-development projects.
+
+---
+
+## Lessons Learned
+
+- AI should solve a real user or business problem.
+- A working MVP should be prioritized before advanced features.
+- Human confirmation is necessary for important AI decisions.
+- Multi-Agent systems require clear coordination and validation.
+- AWS services should be selected according to actual requirements.
+- Monitoring, security and operating costs should be considered from the design stage.
+- Teamwork and pitching are important parts of product development.
+
+---
+
+## Conclusion
+
+**FCAJ x Agentic AI Build Week: Show Up. Build. Pitch. WIN!** provided practical insights into Agentic AI, AWS architecture and product development under time constraints.
+
+Through the presented projects, I gained a clearer understanding of AI Agents, Multi-Agent systems, Human-in-the-loop, MVP development and effective pitching.
+
+The knowledge and ideas gained from the event can support my Cloud Computing internship and the continued development of the Cloud Finance Platform.

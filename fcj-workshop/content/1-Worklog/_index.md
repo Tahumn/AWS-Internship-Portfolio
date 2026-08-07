@@ -1,39 +1,46 @@
 ---
+
 title: "Worklog"
-date: 2024-01-01
+date: 2026-06-22
 weight: 1
 chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
+{{% notice info %}}
+This section summarizes the learning activities, project development tasks and AWS deployment work completed during the eight-week internship program.
 {{% /notice %}}
 
-**On this page**, you will need to introduce your worklog. **How** did you complete it? How many weeks did you take to complete the program? **What** did you do in those weeks?
+### Worklog Overview
 
-Typically, and as a standard, a worklog is carried out over about 3 months (throughout the internship period) with weekly contents as follows:
+The internship program was completed over eight weeks, from **June 22, 2026 to August 15, 2026**.
 
-**Week 1:** [Getting familiar with AWS and basic AWS services](1.1-week1/)
+During this period, I studied fundamental AWS services, developed the **Cloud Finance Platform – Personal Finance Management System**, designed its cloud architecture and deployed the main system components on AWS.
 
-**Week 2:** [Doing task A...](1.2-week2/)
+The weekly work progressed from foundational learning and system analysis to application development, infrastructure deployment, testing and final documentation.
 
-**Week 3:** [Doing task B...](1.3-week3/)
+**Week 1:** [Development tools, AWS fundamentals, Draw.io and Hugo](1.1-week1/)
 
-**Week 4:** [Doing task C...](1.4-week4/)
+**Week 2:** [Core AWS services and project initialization](1.2-week2/)
 
-**Week 5:** [Doing task D...](1.5-week5/)
+**Week 3:** [System analysis, architecture design and AWS solution evaluation](1.3-week3/)
 
-**Week 6:** [Doing task E...](1.6-week6/)
+**Week 4:** [Application development and local integration](1.4-week4/)
 
-**Week 7:** [Doing task G...](1.7-week7/)
+**Week 5:** [AWS networking infrastructure and Amazon ECR](1.5-week5/)
 
-**Week 8:** [Doing task H...](1.8-week8/)
+**Week 6:** [Amazon RDS, Redis, Secrets Manager and ECS Fargate](1.6-week6/)
 
-**Week 9:** [Doing task I...](1.9-week9/)
+**Week 7:** [ALB, S3, CloudFront, WAF, SES, CloudWatch and CI/CD](1.7-week7/)
 
-**Week 10:** [Doing task L...](1.10-week10/)
+**Week 8:** [End-to-end testing, cost review and final report](1.8-week8/)
 
-**Week 11:** [Doing task M...](1.11-week11/)
+### Main Results
 
-**Week 12:** [Doing task N...](1.12-week12/)
+* Built and organized the Cloud Finance Platform project using a microservices architecture.
+* Designed the AWS infrastructure across public, private application and private database subnets.
+* Deployed Backend Services using Amazon ECS Fargate.
+* Configured Amazon RDS PostgreSQL, Redis, AWS Secrets Manager and ECS Service Connect.
+* Deployed the Frontend using Amazon S3 and CloudFront.
+* Configured ALB, AWS WAF, Amazon SES, Amazon CloudWatch and GitHub Actions CI/CD.
+* Tested the main system flows and completed the technical documentation, Portfolio and internship report.

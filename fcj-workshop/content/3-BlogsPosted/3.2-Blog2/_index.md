@@ -1,31 +1,121 @@
 ---
-title: "Blog 2"
-date: 2024-01-01
-weight: 1
+
+title: "Amazon ECS Service Auto Scaling – Scale Resources Based on Demand"
+date: 2026-08-05
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
+
+{{% notice info %}}
+📈 **Note:** This article summarizes what I learned while researching Amazon ECS Service Auto Scaling. Auto Scaling was evaluated as a production improvement and was not enabled in the current internship environment.
 {{% /notice %}}
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+# AMAZON ECS SERVICE AUTO SCALING – SCALE RESOURCES BASED ON DEMAND
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+When deploying an application on Amazon ECS Fargate, it is difficult to predict exactly how many tasks will be required at every moment.
 
-Key points to know:
+Running too few tasks may cause slow responses when traffic increases. Running too many tasks continuously can waste resources and increase operating costs.
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+**Amazon ECS Service Auto Scaling** helps solve this problem by automatically adjusting the desired number of ECS tasks according to workload demand.
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
+---
 
-...Image...
+## How ECS Service Auto Scaling Works
 
-...Link...
+When configuring Auto Scaling for an ECS Service, we normally define:
 
-...Guide...
+* **Minimum capacity:** The minimum number of tasks that must remain running.
+* **Maximum capacity:** The maximum number of tasks that the service can create.
+* **Scaling metric:** The metric used to determine whether the service should scale.
+* **Target value:** The utilization level that the system attempts to maintain.
+
+Common metrics include:
+
+* ECS Service average CPU utilization.
+* ECS Service average memory utilization.
+* Application Load Balancer request count per target.
+* Custom CloudWatch metrics.
+
+A simplified process is:
+
+```text
+Traffic increases
+      ↓
+CPU, memory or request count reaches the configured threshold
+      ↓
+Application Auto Scaling increases the desired task count
+      ↓
+Amazon ECS launches additional tasks
+      ↓
+Application Load Balancer distributes traffic across healthy tasks
+```
+
+When the workload decreases, the service can reduce the number of tasks while keeping the configured minimum capacity.
+
+---
+
+## Auto Scaling Is Not Only for Large Systems
+
+What I find most useful is that Auto Scaling is not limited to extremely large systems.
+
+Even for small applications or learning projects, studying Auto Scaling helps explain how a cloud system responds to changing workloads.
+
+Instead of predicting the exact number of servers in advance, developers can define safe minimum and maximum limits and allow AWS to adjust the capacity based on actual usage.
+
+This is one of the clear differences between deploying applications in the cloud and running them on a traditional fixed-capacity server.
+
+---
+
+## Architecture Illustration
+
+{{< figure src="/images/blog2.jpg" title="AWS application architecture using Amazon ECS Fargate and Application Load Balancer" >}}
+
+**Suggested caption:** Application architecture using Amazon ECS Fargate, Application Load Balancer, Amazon S3, Amazon SQS and Amazon DynamoDB for traffic distribution, asynchronous processing and data storage.
+
+---
+
+## Important Configuration Notes
+
+* Avoid setting the CPU threshold too low, as the service may scale even when the workload is still small.
+* Configure suitable scale-out and scale-in cooldown periods to prevent frequent capacity changes.
+* Monitor memory utilization when the application consumes more memory than CPU.
+* Set realistic minimum and maximum task limits to control availability and cost.
+* Ensure that new tasks pass the Health Check before receiving traffic.
+* For HTTP or HTTPS services, an Application Load Balancer helps distribute requests across healthy ECS tasks.
+* Scaling the application layer does not automatically scale dependent resources such as the database.
+
+Auto Scaling should therefore be configured together with monitoring, Health Checks and appropriate capacity planning.
+
+---
+
+## What I Learned
+
+After researching this feature, I realized that Auto Scaling is not an optional luxury reserved for large applications.
+
+The main objective is to use the appropriate amount of resources at the appropriate time:
+
+* When traffic is low, the service can operate with fewer tasks and reduce costs.
+* When traffic increases, the service can add tasks to maintain performance.
+* When traffic returns to normal, unnecessary tasks can be removed.
+
+This capability makes cloud deployment more flexible than maintaining a fixed number of traditional servers.
+
+For my **Cloud Finance Platform**, the current environment keeps `desiredCount = 1` for each ECS Service. ECS Service Auto Scaling is a future production proposal that could improve availability and resource efficiency when the number of users increases.
+
+---
+
+## Article Link
+
+⏳ Status: Submitted to AWS Study Group – pending approval.
+
+The article has been submitted to AWS Study Group and is currently awaiting administrator approval.
+
+---
+
+## Reference Materials
+
+* [Amazon ECS Service Auto Scaling – AWS Documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html)
+* [Amazon CloudWatch Metrics for ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/available-metrics.html)
+* [Application Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html)
+* [Amazon ECS Best Practices](https://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/)

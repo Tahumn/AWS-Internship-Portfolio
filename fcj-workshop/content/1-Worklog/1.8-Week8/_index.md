@@ -1,57 +1,63 @@
 ---
+
 title: "Week 8 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-08-01
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice warning %}}
+⚠️ **Note:** The following content reflects the actual system testing, evaluation and reporting activities carried out during the eighth and final internship week.
 {{% /notice %}}
 
+### Week 8 Objectives
 
-### Week 8 Objectives:
+* Perform end-to-end testing of the deployed Cloud Finance Platform.
+* Verify the main application, networking, database and notification flows.
+* Review the user interface, security configuration and AWS operating costs.
+* Record and resolve remaining deployment issues.
+* Complete the demonstration video, technical documentation, Portfolio and internship report.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+---
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Weekly Tasks
 
+| Day | Task                                                                                                                                                                                                                                                                                                                                          | Start Date | Completion Date | Reference Materials                                                                                                                                                                     |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mon | - Test the end-to-end request flow from the Frontend through CloudFront, ALB and Gateway Service to the Backend Microservices.<br>- Verify ECS Service Connect communication, Amazon RDS connectivity and Amazon CloudWatch logs.<br>- Record S3 Receipts/Exports as an incomplete integration item.                                          | 10/08/2026 | 10/08/2026      | Project repository:<br>https://github.com/Tahumn/cloud-finance-platform                                                                                                                 |
+| Tue | - Test authentication, transactions, categories, budgets and savings goals.<br>- Test financial planning and recurring-transaction functions.<br>- Record functional errors and unexpected responses for correction.                                                                                                                          | 11/08/2026 | 11/08/2026      | Project repository:<br>https://github.com/Tahumn/cloud-finance-platform                                                                                                                 |
+| Wed | - Test the implemented OCR and AI Agent functions.<br>- Test the Notification API, Redis Queue and Notification Worker workflow.<br>- Send test emails through Amazon SES to a verified identity.<br>- Review application and ECS logs in Amazon CloudWatch.                                                                                  | 12/08/2026 | 12/08/2026      | Project repository:<br>https://github.com/Tahumn/cloud-finance-platform<br><br>Learning materials:<br>https://cloudjourney.awsstudygroup.com/<br>https://www.youtube.com/@AWSStudyGroup |
+| Thu | - Check the responsive interface on different screen sizes.<br>- Review AWS WAF, IAM Roles, IAM Policies, Security Groups and AWS Secrets Manager.<br>- Verify resource permissions and ensure that sensitive information is not exposed in the repository.                                                                                   | 13/08/2026 | 13/08/2026      | Project repository:<br>https://github.com/Tahumn/cloud-finance-platform                                                                                                                 |
+| Fri | - Record and resolve remaining deployment issues.<br>- Verify ALB and ECS Health Checks.<br>- Test ECS Task recovery after a container failure.<br>- Review AWS service usage, AWS Budgets and estimated operating costs.                                                                                                                     | 14/08/2026 | 14/08/2026      | Learning materials:<br>https://cloudjourney.awsstudygroup.com/<br>https://www.youtube.com/@AWSStudyGroup                                                                                |
+| Sat | - Record a demonstration video of the main system functions.<br>- Complete the AWS architecture, deployment and CI/CD documentation.<br>- Summarize encountered issues and applied solutions.<br>- Update the Week 8 Worklog and Hugo Portfolio.<br>- Synchronize the final project documents with GitHub and complete the internship report. | 15/08/2026 | 15/08/2026      | Portfolio repository:<br>https://github.com/Tahumn/AWS-Internship-Portfolio<br><br>Project repository:<br>https://github.com/Tahumn/cloud-finance-platform                              |
 
-### Week 8 Achievements:
+---
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Personal Project Progress
 
-* Successfully created and configured an AWS Free Tier account.
+**Project Name**
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+Cloud Finance Platform – Personal Finance Management System
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+**Tasks Completed**
 
-* Used AWS CLI to perform basic operations such as:
+* Tested the end-to-end request flow across the deployed AWS architecture.
+* Verified the main authentication, finance, planning, recurring, OCR and AI functions.
+* Tested the Redis-based notification workflow and Amazon SES email delivery to a verified identity.
+* Reviewed ECS Service Connect, Amazon RDS connectivity and Amazon CloudWatch logs.
+* Tested the responsive interface and reviewed the main AWS security configurations.
+* Recorded S3 Receipts/Exports as an incomplete integration item.
+* Reviewed Health Checks, ECS Task recovery and AWS operating costs.
+* Completed the demonstration video, architecture documentation and internship report.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+---
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+### Week 8 Achievements
+
+* Completed end-to-end testing of the main system flows.
+* Verified the operation of the deployed Frontend, Backend Microservices, Amazon RDS and Redis.
+* Validated Amazon SES email delivery within the Sandbox limitation.
+* Identified and resolved remaining application and deployment issues.
+* Reviewed security controls and AWS service costs.
+* Completed the Worklog, Portfolio, demonstration video and final internship report.

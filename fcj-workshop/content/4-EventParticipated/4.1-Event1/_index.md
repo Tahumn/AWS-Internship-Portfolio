@@ -1,224 +1,276 @@
 ---
-title: "Event 1"
-date: 2024-01-01
+title: "Event 1 – Cloud Architect"
+date: 2026-06-20
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report.
+{{% notice info %}}
+🏆 **Role:** Competitor – Member of team **Gặp phải thằng liều**
 {{% /notice %}}
 
-# Event Summary Report: AI & AWS Community Sharing
+# EVENT REPORT: CLOUD ARCHITECT
 
-## Event Objectives
+## Event Information
 
-The event was organized to provide participants with a comprehensive understanding of how Artificial Intelligence (AI) is transforming modern businesses. Instead of focusing solely on Generative AI, the workshop covered a wide range of practical topics, including AI Voice, AI Agents, Amazon Q, FinOps, DevOps automation, AI-powered Human Resources, and real-world experiences of building AI startups.
+&emsp;**Event Name:** Cloud Architect  
 
-Through presentations delivered by industry experts who have hands-on experience implementing AI solutions, participants gained valuable insights into:
+&emsp;**Date:** June 20, 2026  
 
-- The latest AI trends in enterprises.
-- Best practices for developing AI solutions from Proof of Concept (PoC) to Production.
-- How AWS services support modern AI applications.
-- Cost optimization and operational strategies for AI workloads.
-- The role of AI in improving productivity and business decision-making.
+&emsp;**Location:** 26th Floor, Bitexco Financial Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
 
----
+&emsp;**Format:** Team-based AWS knowledge competition  
 
-# Key Highlights
+&emsp;**Role:** Competitor  
 
-## 1. AI Startup – From Ideas to Real Products
-
-One of the opening sessions focused on the journey of building AI startups.
-
-The speaker emphasized that many development teams spend excessive time perfecting their ideas instead of validating them in the real market. Rather than waiting for a perfect solution, startups should quickly develop a Minimum Viable Product (MVP), launch it to customers, gather feedback, and continuously improve the product. :contentReference[oaicite:0]{index=0}
-
-Some important lessons included:
-
-- Always begin with a real business problem.
-- Do not build AI simply because it is a trending technology.
-- Continuously iterate based on customer feedback.
-- Find champion customers to validate product value.
-- Be prepared to pivot when market conditions change.
-
-These principles provide a practical mindset for anyone interested in building AI-powered products.
+&emsp;**Team:** Gặp phải thằng liều  
 
 ---
 
-## 2. AI Voice and Conversational AI
+## Purpose of the Event
 
-This was one of the most interesting sessions throughout the event.
+On **June 21, 2026**, I participated as a competitor in the **Cloud Architect** event.
 
-The speaker explained how modern AI Voice systems go far beyond traditional Speech-to-Text and Text-to-Speech technologies. A production-ready conversational AI must understand context, determine when to respond, and recognize when users are still speaking. :contentReference[oaicite:1]{index=1}
+The event was organized as a team-based competition in which participants answered questions related to Cloud Computing, AWS services and cloud architecture design.
 
-Besides speech processing, enterprise AI Voice solutions also require several supporting components, including:
+Instead of attending only as an observer, I directly competed as a member of the **Gặp phải thằng liều** team. The event gave me an opportunity to review AWS knowledge, practice problem-solving under time pressure and improve teamwork and communication skills.
 
-- Prompt Management
-- Knowledge Base
-- Versioning
-- Audit Logs
-- Human Handoff
-- Multi-turn Conversations
-- Context Memory
-
-A particularly valuable concept introduced during the session was the Human-in-the-loop approach. When AI cannot confidently resolve a customer's request or detects user dissatisfaction, the conversation should automatically be transferred to a human support agent. This hybrid AI architecture significantly improves customer experience while maintaining operational efficiency. :contentReference[oaicite:2]{index=2}
+The questions progressed from fundamental cloud concepts to more difficult AWS architecture scenarios. Therefore, participants needed both theoretical knowledge and the ability to analyze technical requirements quickly.
 
 ---
 
-## 3. AI Agents and DevOps Automation
+## Participating Teams
 
-Another notable topic was the application of AI Agents in modern software operations.
+The competition included **eight teams**, with five members in each team:
 
-The speakers demonstrated how AI Agents can assist engineers by:
+1. **KLKAT**
+2. **PrimeOps**
+3. **Team newbie**
+4. **Young Flame IT**
+5. **Loser**
+6. **Ngũ Đại Hiệp**
+7. **Gặp phải thằng liều**
+8. **Lifelong Learners**
 
-- Analyzing system logs.
-- Detecting operational issues.
-- Recommending possible solutions.
-- Generating remediation plans.
-- Integrating with DevOps platforms.
+I participated as a member of **Team 7 – Gặp phải thằng liều**.
 
-One particularly interesting point was that AI Agents are highly extensible through MCP, Skills, and Extensions, enabling them to communicate with multiple enterprise tools and automate repetitive operational tasks. Combined with AWS Lambda and AWS Systems Manager, AI Agents can become powerful automation assistants for infrastructure management. :contentReference[oaicite:3]{index=3}
+The quarter-final matchups were:
 
-However, the speakers also stressed that AI Agents are designed to support engineers rather than replace them. The quality of AI-generated recommendations depends heavily on enterprise knowledge, structured processes, and high-quality data. :contentReference[oaicite:4]{index=4}
+- KLKAT vs PrimeOps
+- Team newbie vs Young Flame IT
+- Loser vs Ngũ Đại Hiệp
+- Gặp phải thằng liều vs Lifelong Learners
 
----
-
-## 4. AI for Human Resources
-
-Another practical session focused on applying AI to Human Resource management.
-
-The presenters discussed several common HR challenges faced by modern organizations:
-
-- Time-consuming recruitment processes.
-- Difficulty evaluating candidates objectively.
-- Limited data for decision-making.
-- High hiring costs.
-- Challenges in long-term workforce planning.
-
-To address these issues, the speakers introduced Amazon Q as an intelligent AI assistant for HR teams. Amazon Q can summarize documents, analyze candidate profiles, generate reports, and provide useful recommendations that enable HR professionals to make better and faster decisions. :contentReference[oaicite:5]{index=5} :contentReference[oaicite:6]{index=6}
+Each participant could join only one team. Team members did not have to belong to the same internship group.
 
 ---
 
-## 5. Amazon Q and Enterprise AI
+## Competition Format
 
-One of the most anticipated sessions introduced **Amazon Q**, AWS's AI-powered assistant designed specifically for enterprise environments.
+The event followed a knockout tournament format consisting of:
 
-Unlike general-purpose AI chatbots, Amazon Q integrates with multiple enterprise knowledge sources, including documentation, internal wikis, source code repositories, project management platforms, and AWS services. This enables employees to quickly retrieve accurate information without manually searching across different systems. :contentReference[oaicite:7]{index=7}
+- Four quarter-final matches
+- Two semi-final matches
+- One final match
 
-The speakers presented several practical use cases, including:
+Two teams competed against each other in each match. They answered questions from the selected question set, progressing from easier questions to more difficult architecture questions.
 
-- Assisting developers in understanding existing source code.
-- Automatically generating technical documentation.
-- Creating unit tests.
-- Supporting code reviews.
-- Searching enterprise knowledge bases.
-- Assisting HR, Sales, Marketing, and Customer Support teams.
+The team with the higher score advanced to the next round.
 
-A major advantage of Amazon Q is its enterprise-grade security model. It respects existing user permissions, ensuring that employees can only access information they are authorized to view. This provides organizations with greater confidence when adopting AI technologies in production environments. :contentReference[oaicite:8]{index=8}
+If both teams had the same score after the first ten questions, an additional **Question 11** was used as a tie-breaker. The team that answered correctly in the shortest time won the match.
 
-The presenters also highlighted Amazon Q's extensibility through Agents, Skills, and Extensions, allowing integration with services such as GitHub, Jira, Slack, Microsoft Teams, and various AWS services to automate business workflows.
+This format required participants to balance accuracy, speed and team coordination.
 
 ---
 
-## 6. AI for FinOps and Cloud Cost Optimization
+## Question Levels and Scoring
 
-Another valuable topic discussed during the workshop was **FinOps**, a methodology for optimizing cloud spending while maximizing business value.
+The question sets covered three levels of AWS knowledge.
 
-As AI adoption continues to grow, infrastructure costs can increase significantly if organizations lack proper governance strategies. The speakers emphasized that cost optimization is a shared responsibility involving engineering, operations, and finance teams.
+### AWS Cloud Practitioner
 
-Some recommended best practices included:
+The fundamental questions focused on:
 
-- Continuously monitoring cloud resource utilization.
-- Building dashboards to track cloud spending.
-- Selecting appropriate compute services for each workload.
-- Removing unused resources.
-- Setting budgets and cost alerts.
-- Leveraging Reserved Instances or Savings Plans when appropriate.
-- Measuring the return on investment (ROI) before expanding AI projects. :contentReference[oaicite:9]{index=9}
+- Cloud Computing concepts
+- AWS Global Infrastructure
+- Core AWS services
+- IAM and security
+- Billing and pricing
+- AWS Well-Architected Framework
 
-Rather than focusing solely on reducing costs, FinOps aims to maximize the overall value delivered by cloud investments.
+Each correct answer was worth **10 points**.
 
----
+### AWS Solutions Architect – Associate
 
-# Key Takeaways
+The Associate-level questions focused on:
 
-## Product Development Mindset
+- Amazon EC2
+- Amazon S3
+- Amazon VPC
+- Elastic Load Balancing
+- Auto Scaling
+- Amazon RDS
+- High Availability
+- Disaster Recovery
+- Scalable architecture design
 
-Throughout the workshop, I learned several valuable principles regarding product development:
+Each correct answer was worth **20 points**.
 
-- Always begin with business problems instead of technology.
-- Build MVPs quickly to validate ideas.
-- Continuously improve products based on customer feedback.
-- AI only creates value when solving real business challenges.
+### AWS Solutions Architect – Professional
 
-## AI and System Architecture
+The most challenging questions covered:
 
-The event significantly improved my understanding of enterprise AI systems, including:
+- Enterprise architecture
+- Hybrid Cloud
+- Multi-Account architecture
+- Migration strategies
+- Cost optimization
+- Security architecture
+- Large-scale AWS deployments
 
-- Designing AI Agents.
-- Integrating LLMs with enterprise knowledge bases.
-- Managing conversational context effectively.
-- Applying Human-in-the-loop principles.
-- Extending AI capabilities through Agents and MCP.
-
-## AWS Services
-
-The workshop also strengthened my understanding of AWS services used in modern AI solutions, particularly:
-
-- Amazon Q
-- AWS Lambda
-- Amazon Bedrock
-- AI Agent development services
-- DevOps automation tools
-
-More importantly, I realized that building enterprise AI systems requires balancing scalability, security, maintainability, and operational costs—not simply deploying AI models.
+Each correct answer was worth **50 points**.
 
 ---
 
-# Applying the Knowledge
+## Special Skills
 
-Many of the concepts introduced during the workshop can be applied directly to my current projects.
+Each team could use two special skills during a match.
 
-For my game development project **The Last Rule**, I plan to explore AI Agents that allow NPCs to generate context-aware conversations instead of relying solely on predefined dialogue trees.
+### Minimum Risk – One Use
 
-During software development, I also intend to use Amazon Q to improve code comprehension, automate documentation, and accelerate software development tasks.
+This skill could be used when the team was uncertain about an answer.
 
-Furthermore, the FinOps concepts introduced during the workshop have increased my awareness of cloud cost management when deploying applications on AWS.
+- If the answer was incorrect, no points were deducted.
+- If the answer was correct, the team received half of the question’s normal score.
 
-Finally, the startup experiences shared by the speakers encouraged me to focus on building Minimum Viable Products first, collecting user feedback, and continuously improving the product rather than attempting to develop a perfect solution from the beginning.
+This skill helped reduce the risk of losing points on difficult questions.
 
----
+### Star of Hope – One Use
 
-# Event Experience
+This skill could be used for the answer that the team felt most confident about.
 
-This workshop was one of the most practical AI events I have attended.
+- A correct answer earned double points.
+- An incorrect answer resulted in double the normal point deduction.
 
-What impressed me the most was that the speakers did not simply introduce new technologies. Instead, they shared real implementation experiences, practical challenges, and lessons learned while deploying AI solutions in production environments.
-
-The real-world examples demonstrated that building enterprise AI systems involves much more than calling Large Language Model APIs. Organizations must also consider knowledge management, security, authorization, scalability, operational costs, and user experience.
-
-The event also broadened my understanding of emerging trends such as AI Agents, Enterprise AI, Amazon Q, and AI-powered software engineering tools, all of which are becoming increasingly important across industries.
-
-Additionally, the workshop provided valuable insights into how AI can improve Human Resources, Customer Service, Software Development, and Cloud Infrastructure Management.
+This was a high-risk, high-reward skill that required the team to evaluate its confidence carefully.
 
 ---
 
-# Lessons Learned
+## My Competition Experience
 
-After attending the event, I gained several important insights:
+As a member of **Gặp phải thằng liều**, I participated directly in team discussions and answer selection.
 
-- AI should enhance human productivity rather than replace human expertise.
-- Successful AI adoption begins with solving business problems instead of following technology trends.
-- Enterprise AI requires the integration of AI models, data, business processes, and human collaboration.
-- Amazon Q and AI Agents have enormous potential to automate repetitive tasks, allowing engineers to focus on higher-value activities.
-- When deploying AI workloads on AWS, organizations must carefully balance performance, scalability, and operational costs.
-- The workshop inspired many ideas that I can apply to my academic projects, research activities, and future software development work.
+Before submitting an answer, the team needed to:
+
+1. Identify the AWS topic involved.
+2. Analyze the requirements in the question.
+3. Eliminate unsuitable solutions.
+4. Agree on the most appropriate answer.
+5. Decide whether to use a special skill.
+
+The limited response time made teamwork especially important. Each member needed to share ideas clearly and avoid spending too much time debating one question.
+
+The competition also showed that remembering service names was not enough. Many architecture questions required us to understand why one AWS service was more suitable than another based on security, availability, scalability and cost.
+
+---
+
+## Competition Progress
+
+The competition created an energetic and competitive learning environment.
+
+According to the event results:
+
+- **KLKAT** advanced to the final.
+- **Ngũ Đại Hiệp** advanced to the final.
+- **Young Flame IT** achieved third place.
+
+The final match between KLKAT and Ngũ Đại Hiệp was scheduled for **July 11, 2026**.
+
+Regardless of the final ranking, all eight teams had the opportunity to review their AWS knowledge and learn from the explanations and approaches used by other participants.
+
+---
+
+## Knowledge and Skills Gained
+
+### AWS Knowledge
+
+Through the competition, I reviewed:
+
+- Cloud Computing fundamentals
+- AWS Regions and Availability Zones
+- IAM and access control
+- Amazon EC2, S3, VPC and RDS
+- Elastic Load Balancing and Auto Scaling
+- High Availability and Disaster Recovery
+- Security and cost optimization
+- AWS architecture design principles
+
+### Soft Skills
+
+The event also helped me improve:
+
+- Team collaboration
+- Technical communication
+- Critical thinking
+- Time management
+- Decision-making under pressure
+- Risk evaluation when using special skills
+
+---
+
+## Applying the Knowledge to My Project
+
+The knowledge gained from the Cloud Architect competition can be applied to my **Cloud Finance Platform – Personal Finance Management System** project.
+
+The architecture questions helped me better understand:
+
+- How to separate public, application and database network layers.
+- How Security Groups control communication between services.
+- When to use Amazon RDS, Amazon S3 and Amazon ECS.
+- How Load Balancing and Auto Scaling support availability.
+- Why IAM permissions should follow the principle of least privilege.
+- How to balance performance, security and cost when selecting AWS services.
+
+These lessons supported the later design and deployment of the project on AWS.
+
+---
+
+## Lessons Learned
+
+After participating in the competition, I learned that:
+
+- Strong AWS fundamentals are necessary before solving advanced architecture questions.
+- Understanding use cases is more important than memorizing service names.
+- Team communication directly affects decision-making speed.
+- Special skills should be used based on confidence and risk.
+- Architecture questions must be evaluated from multiple perspectives, including security, availability, scalability and cost.
+- Competitions are useful for identifying knowledge gaps and improving practical thinking.
 
 ---
 
 ## Event Photos
 
-*Add your event photos here.*
+### Tournament Bracket
 
-> Overall, the workshop provided a comprehensive overview of the AWS AI ecosystem, covering AI product development, AI Agents, Amazon Q for enterprise applications, and FinOps for cloud cost optimization. The knowledge and practical experiences gained from this event will serve as a valuable foundation for my future studies, research projects, and professional software engineering career.
+{{< figure
+    src="/images/Sodothidau.jpg"
+    title="Cloud Architect tournament bracket with eight participating teams"
+>}}
+
+### Photos taken at the event
+
+{{< figure
+    src="/images/AnhSuKien1.JPG"
+    title="Group photo at the end of the event"
+>}}
+
+---
+
+## Conclusion
+
+The **Cloud Architect** event was a valuable opportunity for me to compete directly, review AWS knowledge and practice cloud architecture problem-solving.
+
+As a member of **Gặp phải thằng liều**, I gained practical experience in team discussion, time-limited decision-making and evaluating AWS solutions under competitive conditions.
+
+The event strengthened both my technical knowledge and teamwork skills, while also providing useful lessons for the development and deployment of the Cloud Finance Platform project.

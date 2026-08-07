@@ -1,45 +1,59 @@
 ---
-title: "Các events đã tham gia"
-date: 2024-01-01
+title: "Các sự kiện đã tham gia"
+date: 2026-06-20
 weight: 4
 chapter: false
 pre: " <b> 4. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# Các sự kiện đã tham gia
 
-> Trong phần này, các bạn cần liệt kê và mô tả chi tiết các sự kiện (event) mà mình đã tham gia trong suốt quá trình thực tập hoặc làm việc. 
-> 
-> Mỗi sự kiện nên được trình bày theo định dạng Event 1, Event 2, Event 3…, kèm theo các thông tin:
-> * Tên sự kiện
-> * Thời gian tổ chức
-> * Địa điểm (nếu có)
-> * Vai trò của bạn trong sự kiện (người tham dự, hỗ trợ tổ chức, diễn giả, v.v.)
-> * Mô tả ngắn gọn nội dung và hoạt động chính trong sự kiện
-> * Kết quả hoặc giá trị đạt được (bài học, kỹ năng mới, đóng góp cho nhóm/dự án)
-> * Việc liệt kê này giúp thể hiện rõ sự tham gia thực tế của bạn, cũng như các kỹ năng mềm và kinh nghiệm bạn đã tích lũy qua từng sự kiện.
+Trong quá trình thực tập, mình đã tham gia ba sự kiện liên quan đến AWS, Cloud Computing và Trí tuệ nhân tạo. Các sự kiện giúp mình củng cố kiến thức chuyên môn, nâng cao kỹ năng làm việc nhóm, giao tiếp và tiếp cận thêm nhiều kinh nghiệm thực tế từ cộng đồng công nghệ.
 
+---
 
-Trong quá trình thực tập, em đã tham gia 2 events, với mỗi event là một trải nghiệm đáng nhớ với những kiến thức mới, hay và bổ ích, cùng với đó là nhứng món quà và những khoảnh khắc rất tuyệt vời.
+### [Sự kiện 1 – Cloud Architect](4.1-Event1/)
 
-### [Event 1](4.1-Event1/)
-&emsp;**Tên sự kiện:** GenAI-powered App-DB Modernization workshop
+&emsp;**Tên sự kiện:** Cloud Architect  
 
-&emsp;**Thời gian:** 09:00 ngày 13/08/2025
+&emsp;**Ngày tổ chức:** 20/06/2026  
 
-&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
+&emsp;**Địa điểm:** Tầng 26, Tòa nhà Bitexco Financial Tower, số 02 Hải Triều, phường Sài Gòn, Thành phố Hồ Chí Minh  
 
-&emsp;**Vai trò trong sự kiện:** Người tham dự 
+&emsp;**Vai trò:** Thí sinh – Thành viên đội **Gặp phải thằng liều**  
 
+&emsp;**Nội dung chính:** Cuộc thi kiến thức AWS theo đội, gồm các câu hỏi về Cloud Computing, dịch vụ AWS, thiết kế kiến trúc hệ thống và kiến thức theo các cấp độ chứng chỉ AWS.
 
+&emsp;**Giá trị đạt được:** Củng cố kiến thức AWS, nâng cao khả năng làm việc nhóm, quản lý thời gian và ra quyết định dưới áp lực.
 
-### [Event 2](4.2-Event2/)
-&emsp;**Tên sự kiện:** GenAI-powered App-DB Modernization workshop
+---
 
-&emsp;**Thời gian:** 09:00 ngày 13/08/2025
+### [Sự kiện 2 – FCAJ Community Day - June 2026](4.2-Event2/)
 
-&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
+&emsp;**Tên sự kiện:** FCAJ Community Day - June 2026  
 
-&emsp;**Vai trò trong sự kiện:** Người tham dự 
+&emsp;**Ngày tổ chức:** 27/06/2026  
+
+&emsp;**Địa điểm:** Tầng 26, Tòa nhà Bitexco Financial Tower, số 02 Hải Triều, phường Sài Gòn, Thành phố Hồ Chí Minh  
+
+&emsp;**Vai trò:** Người tham dự  
+
+&emsp;**Nội dung chính:** Sự kiện chia sẻ kiến thức về AI Voice, AI Agent, Amazon Q, Enterprise AI, ứng dụng AI trong quản trị nhân sự và FinOps.
+
+&emsp;**Giá trị đạt được:** Hiểu rõ hơn về AI trong doanh nghiệp, tối ưu chi phí Cloud và cách phát triển sản phẩm AI từ bài toán thực tế.
+
+---
+
+### [Sự kiện 3 – FCAJ x Agentic AI Build Week](4.3-Event3/)
+
+&emsp;**Tên sự kiện:** FCAJ x Agentic AI Build Week: Show Up. Build. Pitch. WIN!  
+
+&emsp;**Ngày tổ chức:** 25/07/2026  
+
+&emsp;**Địa điểm:** Tầng 26, Tòa nhà Bitexco Financial Tower, số 02 Hải Triều, phường Sài Gòn, Thành phố Hồ Chí Minh  
+
+&emsp;**Vai trò:** Người tham dự  
+
+&emsp;**Nội dung chính:** Sự kiện trình bày và chia sẻ các dự án Agentic AI, hệ thống Multi-Agent, kiến trúc AWS, phát triển MVP, teamwork và kỹ năng pitching.
+
+&emsp;**Giá trị đạt được:** Hiểu thêm về kiến trúc AI Agent, Human-in-the-loop, cách ưu tiên chức năng MVP, trình bày sản phẩm và phối hợp trong nhóm công nghệ.

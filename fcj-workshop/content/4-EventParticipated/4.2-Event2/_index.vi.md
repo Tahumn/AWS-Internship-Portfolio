@@ -1,313 +1,222 @@
 ---
-title: "Event 3"
-date: 2024-01-01
-weight: 3
+title: "Sự kiện 2 – FCAJ Community Day - June 2026"
+date: 2026-06-27
+weight: 2
 chapter: false
-pre: " <b> 4.3. </b> "
+pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn.
+{{% notice info %}}
+ **Vai trò:** Người tham dự
 {{% /notice %}}
 
-# Bài thu hoạch sự kiện AWS Agentic AI Build Week & Hackathon Sharing
+# BÁO CÁO SỰ KIỆN: FCAJ COMMUNITY DAY - JUNE 2026
 
-## Mục đích của sự kiện
+## Thông tin sự kiện
 
-Sự kiện được tổ chức nhằm chia sẻ những kiến thức và kinh nghiệm thực tế trong quá trình xây dựng sản phẩm tại chương trình **AWS Agentic AI Build Week & Hackathon**. Nội dung tập trung vào xu hướng Agentic AI, cách thiết kế hệ thống AI trên nền tảng Amazon Web Services (AWS), kinh nghiệm phát triển sản phẩm trong thời gian giới hạn và bài học làm việc nhóm từ các đội thi đạt giải.
+&emsp;**Tên sự kiện:** FCAJ Community Day - June 2026  
 
-Thông qua phần trình bày của đại diện AWS và các đội tham gia Hackathon, người tham dự có cơ hội:
+&emsp;**Ngày tổ chức:** 27/06/2026  
 
-- Hiểu rõ hơn về Agentic AI và mô hình Multi-Agent.
-- Tìm hiểu cách xây dựng sản phẩm AI từ ý tưởng đến phiên bản MVP.
-- Tiếp cận kiến trúc ứng dụng AI sử dụng các dịch vụ AWS.
-- Học hỏi kinh nghiệm tối ưu chi phí và khả năng mở rộng hệ thống.
-- Hiểu vai trò của teamwork, quản lý thời gian và kỹ năng thuyết trình.
-- Nhận thức rõ hơn về việc kết hợp AI với nhu cầu thực tế của doanh nghiệp.
+&emsp;**Địa điểm:** Tầng 26, Tòa nhà Bitexco Financial Tower, số 02 Hải Triều, phường Sài Gòn, Thành phố Hồ Chí Minh  
 
----
+&emsp;**Hình thức:** Sự kiện chia sẻ kiến thức dành cho cộng đồng công nghệ  
 
-# Các chủ đề nổi bật của sự kiện
-
-## 1. Agentic AI và tư duy đổi mới trong tương lai
-
-Mở đầu chương trình, đại diện AWS chia sẻ về sự phát triển nhanh chóng của AI và những thay đổi mà công nghệ này có thể tạo ra trong công việc. AI trong tương lai không chỉ dừng lại ở việc trả lời câu hỏi mà có thể hoạt động như một Agent có khả năng phân tích, lập kế hoạch, sử dụng công cụ và thực hiện nhiều bước để hoàn thành một mục tiêu.
-
-Diễn giả nhấn mạnh rằng AI không thay thế hoàn toàn con người. Con người vẫn giữ vai trò xác định mục tiêu, kiểm tra kết quả và quyết định cách sử dụng công nghệ. Vì vậy, mỗi cá nhân cần duy trì tinh thần học tập liên tục, chủ động thử nghiệm và sẵn sàng thay đổi những cách làm cũ khi công nghệ phát triển.
-
-Một số thông điệp nổi bật gồm:
-
-- Không nên giới hạn bản thân trong các phương pháp đã có sẵn.
-- Cần chủ động học hỏi và thử nghiệm công nghệ mới.
-- AI nên được xem là công cụ hỗ trợ nâng cao năng suất.
-- Con người vẫn phải kiểm soát các quyết định quan trọng.
-- Khả năng thích nghi là kỹ năng cần thiết trong ngành Công nghệ thông tin.
+&emsp;**Vai trò:** Người tham dự  
 
 ---
 
-## 2. AI Conversational Ordering – Đặt món qua hội thoại
+## Tổng quan sự kiện
 
-Một trong những dự án nổi bật tại sự kiện là giải pháp **AI Conversational Ordering** dành cho lĩnh vực thức ăn nhanh.
+Ngày **27/06/2026**, mình tham dự sự kiện **FCAJ Community Day - June 2026** được tổ chức tại Tòa nhà Bitexco Financial Tower, Thành phố Hồ Chí Minh.
 
-Nhóm phát triển nhận thấy rằng quá trình đặt món qua ứng dụng truyền thống có thể gây bất tiện vì khách hàng phải chuyển sang một nền tảng khác, đăng nhập, tìm kiếm món ăn và thực hiện nhiều thao tác. Vì vậy, nhóm xây dựng một AI Agent cho phép người dùng đặt món trực tiếp thông qua các nền tảng nhắn tin như Zalo hoặc WhatsApp.
+Sự kiện quy tụ các chuyên gia công nghệ và thành viên trong cộng đồng để chia sẻ kiến thức thực tế về Trí tuệ nhân tạo, các dịch vụ AWS và xu hướng ứng dụng công nghệ mới trong doanh nghiệp.
 
-AI có thể hỗ trợ người dùng:
-
-- Tìm kiếm món ăn trong thực đơn.
-- Tư vấn món ăn phù hợp.
-- Thêm hoặc thay đổi sản phẩm trong giỏ hàng.
-- Gợi ý chương trình khuyến mãi.
-- Kiểm tra lại thông tin đơn hàng.
-- Xác nhận đơn trước khi hoàn tất.
-
-Giải pháp giúp rút ngắn quy trình đặt hàng, giảm số bước thao tác và tạo cảm giác tự nhiên hơn khi người dùng giao tiếp với hệ thống.
-
-Một điểm quan trọng là AI không tự động hoàn tất đơn hàng ngay sau khi hiểu yêu cầu. Hệ thống sẽ hiển thị lại toàn bộ thông tin để khách hàng xác nhận. Cách làm này giúp hạn chế rủi ro khi AI hiểu sai số lượng, sản phẩm hoặc yêu cầu của người dùng, đồng thời thể hiện rõ nguyên tắc **Human-in-the-loop**.
+Nội dung chương trình bao gồm nhiều chủ đề như AI Startup, AI Voice, AI Agent, Amazon Q, DevOps Automation, AI trong quản trị nhân sự và FinOps. Các diễn giả không chỉ trình bày khái niệm mà còn chia sẻ kinh nghiệm triển khai, khó khăn thực tế và những bài học rút ra từ các dự án doanh nghiệp.
 
 ---
 
-## 3. Kiến trúc đa kênh và khả năng giám sát hệ thống
+## Hình ảnh sự kiện
 
-Nhóm thiết kế hệ thống theo hướng đa kênh. Mỗi nền tảng nhắn tin được kết nối thông qua một lớp Adapter để chuyển đổi dữ liệu về cùng một định dạng trước khi gửi đến AI Agent.
-
-Thiết kế này mang lại nhiều lợi ích:
-
-- Dễ bổ sung kênh giao tiếp mới.
-- Không phụ thuộc hoàn toàn vào một nền tảng.
-- Có thể tái sử dụng phần xử lý AI.
-- Thuận lợi khi mở rộng sang doanh nghiệp khác.
-- Giảm khối lượng thay đổi khi tích hợp hệ thống mới.
-
-Ngoài giao diện dành cho khách hàng, nhóm còn xây dựng Dashboard để nhân viên theo dõi lịch sử hội thoại, kiểm tra cách AI xử lý yêu cầu và hỗ trợ khách hàng khi xảy ra lỗi.
-
-Qua nội dung này, mình hiểu rằng một hệ thống AI thực tế không chỉ cần chatbot mà còn cần các chức năng giám sát, lưu lịch sử, kiểm soát lỗi và cho phép con người can thiệp khi cần thiết.
+{{< figure
+    src="/images/event2_1.jpg"
+    title="FCAJ Community Day - June 2026"
+>}}
 
 ---
 
-## 4. AgentCore và khả năng ghi nhớ ngữ cảnh
+## Các chủ đề chính
 
-Trong phần trình bày kiến trúc, nhóm giới thiệu việc sử dụng AgentCore để hỗ trợ xây dựng và vận hành AI Agent.
+### 1. Xây dựng sản phẩm AI từ bài toán thực tế
 
-Khả năng quản lý bộ nhớ giúp hệ thống duy trì ngữ cảnh trong cuộc trò chuyện và có thể ghi nhớ một số lựa chọn trước đó của người dùng. Nhờ đó, AI có thể đưa ra phản hồi phù hợp hơn và giảm việc người dùng phải lặp lại thông tin.
+Một trong những bài học quan trọng của sự kiện là sản phẩm AI nên bắt đầu từ một bài toán thực tế của doanh nghiệp thay vì chỉ chạy theo xu hướng công nghệ.
 
-Khả năng ghi nhớ ngữ cảnh có thể hỗ trợ:
+Các diễn giả đề xuất:
 
-- Cá nhân hóa trải nghiệm.
-- Duy trì nội dung xuyên suốt cuộc trò chuyện.
-- Gợi ý lại sản phẩm từng được lựa chọn.
-- Giảm số lần người dùng phải nhập lại thông tin.
-- Tăng tính tự nhiên trong giao tiếp với AI.
+- Xác định rõ vấn đề của khách hàng.
+- Nhanh chóng xây dựng phiên bản tối thiểu khả dụng.
+- Thử nghiệm sản phẩm với người dùng thực tế.
+- Thu thập phản hồi và liên tục cải tiến.
+- Sẵn sàng điều chỉnh ý tưởng khi cần thiết.
 
-Tuy nhiên, khi lưu trữ thông tin người dùng, hệ thống cũng cần quan tâm đến bảo mật, quyền truy cập và chính sách quản lý dữ liệu.
-
----
-
-## 5. Multi-Agent Strategy Intelligence
-
-Một dự án khác được giới thiệu là hệ thống **Multi-Agent Strategy Intelligence**.
-
-Thay vì giao toàn bộ nhiệm vụ cho một Agent, hệ thống chia bài toán thành nhiều phần và giao cho các Agent chuyên biệt. Mỗi Agent có thể đảm nhận một vai trò như:
-
-- Thu thập dữ liệu.
-- Phân tích thông tin.
-- Đánh giá thị trường.
-- Xác định rủi ro.
-- Tổng hợp kết quả.
-- Đề xuất chiến lược.
-
-Các Agent phối hợp với nhau để tạo ra kết quả cuối cùng. Cách tiếp cận này phù hợp với những bài toán có nhiều bước và cần xử lý nhiều nguồn dữ liệu.
-
-Qua phần chia sẻ, mình hiểu rằng Multi-Agent Architecture giúp phân tách trách nhiệm rõ ràng hơn. Tuy nhiên, hệ thống cũng cần có cơ chế điều phối, kiểm tra kết quả và quản lý trạng thái giữa các Agent.
+Cách tiếp cận này giúp nhóm phát triển tránh mất quá nhiều thời gian xây dựng những chức năng mà người dùng không thực sự cần.
 
 ---
 
-## 6. Kiến trúc AWS cho ứng dụng AI
+### 2. AI Voice và Conversational AI
 
-Nhóm phát triển hệ thống Multi-Agent đã sử dụng nhiều dịch vụ AWS, bao gồm:
+Phiên chia sẻ về AI Voice cho thấy một trợ lý giọng nói thực tế cần nhiều thành phần hơn Speech-to-Text và Text-to-Speech.
 
-- **AWS Amplify:** hỗ trợ phát triển và triển khai giao diện ứng dụng.
-- **AWS WAF:** bảo vệ ứng dụng trước các yêu cầu không hợp lệ.
-- **Amazon Cognito:** quản lý đăng nhập và xác thực người dùng.
-- **AWS Lambda:** xử lý các chức năng Backend theo mô hình Serverless.
-- **Amazon S3:** lưu trữ tài liệu và dữ liệu.
-- **Amazon DynamoDB:** lưu dữ liệu NoSQL và trạng thái xử lý.
-- **Amazon Bedrock:** cung cấp các mô hình nền tảng cho ứng dụng AI.
-- **AgentCore:** hỗ trợ xây dựng và vận hành AI Agent.
+Một hệ thống AI hội thoại hoàn chỉnh cần có khả năng:
 
-Kiến trúc này cho thấy một ứng dụng AI hoàn chỉnh không chỉ gồm mô hình ngôn ngữ mà còn cần nhiều thành phần hỗ trợ như xác thực, lưu trữ, bảo mật, điều phối và giám sát hệ thống.
+- Hiểu ngữ cảnh của cuộc trò chuyện.
+- Nhận biết khi người dùng đã nói xong.
+- Duy trì thông tin qua nhiều lượt hội thoại.
+- Kết nối với Knowledge Base.
+- Ghi lại Audit Log.
+- Chuyển cuộc hội thoại cho nhân viên khi cần thiết.
 
-Việc lựa chọn dịch vụ AWS cần dựa trên yêu cầu thực tế, khả năng mở rộng và ngân sách của dự án, thay vì sử dụng quá nhiều dịch vụ không cần thiết.
+Mô hình Human-in-the-loop có vai trò đặc biệt quan trọng. AI có thể xử lý các yêu cầu phổ biến, còn những tình huống phức tạp hoặc nhạy cảm sẽ được chuyển cho nhân viên hỗ trợ.
 
 ---
 
-## 7. Xây dựng MVP trong Hackathon
+### 3. AI Agent và DevOps Automation
 
-Các đội thi phải phát triển sản phẩm trong khoảng thời gian giới hạn. Vì vậy, việc xác định phạm vi và ưu tiên tính năng đóng vai trò rất quan trọng.
+Các diễn giả cũng trình bày vai trò của AI Agent trong phát triển phần mềm và vận hành hệ thống.
 
-Thay vì cố gắng hoàn thiện toàn bộ hệ thống, nhóm cần tập trung vào phiên bản MVP có thể chứng minh được:
+AI Agent có thể hỗ trợ kỹ sư:
 
-- Vấn đề cần giải quyết.
-- Nhóm người dùng mục tiêu.
-- Giá trị mà AI mang lại.
-- Quy trình hoạt động chính.
-- Một bản Demo có thể sử dụng.
-- Kiến trúc có thể tiếp tục mở rộng.
+- Phân tích log ứng dụng và hạ tầng.
+- Phát hiện các vấn đề vận hành.
+- Đề xuất phương án xử lý.
+- Xây dựng kế hoạch khắc phục lỗi.
+- Kết nối với các công cụ DevOps.
+- Tự động hóa những tác vụ lặp lại.
 
-Bài học quan trọng là sản phẩm cần hoạt động được trước khi bổ sung quá nhiều tính năng. Một dự án có ít chức năng nhưng hoàn chỉnh sẽ hiệu quả hơn một dự án có nhiều chức năng nhưng không thể trình diễn.
+AI Agent còn có thể được mở rộng thông qua MCP, Skills và Extensions để tương tác với các hệ thống doanh nghiệp và dịch vụ AWS.
 
----
-
-## 8. Teamwork và kỹ năng thuyết trình
-
-Bên cạnh kỹ thuật, các đội thi cũng chia sẻ nhiều kinh nghiệm về teamwork.
-
-Trong một nhóm, mỗi thành viên có thể đảm nhận một vai trò khác nhau như nghiên cứu, thiết kế, lập trình, kiểm thử hoặc chuẩn bị nội dung thuyết trình. Việc phân chia nhiệm vụ hợp lý giúp nhóm tận dụng được điểm mạnh của từng người và hoàn thành sản phẩm đúng thời hạn.
-
-Để làm việc nhóm hiệu quả, các thành viên cần:
-
-- Lắng nghe ý kiến của nhau.
-- Thống nhất mục tiêu chung.
-- Phân chia công việc rõ ràng.
-- Chủ động cập nhật tiến độ.
-- Hỗ trợ nhau khi gặp khó khăn.
-- Ưu tiên kết quả chung thay vì ý kiến cá nhân.
-
-Ngoài ra, kỹ năng thuyết trình cũng rất quan trọng. Một đội cần giải thích rõ vấn đề, giải pháp, kiến trúc AWS, vai trò của AI, chi phí dự kiến và giá trị kinh doanh trong thời gian ngắn.
+Tuy nhiên, AI Agent nên đóng vai trò hỗ trợ, không thay thế hoàn toàn khả năng đánh giá của kỹ sư.
 
 ---
 
-# Những gì học được
+### 4. Amazon Q và Enterprise AI
 
-Qua sự kiện, mình học được nhiều kiến thức về AI, AWS và tư duy phát triển sản phẩm.
+Amazon Q được giới thiệu là trợ lý AI dành cho môi trường doanh nghiệp.
 
-## Về tư duy phát triển sản phẩm
+Công cụ này có thể kết nối với các nguồn dữ liệu như:
 
-- Cần bắt đầu từ một vấn đề thực tế của người dùng.
-- Không nên sử dụng AI chỉ vì đây là công nghệ mới.
-- Nên xây dựng MVP trước khi mở rộng sản phẩm.
-- Cần cân bằng giữa tính năng, thời gian và chi phí.
-- Một sản phẩm tốt phải mang lại giá trị thực tế cho người dùng.
+- Tài liệu nội bộ.
+- Repository mã nguồn.
+- Knowledge Base.
+- Hệ thống quản lý dự án.
+- Các tài nguyên AWS.
 
-## Về Agentic AI
+Một số trường hợp sử dụng gồm:
 
-- AI Agent có thể lập kế hoạch và thực hiện nhiều bước.
-- Multi-Agent phù hợp với những quy trình có nhiều nhiệm vụ chuyên biệt.
-- Bộ nhớ giúp AI duy trì ngữ cảnh và cá nhân hóa trải nghiệm.
-- Human-in-the-loop giúp tăng độ an toàn và độ tin cậy.
-- Hệ thống AI cần có Dashboard giám sát và cơ chế xử lý lỗi.
+- Giải thích source code hiện có.
+- Tạo tài liệu kỹ thuật.
+- Hỗ trợ xây dựng unit test.
+- Hỗ trợ review code.
+- Tìm kiếm thông tin nội bộ.
+- Hỗ trợ các bộ phận nhân sự, kinh doanh và chăm sóc khách hàng.
 
-## Về AWS
-
-Mình hiểu rõ hơn vai trò của Amazon Bedrock, AgentCore, Amazon Cognito, AWS Lambda, Amazon S3, DynamoDB, AWS Amplify và AWS WAF trong việc xây dựng ứng dụng AI.
-
-Ngoài ra, mình nhận thấy việc lựa chọn kiến trúc cần dựa trên nhu cầu thực tế, khả năng bảo trì, bảo mật và chi phí vận hành.
-
-## Về kỹ năng làm việc
-
-- Cần biết ưu tiên công việc trong điều kiện thời gian giới hạn.
-- Teamwork có ảnh hưởng trực tiếp đến kết quả dự án.
-- Kỹ năng trình bày kiến trúc cũng quan trọng như kỹ năng lập trình.
-- Phản hồi từ người dùng và ban giám khảo giúp sản phẩm được cải thiện tốt hơn.
+Một ưu điểm quan trọng là Amazon Q tuân theo quyền truy cập hiện có, giúp hạn chế việc người dùng truy cập thông tin ngoài phạm vi được cấp phép.
 
 ---
 
-# Ứng dụng vào công việc và đồ án
+### 5. AI trong quản trị nhân sự
 
-Những kiến thức từ sự kiện có thể áp dụng vào quá trình thực tập Cloud Computing và dự án **Cloud Finance Platform**.
+Sự kiện cũng giới thiệu một số ứng dụng AI trong quản trị nhân sự.
 
-## 1. Tích hợp AI Agent
+AI có thể hỗ trợ doanh nghiệp:
 
-Cloud Finance Platform có thể nghiên cứu sử dụng AI Agent để:
+- Tổng hợp thông tin ứng viên.
+- Phân tích hồ sơ.
+- Chuẩn bị báo cáo tuyển dụng.
+- Hỗ trợ đánh giá ứng viên.
+- Giảm các công việc hành chính lặp lại.
+- Cải thiện quá trình hoạch định nhân sự.
 
-- Phân tích thu nhập và chi tiêu.
-- Giải thích các giao dịch.
-- Cảnh báo khi chi tiêu vượt ngân sách.
-- Gợi ý kế hoạch tiết kiệm.
-- Tóm tắt tình hình tài chính theo tuần hoặc tháng.
-- Trả lời câu hỏi dựa trên dữ liệu tài chính của người dùng.
-
-Hệ thống cũng có thể chia thành nhiều Agent như Transaction Agent, Budget Agent, Planning Agent và Report Agent để xử lý từng nhiệm vụ riêng.
-
-## 2. Áp dụng Human-in-the-loop
-
-Đối với dữ liệu tài chính, AI chỉ nên đưa ra đề xuất. Các hành động như chỉnh sửa ngân sách, xóa giao dịch hoặc thay đổi kế hoạch tài chính cần được người dùng xác nhận trước khi thực hiện.
-
-## 3. Xây dựng Dashboard giám sát AI
-
-Nhóm phát triển có thể theo dõi:
-
-- Lịch sử hội thoại.
-- Kết quả phân tích của AI.
-- Các lỗi phát sinh.
-- Thời gian phản hồi.
-- Chi phí sử dụng mô hình.
-- Phản hồi của người dùng.
-
-Dashboard giúp kiểm tra chất lượng và cải thiện hệ thống theo thời gian.
-
-## 4. Áp dụng tư duy MVP
-
-Thay vì xây dựng ngay một trợ lý tài chính quá phức tạp, dự án có thể bắt đầu với một MVP gồm:
-
-- Trả lời câu hỏi về tổng thu và chi.
-- Phân tích các danh mục chi tiêu lớn.
-- Cảnh báo khi ngân sách gần vượt giới hạn.
-- Gợi ý kế hoạch tiết kiệm cơ bản.
-
-Sau khi có phản hồi từ người dùng, nhóm mới tiếp tục mở rộng các chức năng nâng cao.
+Các diễn giả nhấn mạnh AI chỉ nên hỗ trợ chuyên viên nhân sự thay vì tự đưa ra toàn bộ quyết định.
 
 ---
 
-# Trải nghiệm trong sự kiện
+### 6. FinOps và tối ưu chi phí Cloud
 
-Đây là một sự kiện mang lại cho mình nhiều kiến thức thực tế về Agentic AI, kiến trúc AWS và quá trình xây dựng sản phẩm trong Hackathon.
+FinOps tập trung vào việc kiểm soát chi phí Cloud đồng thời tối đa hóa giá trị mà tài nguyên Cloud mang lại.
 
-Điểm mình ấn tượng nhất là các đội thi không chỉ giới thiệu kết quả cuối cùng mà còn chia sẻ những khó khăn trong quá trình phát triển. Các thành viên phải phối hợp trong thời gian ngắn, thay đổi ý tưởng, điều chỉnh kiến trúc và chuẩn bị phần trình bày trước ban giám khảo.
+Một số phương pháp được chia sẻ gồm:
 
-Giải pháp AI Conversational Ordering giúp mình hiểu rõ hơn cách AI được tích hợp vào một quy trình kinh doanh cụ thể. Dự án Multi-Agent Strategy Intelligence giúp mình tiếp cận cách chia một bài toán phức tạp thành nhiều nhiệm vụ và giao cho các Agent chuyên biệt.
+- Theo dõi mức sử dụng tài nguyên.
+- Xây dựng dashboard chi phí.
+- Loại bỏ các tài nguyên không còn sử dụng.
+- Thiết lập ngân sách và cảnh báo chi phí.
+- Lựa chọn dịch vụ compute phù hợp với workload.
+- Cân nhắc Reserved Instances hoặc Savings Plans khi phù hợp.
+- Đánh giá giá trị của dự án AI trước khi mở rộng.
 
-Sự kiện cũng giúp mình nhận ra rằng kỹ năng kỹ thuật chỉ là một phần của sản phẩm. Teamwork, tư duy kinh doanh, trải nghiệm người dùng, quản lý chi phí và khả năng thuyết trình đều có ảnh hưởng lớn đến kết quả cuối cùng.
-
----
-
-# Bài học rút ra
-
-Sau khi tham gia sự kiện, mình rút ra một số bài học quan trọng:
-
-- AI chỉ có giá trị khi giải quyết được vấn đề thực tế.
-- Cần hiểu nhu cầu người dùng trước khi lựa chọn công nghệ.
-- Nên xây dựng MVP để kiểm chứng ý tưởng.
-- Hệ thống AI cần có bảo mật, giám sát và cơ chế xác nhận.
-- Con người vẫn phải kiểm soát các quyết định quan trọng của AI.
-- Kiến trúc AWS cần phù hợp với yêu cầu và ngân sách.
-- Chi phí vận hành cần được xem xét từ giai đoạn thiết kế.
-- Teamwork và kỹ năng thuyết trình có vai trò rất quan trọng.
-- Cần duy trì tinh thần học tập liên tục để theo kịp sự phát triển của AI.
+Mục tiêu của FinOps không chỉ là giảm chi phí mà còn bảo đảm khoản đầu tư vào Cloud mang lại giá trị thực tế cho doanh nghiệp.
 
 ---
 
-## Một số hình ảnh khi tham gia sự kiện
+## Kiến thức đạt được
 
-*Thêm hình ảnh tổng quan về không gian sự kiện tại đây.*
+Thông qua sự kiện, mình hiểu rõ hơn về:
 
-*Thêm hình ảnh phần phát biểu của đại diện AWS tại đây.*
+- Quá trình phát triển sản phẩm AI từ ý tưởng đến MVP.
+- Kiến trúc của hệ thống AI Voice và AI hội thoại.
+- Vai trò của Human-in-the-loop trong Enterprise AI.
+- Ứng dụng AI Agent trong DevOps Automation.
+- Khả năng của Amazon Q trong môi trường doanh nghiệp.
+- Ứng dụng AI trong quản trị nhân sự.
+- Tầm quan trọng của FinOps và quản lý chi phí Cloud.
 
-*Thêm hình ảnh đội trình bày dự án AI Conversational Ordering tại đây.*
-
-*Thêm hình ảnh sơ đồ kiến trúc hoặc phần Demo của dự án tại đây.*
-
-*Thêm hình ảnh đội trình bày Multi-Agent Strategy Intelligence tại đây.*
-
-*Thêm hình ảnh chụp lưu niệm sau sự kiện tại đây.*
+Mình cũng nhận ra rằng một hệ thống AI có thể vận hành trong thực tế cần nhiều hơn một mô hình AI. Hệ thống còn phải giải quyết các vấn đề về dữ liệu, bảo mật, phân quyền, khả năng mở rộng, giám sát, chi phí và trải nghiệm người dùng.
 
 ---
 
-# Kết luận
+## Áp dụng vào dự án
 
-Sự kiện **AWS Agentic AI Build Week & Hackathon Sharing** đã mang đến cho mình cái nhìn thực tế hơn về Agentic AI, kiến trúc ứng dụng trên AWS và quá trình phát triển sản phẩm trong môi trường Hackathon.
+Nhiều kiến thức từ sự kiện có thể áp dụng vào dự án **Cloud Finance Platform – Personal Finance Management System**.
 
-Thông qua các dự án được trình bày, mình hiểu rằng một hệ thống AI hoàn chỉnh cần có sự kết hợp giữa mô hình AI, dữ liệu, bảo mật, khả năng giám sát, trải nghiệm người dùng và chi phí vận hành.
+Phần chia sẻ về phát triển sản phẩm giúp mình chú trọng hơn đến những nhu cầu thiết yếu của người dùng trước khi mở rộng thêm nhiều chức năng.
 
-Những kiến thức về AI Agent, Multi-Agent Architecture, MVP, teamwork và các dịch vụ AWS có thể được áp dụng trực tiếp vào quá trình thực tập cũng như dự án Cloud Finance Platform.
+Các nội dung về AI Agent cũng mang lại ý tưởng để cải thiện chức năng phân tích tài chính và hỗ trợ người dùng. Thay vì tạo các phản hồi riêng lẻ, thành phần AI cần sử dụng đúng ngữ cảnh tài chính và hoạt động trong phạm vi quyền được kiểm soát.
 
-Nhìn chung, đây là một chương trình thiết thực, giúp mình mở rộng kiến thức về AI và Cloud Computing, đồng thời tạo thêm động lực để tiếp tục học tập, thử nghiệm và phát triển những sản phẩm có giá trị trong tương lai.
+Nội dung FinOps đặc biệt hữu ích vì dự án sử dụng nhiều dịch vụ AWS. Việc theo dõi chi phí, cấu hình AWS Budgets và xóa tài nguyên không còn sử dụng là cần thiết để tránh phát sinh chi phí không mong muốn.
+
+---
+
+## Trải nghiệm khi tham dự
+
+Mình tham dự sự kiện với vai trò người nghe và theo dõi các phần trình bày của những chuyên gia công nghệ.
+
+Điểm mình ấn tượng nhất là tính thực tế của các phiên chia sẻ. Các diễn giả không chỉ giới thiệu công nghệ mới mà còn trình bày những khó khăn gặp phải trong quá trình triển khai.
+
+Sự kiện giúp mình hiểu rằng ứng dụng AI trong doanh nghiệp bao gồm nhiều nội dung hơn việc gọi API của một mô hình ngôn ngữ lớn. Một giải pháp hoàn chỉnh cần có quản lý dữ liệu, bảo mật, phân quyền, giám sát, kiểm soát chi phí và sự tham gia của con người.
+
+Đây cũng là cơ hội hữu ích để mình học hỏi từ cộng đồng công nghệ và có thêm nhiều ý tưởng cho các dự án học tập và phát triển phần mềm trong tương lai.
+
+---
+
+## Bài học rút ra
+
+Sau khi tham dự sự kiện, mình rút ra một số bài học:
+
+- Dự án AI nên bắt đầu từ bài toán thực tế.
+- Xây dựng MVP là cách hiệu quả để kiểm chứng ý tưởng.
+- AI nên hỗ trợ chuyên môn của con người thay vì thay thế hoàn toàn.
+- Enterprise AI cần dữ liệu đáng tin cậy và cơ chế phân quyền phù hợp.
+- AI Agent có thể tăng năng suất thông qua tự động hóa công việc lặp lại.
+- Chi phí Cloud cần được theo dõi ngay từ đầu dự án.
+- Bảo mật, khả năng mở rộng và bảo trì là các yêu cầu quan trọng của hệ thống production.
+
+---
+
+## Kết luận
+
+**FCAJ Community Day - June 2026** mang đến cái nhìn thực tế về các ứng dụng AI hiện đại và hệ sinh thái AWS.
+
+Những phiên chia sẻ về AI Voice, AI Agent, Amazon Q, quản trị nhân sự và FinOps giúp mình hiểu rõ hơn cả yêu cầu kỹ thuật lẫn yêu cầu vận hành của một hệ thống AI trong doanh nghiệp.
+
+Các kiến thức thu nhận được từ sự kiện sẽ hỗ trợ mình trong quá trình tiếp tục học AWS và đưa ra những quyết định phù hợp hơn khi phát triển và triển khai dự án Cloud Finance Platform.

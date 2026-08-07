@@ -1,34 +1,36 @@
 ---
+
 title: "Week 4 Worklog"
 date: 2026-07-13
 weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
----
+----------------------
 
 {{% notice warning %}}
-⚠️ **Note:** The following content reflects the actual learning activities completed during the fourth internship week.
+⚠️ **Note:** The following content reflects the actual learning activities and project tasks completed during the fourth internship week.
 {{% /notice %}}
 
 ### Week 4 Objectives
 
-* Continue studying AWS services required for system deployment.
-* Learn Amazon DynamoDB, AWS CLI and AWS Cloud9.
-* Continue improving and optimizing the Personal Finance Management System.
-* Prepare the project for AWS service integration.
-* Complete the technical documentation and internship portfolio.
+* Continue developing the Cloud Finance Platform.
+* Improve the Frontend, Backend and microservice structure.
+* Integrate the main finance, authentication, OCR, AI and notification functions.
+* Strengthen the local development environment using Docker Compose, PostgreSQL and Redis.
+* Test the implemented APIs and update the project documentation.
 
 ---
 
 ### Weekly Tasks
 
-| Day | Task | Start Date | Completion Date | Reference Material |
-| ---- | ---- | ---------- | --------------- | ------------------ |
-| Mon | - Study Amazon DynamoDB architecture and NoSQL concepts <br>- Compare NoSQL and relational databases <br>- Practice Tables, Items, Attributes, Partition Keys and Sort Keys <br>- Perform CRUD operations using Query, Scan and Global Secondary Index (GSI) | 13/07/2026 | 13/07/2026 | https://cloudjourney.awsstudygroup.com/ |
-| Tue | - Install and configure AWS CLI <br>- Configure Access Key, Secret Access Key and default Region <br>- Practice managing AWS resources using AWS CLI <br>- Explore AWS Cloud9 and GitHub integration | 14/07/2026 | 14/07/2026 | https://cloudjourney.awsstudygroup.com/ |
-| Wed | - Review the overall system architecture <br>- Review the communication flow between Frontend, Backend and Database <br>- Standardize the project structure and REST APIs <br>- Standardize Request, Response and Error Handling | 15/07/2026 | 15/07/2026 | AWS Documentation |
-| Thu | - Continue improving frontend <br>- Standardize the source code structure <br>- Evaluate the migration of the project data model to Amazon DynamoDB <br>- Analyze APIs suitable for AWS Lambda deployment | 16/07/2026 | 16/07/2026 | AWS Documentation |
-| Fri | - Prepare the integration plan for Amazon API Gateway, AWS Lambda and Amazon DynamoDB <br>- Study the IAM permission model <br>- Build the AWS deployment roadmap <br>- Update the Worklog, Portfolio and GitHub repository | 17/07/2026 | 17/07/2026 | https://github.com/Tahumn/AWS-Internship-Portfolio https://github.com/Tahumn/cloud-finance-platform |
+| Day | Task                                                                                                                                                                                                                                                                                                        | Start Date | Completion Date | Reference Materials                                                                                                                                                                     |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mon | - Review the existing Frontend and Backend structure.<br>- Standardize folders, naming conventions and source-code organization.<br>- Review the communication flow between the Frontend, Gateway Service and Backend Microservices.                                                                        | 13/07/2026 | 13/07/2026      | Project repository:<br>https://github.com/Tahumn/cloud-finance-platform                                                                                                                 |
+| Tue | - Continue developing the Gateway Service using FastAPI and Socket.IO.<br>- Improve user authentication, session management and authorization.<br>- Review Request, Response and Error Handling conventions for REST APIs.                                                                                  | 14/07/2026 | 14/07/2026      | Project repository:<br>https://github.com/Tahumn/cloud-finance-platform                                                                                                                 |
+| Wed | - Continue developing account, category and transaction management functions.<br>- Add and improve budget and savings-goal features.<br>- Test the related REST APIs on the local environment.                                                                                                              | 15/07/2026 | 15/07/2026      | Project repository:<br>https://github.com/Tahumn/cloud-finance-platform                                                                                                                 |
+| Thu | - Continue developing financial planning and recurring-transaction functions.<br>- Build the initial OCR Service for extracting information from receipts.<br>- Continue integrating the AI Agent with Gemini for financial analysis and recommendations.                                                   | 16/07/2026 | 16/07/2026      | Project repository:<br>https://github.com/Tahumn/cloud-finance-platform<br><br>Learning materials:<br>https://cloudjourney.awsstudygroup.com/<br>https://www.youtube.com/@AWSStudyGroup |
+| Fri | - Develop and integrate the Notification API and Notification Worker.<br>- Configure PostgreSQL and Redis for local development and testing.<br>- Adjust Dockerfiles, Docker Compose and environment variables for the application services.<br>- Check communication between the integrated microservices. | 17/07/2026 | 17/07/2026      | Project repository:<br>https://github.com/Tahumn/cloud-finance-platform                                                                                                                 |
+| Sat | - Test authentication, transactions, planning, OCR and AI functions on the local environment.<br>- Record and fix Frontend, Backend and database-connection issues.<br>- Update API and database-design documentation.<br>- Update the Week 4 Worklog and synchronize project documents with GitHub.        | 18/07/2026 | 18/07/2026      | Portfolio repository:<br>https://github.com/Tahumn/AWS-Internship-Portfolio<br><br>Project repository:<br>https://github.com/Tahumn/cloud-finance-platform                              |
 
 ---
 
@@ -36,28 +38,27 @@ pre: " <b> 1.4. </b> "
 
 **Project Name**
 
-Personal Finance Management System
+Cloud Finance Platform – Personal Finance Management System
 
-**Completed Tasks**
+**Tasks Completed**
 
-* Reviewed and evaluated the overall system architecture.
-* Standardized the frontend, backend and source code management structure.
-* Reviewed and optimized the existing REST APIs.
-* Standardized Request, Response and Error Handling.
-* Reviewed the communication flow between the frontend, backend and database.
-* Evaluated the migration of the project data model to Amazon DynamoDB.
-* Analyzed components suitable for a Serverless architecture.
-* Planned the integration of Amazon API Gateway, AWS Lambda and Amazon DynamoDB.
-* Updated the system architecture documentation, database documentation and project repository.
+* Reviewed and standardized the Frontend, Backend and microservice structure.
+* Continued developing the Gateway Service with FastAPI and Socket.IO.
+* Improved authentication, session management and authorization.
+* Continued implementing account, category, transaction, budget and savings-goal functions.
+* Integrated planning and recurring-transaction functions into the system.
+* Built the initial OCR Service and continued integrating the AI Agent with Gemini.
+* Developed the Notification API and Notification Worker.
+* Improved the local environment using Docker Compose, PostgreSQL and Redis.
+* Tested the implemented REST APIs and fixed issues found during local integration.
 
 ---
 
 ### Week 4 Achievements
 
-* Gained a solid understanding of Amazon DynamoDB architecture and NoSQL data modeling.
-* Understood Partition Keys, Sort Keys and Global Secondary Indexes (GSI).
-* Practiced managing AWS resources using AWS CLI.
-* Became familiar with the AWS Cloud9 cloud development environment.
-* Completed the architecture review and prepared the required components before AWS integration.
-* Established the integration plan for Amazon API Gateway, AWS Lambda and Amazon DynamoDB.
-* Successfully updated the Worklog, Portfolio and technical documentation.
+* Improved the organization and consistency of the project source code.
+* Extended the main financial-management functions of the application.
+* Integrated additional planning, OCR, AI and notification components.
+* Established a more stable local environment for running multiple services.
+* Verified communication between the Frontend, Gateway Service, microservices and databases.
+* Updated the API, database and Worklog documentation on GitHub.

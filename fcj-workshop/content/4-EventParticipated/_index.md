@@ -1,44 +1,59 @@
 ---
 title: "Events Participated"
-date: 2024-01-01
+date: 2026-06-20
 weight: 4
 chapter: false
 pre: " <b> 4. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** for your report, including this warning.
-{{% /notice %}}
+# Events Participated
 
-> In this section, you should list and describe in detail the events you have participated in during your internship or work experience.  
-> 
-> Each event should be presented in the format Event 1, Event 2, Event 3…, along with the following details:
-> * Event name
-> * Date and time
-> * Location (if applicable)
-> * Your role in the event (attendee, event support, speaker, etc.)
-> * A brief description of the event’s content and main activities
-> * Outcomes or value gained (lessons learned, new skills, contribution to the team/project)
-> * This listing helps demonstrate your actual participation as well as the soft skills and experience you have gained from each event.
-
-During my internship, I participated in two events. Each one was a memorable experience that provided new, interesting, and useful knowledge, along with gifts and wonderful moments.
-
-### [Event 1](4.1-Event1/)  
-&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop  
-
-&emsp;**Date & Time:** 09:00, August 13, 2025  
-
-&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
-
-&emsp;**Role:** Attendee  
+During my internship, I participated in three technology and AWS community events. These activities helped me strengthen my AWS knowledge, learn more about Agentic AI, improve teamwork and communication skills, and gain practical insights from technology professionals and other participants.
 
 ---
 
-### [Event 2](4.2-Event2/)  
-&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop  
+### [Event 1 – Cloud Architect](4.1-Event1/)
 
-&emsp;**Date & Time:** 09:00, August 13, 2025  
+&emsp;**Event Name:** Cloud Architect  
 
-&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
+&emsp;**Date:** June 20, 2026  
+
+&emsp;**Location:** 26th Floor, Bitexco Financial Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
+
+&emsp;**Role:** Competitor – Member of team **Gặp phải thằng liều**  
+
+&emsp;**Overview:** A team-based AWS knowledge competition covering Cloud Computing fundamentals, AWS services, system architecture design and certification-level questions.
+
+&emsp;**Value Gained:** Strengthened my AWS knowledge, teamwork, time management and decision-making skills under pressure.
+
+---
+
+### [Event 2 – FCAJ Community Day - June 2026](4.2-Event2/)
+
+&emsp;**Event Name:** FCAJ Community Day - June 2026  
+
+&emsp;**Date:** June 27, 2026  
+
+&emsp;**Location:** 26th Floor, Bitexco Financial Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
 
 &emsp;**Role:** Attendee  
+
+&emsp;**Overview:** A technology community event featuring practical sessions on AI Voice, AI Agents, Amazon Q, Enterprise AI, Human Resources applications and FinOps.
+
+&emsp;**Value Gained:** Gained a broader understanding of enterprise AI, cloud cost optimization and practical approaches to developing AI products.
+
+---
+
+### [Event 3 – FCAJ x Agentic AI Build Week](4.3-Event3/)
+
+&emsp;**Event Name:** FCAJ x Agentic AI Build Week: Show Up. Build. Pitch. WIN!  
+
+&emsp;**Date:** July 25, 2026  
+
+&emsp;**Location:** 26th Floor, Bitexco Financial Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
+
+&emsp;**Role:** Attendee  
+
+&emsp;**Overview:** A project-sharing and pitching event focused on Agentic AI, Multi-Agent systems, AWS architecture, MVP development and teamwork during a limited build period.
+
+&emsp;**Value Gained:** Learned more about AI Agent architecture, Human-in-the-loop, MVP prioritization, project presentation and collaboration in technology teams.

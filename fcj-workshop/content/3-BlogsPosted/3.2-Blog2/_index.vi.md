@@ -1,31 +1,121 @@
 ---
-title: "Blog 2"
-date: 2024-01-01
-weight: 1
+
+title: "Amazon ECS Service Auto Scaling – Tự động điều chỉnh tài nguyên theo nhu cầu"
+date: 2026-08-05
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice info %}}
+📈 **Lưu ý:** Bài viết tổng hợp những kiến thức mình tìm hiểu về Amazon ECS Service Auto Scaling. Auto Scaling được đánh giá như một phương án cho production và chưa được áp dụng vào môi trường thực tập hiện tại.
 {{% /notice %}}
 
-# SESSION POLICIES TRONG AMAZON EKS POD IDENTITY
+# AMAZON ECS SERVICE AUTO SCALING – TỰ ĐỘNG ĐIỀU CHỈNH TÀI NGUYÊN THEO NHU CẦU
 
-Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+Khi triển khai ứng dụng bằng Amazon ECS Fargate, rất khó dự đoán chính xác hệ thống sẽ cần bao nhiêu task tại từng thời điểm.
 
-Các điểm chính cần nắm:
+Nếu chạy quá ít task, ứng dụng có thể phản hồi chậm khi lưu lượng tăng. Nếu duy trì quá nhiều task liên tục, hệ thống sẽ sử dụng tài nguyên không cần thiết và làm tăng chi phí vận hành.
 
-* Session policy là một IAM policy inline được chỉ định khi tạo hoặc cập nhật Pod Identity association.
-* Quyền hiệu quả = intersection (giao) giữa permissions của IAM role và session policy → session policy chỉ có thể thu hẹp, không thể mở rộng quyền.
-* Giúp tránh tình trạng over-permissioning khi reuse chung một IAM role cho nhiều workloads có nhu cầu khác nhau.
-* Hỗ trợ cả same-account và cross-account (qua IAM role chaining).
-* Giảm đáng kể số lượng IAM roles cần quản lý, tránh chạm giới hạn quota IAM trong cluster lớn.
-* Cấu hình dễ dàng qua AWS Management Console, AWS CLI hoặc AWS SDK khi tạo association giữa Kubernetes ServiceAccount và IAM role.
+**Amazon ECS Service Auto Scaling** giúp giải quyết vấn đề này bằng cách tự động điều chỉnh số lượng ECS Task theo mức sử dụng thực tế.
 
-Tính năng này đặc biệt hữu ích khi bạn có nhiều ứng dụng chạy trên cùng một IAM role nhưng cần giới hạn quyền khác nhau (ví dụ: một pod chỉ đọc S3 bucket cụ thể, pod khác chỉ gọi một số API nhất định).
+---
 
-...Hình ảnh...
+## ECS Service Auto Scaling hoạt động như thế nào?
 
-...Link...
+Khi cấu hình Auto Scaling cho một ECS Service, chúng ta thường xác định:
 
-...Hướng dẫn...
+* **Minimum capacity:** Số task tối thiểu phải luôn duy trì.
+* **Maximum capacity:** Số task tối đa mà service được phép tạo.
+* **Scaling metric:** Chỉ số được dùng để quyết định scale.
+* **Target value:** Mức sử dụng mà hệ thống cố gắng duy trì.
+
+Một số metric phổ biến gồm:
+
+* Mức sử dụng CPU trung bình của ECS Service.
+* Mức sử dụng Memory trung bình của ECS Service.
+* Số request trên mỗi target của Application Load Balancer.
+* Custom Metric trên Amazon CloudWatch.
+
+Quy trình đơn giản có thể được mô tả như sau:
+
+```text
+Lưu lượng truy cập tăng
+        ↓
+CPU, Memory hoặc số request đạt ngưỡng
+        ↓
+Application Auto Scaling tăng desired task count
+        ↓
+Amazon ECS khởi tạo thêm task
+        ↓
+Application Load Balancer phân phối lưu lượng đến các task khỏe mạnh
+```
+
+Khi lưu lượng giảm, hệ thống có thể giảm bớt task nhưng vẫn duy trì số lượng tối thiểu đã cấu hình.
+
+---
+
+## Auto Scaling không chỉ dành cho hệ thống lớn
+
+Điều mình thích nhất là Auto Scaling không chỉ dành cho những hệ thống có quy mô cực lớn.
+
+Ngay cả với ứng dụng nhỏ hoặc dự án học tập, việc tìm hiểu Auto Scaling cũng giúp mình hiểu rõ hơn cách một hệ thống Cloud phản ứng khi tải thay đổi.
+
+Thay vì phải đoán trước chính xác sẽ cần bao nhiêu server, người triển khai chỉ cần xác định giới hạn tối thiểu, tối đa và để AWS điều chỉnh theo tình hình sử dụng thực tế.
+
+Đây cũng là một trong những điểm khác biệt rõ ràng giữa triển khai ứng dụng trên Cloud và duy trì một máy chủ truyền thống có tài nguyên cố định.
+
+---
+
+## Hình ảnh kiến trúc
+
+{{< figure src="/images/blog2.jpg" title="Kiến trúc ứng dụng AWS sử dụng Amazon ECS Fargate và Application Load Balancer" >}}
+
+**Chú thích gợi ý:** Kiến trúc triển khai ứng dụng sử dụng Amazon ECS Fargate, Application Load Balancer, Amazon S3, Amazon SQS và Amazon DynamoDB để phân phối lưu lượng, xử lý bất đồng bộ và lưu trữ dữ liệu.
+
+---
+
+## Một vài lưu ý khi cấu hình
+
+* Không nên đặt ngưỡng CPU quá thấp vì service có thể scale khi tải chưa đáng kể.
+* Nên thiết lập thời gian cooldown phù hợp để tránh scale out và scale in liên tục.
+* Nếu ứng dụng sử dụng RAM nhiều hơn CPU, nên theo dõi Memory Utilization.
+* Cần đặt giới hạn task tối thiểu và tối đa hợp lý để kiểm soát chi phí.
+* Task mới cần vượt qua Health Check trước khi nhận lưu lượng.
+* Với ứng dụng HTTP hoặc HTTPS, Application Load Balancer giúp phân phối request đến các ECS Task khỏe mạnh.
+* Việc scale tầng ứng dụng không đồng nghĩa cơ sở dữ liệu và các tài nguyên phụ thuộc cũng tự động scale.
+
+Vì vậy, Auto Scaling nên được sử dụng cùng với hệ thống giám sát, Health Check và kế hoạch tài nguyên phù hợp.
+
+---
+
+## Điều mình rút ra
+
+Sau khi tìm hiểu tính năng này, mình nhận thấy Auto Scaling không phải là một tính năng “xa xỉ” chỉ dành cho hệ thống lớn.
+
+Điều quan trọng là ứng dụng có thể sử dụng đúng lượng tài nguyên tại đúng thời điểm:
+
+* Khi ít người dùng, service có thể chạy với ít task hơn để giảm chi phí.
+* Khi lượng truy cập tăng, hệ thống có thể bổ sung task để duy trì hiệu năng.
+* Khi tải trở lại bình thường, những task không còn cần thiết có thể được loại bỏ.
+
+Khả năng này giúp việc triển khai trên Cloud linh hoạt hơn so với duy trì cố định một số lượng máy chủ truyền thống.
+
+Đối với dự án **Cloud Finance Platform**, môi trường hiện tại duy trì `desiredCount = 1` cho từng ECS Service. ECS Service Auto Scaling được đề xuất cho môi trường production nhằm cải thiện tính sẵn sàng và hiệu quả sử dụng tài nguyên khi số lượng người dùng tăng lên.
+
+---
+
+## Link bài viết
+
+⏳ Trạng thái: Đã gửi lên AWS Study Group – đang chờ phê duyệt.
+
+Bài viết đã được gửi lên AWS Study Group và hiện đang chờ quản trị viên phê duyệt.
+
+---
+
+## Tài liệu tham khảo
+
+* [Amazon ECS Service Auto Scaling – AWS Documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html)
+* [Amazon CloudWatch Metrics for ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/available-metrics.html)
+* [Application Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html)
+* [Amazon ECS Best Practices](https://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/)
