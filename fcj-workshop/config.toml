@@ -1,6 +1,6 @@
 baseURL = "https://tahumn.github.io/AWS-Internship-Portfolio/"
-relativeURLs = false
-canonifyURLs = false
+relativeURLs = true
+canonifyURLs = true
 defaultContentLanguage = "en"
 
 # Hugo theme
