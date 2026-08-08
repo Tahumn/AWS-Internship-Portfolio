@@ -157,7 +157,7 @@ Nguyên tắc quan trọng nhất có thể tóm gọn như sau:
 
 ---
 
-{{< figure src="/images/MinhchungBlog3.png" title="AWS IAM Security Best Practices" >}}
+{{< figure src="/images/MinhChungBlog3.png" title="AWS IAM Security Best Practices" >}}
 
 https://www.facebook.com/groups/awsstudygroupfcj
 
