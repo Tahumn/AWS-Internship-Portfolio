@@ -107,9 +107,11 @@ Khả năng này giúp việc triển khai trên Cloud linh hoạt hơn so với
 
 ## Link bài viết
 
-⏳ Trạng thái: Đã gửi lên AWS Study Group – đang chờ phê duyệt.
+---
 
-Bài viết đã được gửi lên AWS Study Group và hiện đang chờ quản trị viên phê duyệt.
+{{< figure src="/images/MinhchungBlog2.png" title="AWS IAM Security Best Practices" >}}
+
+https://www.facebook.com/groups/awsstudygroupfcj
 
 ---
 

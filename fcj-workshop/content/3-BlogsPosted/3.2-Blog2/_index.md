@@ -107,9 +107,11 @@ For my **Cloud Finance Platform**, the current environment keeps `desiredCount =
 
 ## Article Link
 
-⏳ Status: Submitted to AWS Study Group – pending approval.
+---
 
-The article has been submitted to AWS Study Group and is currently awaiting administrator approval.
+{{< figure src="/images/MinhchungBlog2.png" title="AWS IAM Security Best Practices" >}}
+
+https://www.facebook.com/groups/awsstudygroupfcj
 
 ---
 

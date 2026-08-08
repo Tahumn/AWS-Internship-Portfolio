@@ -155,9 +155,11 @@ The main principle is simple:
 
 ## Article Link
 
-⏳ Status: Submitted to AWS Study Group – pending approval.
+---
 
-The article has been submitted to AWS Study Group and is currently awaiting administrator approval.
+{{< figure src="/images/MinhchungBlog3.png" title="AWS IAM Security Best Practices" >}}
+
+https://www.facebook.com/groups/awsstudygroupfcj
 
 ---
 

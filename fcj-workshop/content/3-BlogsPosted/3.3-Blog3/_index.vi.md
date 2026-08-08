@@ -155,9 +155,11 @@ Nguyên tắc quan trọng nhất có thể tóm gọn như sau:
 
 ## Link bài viết
 
-⏳ Trạng thái: Đã gửi lên AWS Study Group – đang chờ phê duyệt.
+---
 
-Bài viết đã được gửi lên AWS Study Group và hiện đang chờ quản trị viên phê duyệt.
+{{< figure src="/images/MinhchungBlog3.png" title="AWS IAM Security Best Practices" >}}
+
+https://www.facebook.com/groups/awsstudygroupfcj
 
 ---
 
