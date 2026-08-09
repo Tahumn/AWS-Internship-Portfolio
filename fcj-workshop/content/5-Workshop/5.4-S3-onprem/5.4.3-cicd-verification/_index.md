@@ -12,6 +12,10 @@ The `Deploy AWS` workflow is manually triggered for the demo and requests only `
 
 The backend image tag is `sha-${{ github.sha }}`. This makes the release immutable and traceable from commit to ECR image and ECS task-definition revision. For each of the nine services, the workflow reads the current task definition, replaces only the selected container image and command, removes server-generated fields, registers a new revision, and forces a rolling update.
 
+![Amazon ECR private repository with backend images tagged by Git SHA](/images/5-Workshop/ECR.png)
+
+The view shows the `cloud-finance-backend` private repository in the Singapore Region with backend images tagged in the `sha-…` form. Each tag links an image version to its release commit and supports subsequent verification against the ECS task-definition revision.
+
 ![Successful GitHub Actions deployment](/images/5-Workshop/CI_CD.png)
 
 ## Frontend publication order
@@ -46,4 +50,3 @@ The deployed website is visible in the following capture:
 ![Cloud Finance login page delivered from AWS](/images/5-Workshop/WEPTrienKhai.png)
 
 This page is evidence of frontend delivery, not sufficient evidence of backend correctness. It is paired with ECS, target-health, API status, and CloudWatch observations in the testing chapter.
-

@@ -12,6 +12,10 @@ Workflow `Deploy AWS` được trigger thủ công cho demo và chỉ yêu cầu
 
 Backend image dùng tag `sha-${{ github.sha }}` để release bất biến và truy vết được từ commit đến ECR image, rồi đến ECS task-definition revision. Với từng service, workflow đọc task definition hiện tại, chỉ thay image/command của container tương ứng, xóa field do server sinh, đăng ký revision mới và force rolling update.
 
+![Amazon ECR private repository với backend image tag theo Git SHA](/images/5-Workshop/ECR.png)
+
+Ảnh cho thấy private repository `cloud-finance-backend` tại Region Singapore chứa các backend image có tag dạng `sha-…`. Tag này liên kết phiên bản image với commit phát hành, là cơ sở để đối chiếu tiếp đến ECS task-definition revision.
+
 ![GitHub Actions triển khai thành công](/images/5-Workshop/CI_CD.png)
 
 ## Thứ tự phát hành frontend
@@ -44,4 +48,3 @@ Một build màu xanh chưa đủ. Release chỉ được chấp nhận khi:
 ![Trang đăng nhập Cloud Finance được phân phối từ AWS](/images/5-Workshop/WEPTrienKhai.png)
 
 Ảnh này chứng minh lớp frontend được phân phối, nhưng không đủ để kết luận backend đúng. Vì vậy nó được đối chiếu thêm với ECS, target health, HTTP status và CloudWatch ở chương kiểm thử.
-
