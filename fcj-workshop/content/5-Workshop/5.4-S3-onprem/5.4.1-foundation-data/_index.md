@@ -38,7 +38,7 @@ ElastiCache Redis provides the RQ queue consumed by Notification Worker and can 
 
 ## Secrets and controlled migrations
 
-Application, database, Redis, Gemini, and SMTP configuration were stored outside images and Git. Long-running services do not perform schema changes during every startup. Instead, a short-lived bootstrap task creates logical databases and a dedicated migration task runs Alembic sequentially for each scope.
+Application, database, Redis, Gemini, and SMTP configuration were stored outside images and Git. The source includes Alembic migrations at service startup; in AWS, after controlled migrations complete, long-running services must use `SKIP_MIGRATIONS=true` so rolling deployments do not run concurrent DDL. A short-lived bootstrap task creates logical databases, and a dedicated migration task runs Alembic sequentially for each scope.
 
 ~~~powershell
 aws ecs run-task `
@@ -53,4 +53,3 @@ aws ecs run-task `
 Each run must stop with exit code `0` before moving to the next database. Sequential migration was selected because the demo database is small and parallel DDL would add lock and CPU contention. After completion, `SKIP_MIGRATIONS=true` prevents rolling deployments from racing on the same schema.
 
 **Checkpoint:** RDS is `available`, encrypted, and non-public; Redis is reachable only from ECS; six migration scopes complete with exit code zero; no secret value appears in logs or screenshots.
-

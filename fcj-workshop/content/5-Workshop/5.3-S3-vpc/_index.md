@@ -72,7 +72,7 @@ The demo balances domain ownership and cost through auth_db, finance_db, ai_db, 
 
 ## Verified data flows
 
-REST travels Browser → CloudFront → ALB → Gateway → Service Connect → domain service → logical database. WebSocket travels through /ws/* without caching. Notifications persist data, enqueue Redis/RQ jobs, and are consumed by the worker before SES delivery. OCR combines Tesseract/Gemini and stores finance metadata; direct S3 object integration remains explicitly pending. CI/CD uses GitHub OIDC, ECR, task revisions, rolling updates, S3 sync, and CloudFront invalidation.
+REST travels Browser → CloudFront → ALB → Gateway → Service Connect → domain service → logical database. WebSocket travels through /ws/* without caching. Notifications persist data, enqueue Redis/RQ jobs, and are consumed by the worker before SES delivery. OCR combines Tesseract/Gemini and stores finance metadata; direct S3 object integration remains explicitly pending. The AWS deployment workflow is started manually with `workflow_dispatch`; push events run CI rather than automatically deploying AWS. CI/CD uses GitHub OIDC, ECR, task revisions, rolling updates, S3 sync, and CloudFront invalidation.
 
 ## Well-Architected assessment
 

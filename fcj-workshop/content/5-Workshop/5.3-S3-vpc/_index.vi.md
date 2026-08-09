@@ -130,7 +130,7 @@ S3 receipts bucket đã được provision nhưng read/write object từ OCR b�
 ### Luồng CI/CD
 
 ~~~text
-Git push/manual dispatch
+Manual workflow_dispatch
  -> GitHub Actions
  -> OIDC AssumeRole
  -> Docker build

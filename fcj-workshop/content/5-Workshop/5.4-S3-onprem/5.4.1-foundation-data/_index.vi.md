@@ -38,7 +38,7 @@ ElastiCache Redis cung cấp RQ queue cho Notification Worker và có thể ph�
 
 ## Secret và migration có kiểm soát
 
-Cấu hình application, database, Redis, Gemini và SMTP được tách khỏi image và Git. Service chạy lâu dài không tự thay đổi schema ở mỗi lần startup. Một bootstrap task ngắn hạn tạo logical database; migration task riêng chạy Alembic tuần tự cho từng scope.
+Cấu hình application, database, Redis, Gemini và SMTP được tách khỏi image và Git. Source có cơ chế Alembic migration khi service khởi động; trong môi trường AWS, sau khi migration có kiểm soát hoàn tất, các service chạy lâu dài phải được cấu hình `SKIP_MIGRATIONS=true` để không cùng chạy DDL khi rolling deployment. Một bootstrap task ngắn hạn tạo logical database; migration task riêng chạy Alembic tuần tự cho từng scope.
 
 ~~~powershell
 aws ecs run-task `
@@ -53,4 +53,3 @@ aws ecs run-task `
 Mỗi task phải dừng với exit code `0` trước khi chuyển database. Chạy tuần tự phù hợp RDS demo nhỏ và tránh tranh chấp lock/CPU do DDL song song. Sau khi hoàn tất, `SKIP_MIGRATIONS=true` ngăn các task trong rolling deployment cùng chạy migration.
 
 **Checkpoint:** RDS `available`, encrypted và non-public; Redis chỉ nhận kết nối từ ECS; sáu migration scope có exit code zero; log và ảnh không lộ secret value.
-
