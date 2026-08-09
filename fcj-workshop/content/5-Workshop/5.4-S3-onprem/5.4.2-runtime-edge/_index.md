@@ -31,6 +31,10 @@ This test proves DNS resolution, the Service Connect proxy, security-group permi
 
 The internet-facing ALB spans the two public subnets. Its IP target group forwards HTTP 8000 to private Gateway task ENIs and probes `/health`. CloudFront has two origin responsibilities: the default behavior reads the private S3 SPA origin through OAC, while non-cached `/api/*` and `/ws/*` behaviors forward dynamic traffic to the ALB. WAF is attached at CloudFront so filtering occurs before requests reach the regional origin.
 
+![CloudFront origins for the S3 frontend and ALB backend](/images/5-Workshop/OriginAmazonCloudFront.png)
+
+This view confirms that the demo CloudFront distribution uses two distinct origins: `frontend-s3`, with S3 type and Origin Access Control, and `backend-alb`, with Elastic Load Balancing type. The configuration separates static content from dynamic backend traffic while retaining one public entry point.
+
 ![Enabled CloudFront distribution used by the demo](/images/5-Workshop/CloudFront.png)
 
 SPA routes require custom 403/404 responses to `/index.html` with response code 200. This is not an API error-masking rule; it is limited to client-side navigation so React Router can resolve the path. API behaviors must continue returning their real status codes.
@@ -40,4 +44,3 @@ SPA routes require custom 403/404 responses to `/index.html` with response code 
 Gemini and SES are reached from private application subnets through NAT. Gemini is used by AI and OCR; Tesseract remains part of OCR processing. SMTP credentials are injected from Secrets Manager. At capture time, SES delivery was validated for verified identities, while unrestricted production sending was still subject to AWS approval. The receipts/exports bucket is provisioned, but automatic OCR object persistence remains explicitly pending.
 
 **Checkpoint:** all nine services are healthy; Gateway resolves private aliases; ALB target health is healthy; CloudFront serves the SPA; an unauthenticated `/api/v1/auth/me` request returns the expected `401` rather than a `504`.
-

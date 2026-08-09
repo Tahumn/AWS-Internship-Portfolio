@@ -31,6 +31,10 @@ Test này đồng thời chứng minh DNS resolution, Service Connect proxy, quy
 
 ALB internet-facing trải trên hai public subnet. IP target group chuyển HTTP 8000 đến ENI private của Gateway và probe `/health`. CloudFront có hai trách nhiệm origin: default behavior đọc SPA private trên S3 qua OAC; `/api/*` và `/ws/*` không cache, chuyển traffic động đến ALB. WAF gắn tại CloudFront để lọc request trước khi đến regional origin.
 
+![Hai origin CloudFront cho frontend S3 và backend ALB](/images/5-Workshop/OriginAmazonCloudFront.png)
+
+Ảnh trên xác nhận CloudFront distribution của môi trường demo sử dụng hai origin riêng: `frontend-s3` có type S3 và Origin Access Control, cùng `backend-alb` có type Elastic Load Balancing. Cấu hình này tách static content khỏi backend động nhưng vẫn giữ một điểm truy cập công khai thống nhất.
+
 ![CloudFront distribution Enabled dùng cho demo](/images/5-Workshop/CloudFront.png)
 
 SPA route cần custom response 403/404 về `/index.html` với mã 200 để React Router xử lý client-side path. Đây không phải quy tắc che lỗi API; API behavior vẫn phải giữ status code thật.
@@ -40,4 +44,3 @@ SPA route cần custom response 403/404 về `/index.html` với mã 200 để R
 Gemini và SES được gọi từ private application subnet qua NAT. Gemini phục vụ AI và OCR; Tesseract vẫn là một phần xử lý OCR. SMTP credential được inject từ Secrets Manager. Tại thời điểm ghi nhận, SES gửi được đến identity đã verify; gửi production không giới hạn vẫn phụ thuộc AWS phê duyệt. Bucket receipts/exports đã provision nhưng OCR tự động lưu object vẫn được ghi rõ là pending.
 
 **Checkpoint:** chín service healthy; Gateway resolve được private alias; ALB target healthy; CloudFront phục vụ SPA; request `/api/v1/auth/me` không JWT trả đúng `401` thay vì `504`.
-
