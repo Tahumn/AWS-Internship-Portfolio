@@ -111,7 +111,7 @@ Khả năng này giúp việc triển khai trên Cloud linh hoạt hơn so với
 
 {{< figure src="/images/MinhchungBlog2.png" title="AWS IAM Security Best Practices" >}}
 
-https://www.facebook.com/groups/awsstudygroupfcj
+https://www.facebook.com/groups/660548818043427/?multi_permalinks=2238712130227080&hoisted_section_header_type=recently_seen
 
 ---
 

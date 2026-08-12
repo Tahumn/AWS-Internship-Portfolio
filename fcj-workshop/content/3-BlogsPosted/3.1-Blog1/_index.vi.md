@@ -247,7 +247,7 @@ Chỉ với những thay đổi cơ bản như bật MFA, loại bỏ Access Key
 
 {{< figure src="/images/Blog1IAM.png" title="AWS IAM Security Best Practices" >}}
 
-https://www.facebook.com/groups/awsstudygroupfcj?locale=vi_VN
+https://www.facebook.com/groups/660548818043427/?multi_permalinks=2237480747016885&hoisted_section_header_type=recently_seen
 
 ---
 
