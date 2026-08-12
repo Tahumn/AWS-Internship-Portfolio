@@ -54,7 +54,7 @@ const DataCube = ({ position, type, id, onScanSuccess, onDecoyClick, isScanning,
     <Box
       ref={meshRef}
       position={position}
-      args={[1, 1, 1]}
+      args={isTarget ? [1.8, 1.8, 1.8] : [0.8, 0.8, 0.8]}
       onPointerDown={(e) => {
         e.stopPropagation();
         if (isTarget) onStartScan(id);
@@ -195,7 +195,10 @@ export default function MapDetective() {
   const [timelineStatus, setTimelineStatus] = useState("DRAG ITEMS INTO CORRECT ORDER");
 
   const handleTimelineSubmit = () => {
-    if (timelineOrder.length !== 3) return;
+    if ([0, 1, 2].some(i => !timelineOrder[i])) {
+      setTimelineStatus("FILL ALL 3 TIMELINE SLOTS");
+      return;
+    }
     const correct = ['beta', 'alpha', 'gamma'];
     const isCorrect = timelineOrder.every((id, i) => id === correct[i]);
     if (isCorrect) {
@@ -212,6 +215,7 @@ export default function MapDetective() {
   // --- CIPHER & BOT PHASE ---
   const [bots, setBots] = useState([]);
   const [cipherInput, setCipherInput] = useState("");
+  const [cipherStatus, setCipherStatus] = useState("");
   const botIdCounter = useRef(0);
 
   useEffect(() => {
@@ -234,6 +238,7 @@ export default function MapDetective() {
 
   const verifyCode = async () => {
     if (cipherInput.toUpperCase() === "HYX") {
+      setCipherStatus("");
       setStage("CINEMATIC");
 
       // MOCK BACKEND
@@ -243,6 +248,8 @@ export default function MapDetective() {
         nextStage("MAP1_DETECTIVE_CLEARED");
         navigate("/game"); // go back to game engine UI for next role
       }, 5000);
+    } else {
+      setCipherStatus("MẬT MÃ KHÔNG ĐÚNG — HÃY THỬ LẠI");
     }
   };
 
@@ -255,13 +262,20 @@ export default function MapDetective() {
 
       {/* 3D SCENE */}
       <div className="absolute inset-0 z-0">
-        <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+        <Canvas camera={{ position: [0, 0, 32], fov: 65 }}>
           <color attach="background" args={[COLORS.bg]} />
           <ambientLight intensity={0.5} />
           <pointLight position={[0, 0, 0]} intensity={2} color="#ffffff" />
           <Stars radius={50} depth={50} count={2000} factor={4} saturation={0} fade speed={1} />
 
-          <OrbitControls enableZoom={false} enablePan={false} />
+          <OrbitControls
+            enableZoom
+            enablePan={false}
+            minDistance={7}
+            maxDistance={40}
+            rotateSpeed={0.65}
+            zoomSpeed={0.8}
+          />
 
           {/* Central Platform */}
           <Sphere args={[2, 32, 32]} position={[0, -2.5, 0]}>
@@ -313,6 +327,12 @@ export default function MapDetective() {
           <div className="text-red-500 font-bold bg-black/50 p-2 border border-red-500/50">
             SYSTEM INTEGRITY: {hp}%
           </div>
+          {stage === "SCAN" && (
+            <div className="max-w-md bg-black/75 border border-cyan-500/60 p-3 text-cyan-200 text-sm text-right">
+              <p className="font-bold text-cyan-400">SCAN RED DATA CUBES: {fragments.length}/3</p>
+              <p>Drag to rotate · Scroll to zoom · Hold a red cube for 2 seconds</p>
+            </div>
+          )}
           {decoyClicks >= 3 && stage === "SCAN" && (
             <div className="text-red-500 text-xl font-bold animate-pulse p-2 bg-red-900/50 border border-red-500">
               WARNING: DECOY ALARM! ENEMY SPEED x2
@@ -433,7 +453,13 @@ export default function MapDetective() {
               <input
                 type="text"
                 value={cipherInput}
-                onChange={(e) => setCipherInput(e.target.value.toUpperCase().slice(0, 3))}
+                onChange={(e) => {
+                  setCipherInput(e.target.value.toUpperCase().slice(0, 3));
+                  setCipherStatus("");
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") verifyCode();
+                }}
                 className="w-32 bg-gray-300 p-2 font-bold text-center text-2xl tracking-widest uppercase"
                 placeholder="XXX"
               />
@@ -444,6 +470,9 @@ export default function MapDetective() {
                 ENTER
               </button>
             </div>
+            {cipherStatus && (
+              <p className="mt-3 text-red-400 font-bold animate-pulse">{cipherStatus}</p>
+            )}
           </div>
         )}
 

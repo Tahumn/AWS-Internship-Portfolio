@@ -119,7 +119,7 @@ const CARD_SYMBOLS = ['♠', '♥', '♦', '♣'];
 const CARD_TARGET_IDX = 1; // the card that casts the correct shadow = Hearts
 const CORRECT_ROTATION_Y = Math.PI * 0.25; // 45°
 
-function GiantCard({ idx, pos, onSelect, selected, rotY, onRotate }) {
+function GiantCard({ idx, pos, onSelect, onRotateStart, selected, rotY }) {
   const ref = useRef();
   useFrame(() => {
     ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, rotY, 0.08);
@@ -136,7 +136,11 @@ function GiantCard({ idx, pos, onSelect, selected, rotY, onRotate }) {
       {/* Card face */}
       <mesh
         castShadow
-        onClick={(e) => { e.stopPropagation(); onSelect(idx); }}
+        onPointerDown={(e) => {
+          e.stopPropagation();
+          onSelect(idx);
+          onRotateStart(idx, e.clientX);
+        }}
       >
         <boxGeometry args={[0.8, 1.2, 0.06]} />
         <meshStandardMaterial color={color} emissive={color} emissiveIntensity={selected ? 0.9 : 0.35} />
@@ -305,7 +309,7 @@ function DataGate({ open }) {
 //  3D SCENE COMPONENT
 // ─────────────────────────────────────────────
 function Scene({
-  stage, cardRotations, selectedCard, onSelectCard, onRotateCard,
+  stage, cardRotations, selectedCard, onSelectCard, onRotateStart,
   onGlitchHit, onGlitchReach, glitches, particles, onParticleDone,
   onScanAngle, gateOpen
 }) {
@@ -338,7 +342,7 @@ function Scene({
               rotY={cardRotations[i]}
               selected={selectedCard === i}
               onSelect={onSelectCard}
-              onRotate={onRotateCard}
+              onRotateStart={onRotateStart}
             />
           ))}
         </>
@@ -392,12 +396,8 @@ export default function MapDataCrypt() {
   // ── SHADOW PUZZLE ──
   const [cardRotations, setCardRotations] = useState([0, 0, 0, 0]);
   const [selectedCard, setSelectedCard] = useState(null);
-  const [shadowMatch, setShadowMatch] = useState(0); // 0–100
-  const shadowMatchRef = useRef(0);
-  const scanAngleRef = useRef(0);
   const shadowHoldTimer = useRef(0);
   const [shadowStatus, setShadowStatus] = useState('Chọn một quân bài rồi xoay để bóng khớp với chòm sao');
-  const [dragging, setDragging] = useState(false);
   const lastMouseX = useRef(0);
   const isDraggingCard = useRef(false);
 
@@ -468,18 +468,15 @@ export default function MapDataCrypt() {
     setSelectedCard(prev => prev === idx ? null : idx);
   }, []);
 
-  const handleScanAngle = useCallback((angle) => {
-    scanAngleRef.current = angle;
+  const handleRotateStart = useCallback((idx, clientX) => {
+    setSelectedCard(idx);
+    isDraggingCard.current = true;
+    lastMouseX.current = clientX;
   }, []);
 
   // Mouse drag to rotate selected card
   useEffect(() => {
     if (stage !== 'SHADOW') return;
-    const onDown = (e) => {
-      if (selectedCard === null) return;
-      isDraggingCard.current = true;
-      lastMouseX.current = e.clientX;
-    };
     const onMove = (e) => {
       if (!isDraggingCard.current || selectedCard === null) return;
       const dx = e.clientX - lastMouseX.current;
@@ -490,12 +487,24 @@ export default function MapDataCrypt() {
         return next;
       });
     };
-    const onUp = () => { isDraggingCard.current = false; };
-    window.addEventListener('mousedown', onDown);
+    const onUp = () => {
+      isDraggingCard.current = false;
+      if (selectedCard !== CARD_TARGET_IDX) return;
+      setCardRotations(prev => {
+        const next = [...prev];
+        const twoPi = Math.PI * 2;
+        const normalized = ((next[selectedCard] % twoPi) + twoPi) % twoPi;
+        const diff = Math.min(
+          Math.abs(normalized - CORRECT_ROTATION_Y),
+          twoPi - Math.abs(normalized - CORRECT_ROTATION_Y)
+        );
+        if (diff < THREE.MathUtils.degToRad(10)) next[selectedCard] = CORRECT_ROTATION_Y;
+        return next;
+      });
+    };
     window.addEventListener('mousemove', onMove);
     window.addEventListener('mouseup', onUp);
     return () => {
-      window.removeEventListener('mousedown', onDown);
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('mouseup', onUp);
     };
@@ -506,20 +515,27 @@ export default function MapDataCrypt() {
   useEffect(() => {
     if (stage !== 'SHADOW') return;
     const interval = setInterval(() => {
-      const card = selectedCard !== null ? selectedCard : CARD_TARGET_IDX;
-      const rot = cardRotations[card] % (Math.PI * 2);
+      if (selectedCard !== CARD_TARGET_IDX) {
+        setShadowPct(0);
+        shadowHoldTimer.current = 0;
+        setShadowStatus(selectedCard === null
+          ? 'Chọn quân bài ♥ rồi kéo ngang để xoay'
+          : 'Sai quân bài — hãy chọn quân ♥');
+        return;
+      }
+      const card = CARD_TARGET_IDX;
+      const twoPi = Math.PI * 2;
+      const rot = ((cardRotations[card] % twoPi) + twoPi) % twoPi;
       const target = CORRECT_ROTATION_Y;
-      const diff = Math.abs(rot - target) % (Math.PI * 2);
-      const minDiff = Math.min(diff, Math.PI * 2 - diff);
-      // Also factor in scan angle
-      const scanFactor = 0.5 + 0.5 * Math.abs(Math.sin(scanAngleRef.current));
-      const rawPct = Math.max(0, 1 - minDiff / (Math.PI * 0.5)) * scanFactor;
+      const diff = Math.abs(rot - target);
+      const minDiff = Math.min(diff, twoPi - diff);
+      const rawPct = Math.max(0, 1 - minDiff / THREE.MathUtils.degToRad(60));
       const pct = Math.round(rawPct * 100);
       setShadowPct(pct);
       if (pct >= 88) {
         shadowHoldTimer.current += 0.25;
         setShadowStatus(`🔴 Khớp ${pct}% — Giữ nguyên...`);
-        if (shadowHoldTimer.current >= 2.5) {
+        if (shadowHoldTimer.current >= 1.0) {
           clearInterval(interval);
           advanceToSync();
         }
@@ -691,7 +707,8 @@ export default function MapDataCrypt() {
               cardRotations={cardRotations}
               selectedCard={selectedCard}
               onSelectCard={handleSelectCard}
-              onScanAngle={handleScanAngle}
+              onRotateStart={handleRotateStart}
+              onScanAngle={() => {}}
               onGlitchHit={handleGlitchHit}
               onGlitchReach={handleGlitchReach}
               glitches={glitches}
