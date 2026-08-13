@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import './EchoesOfTomorrow.css';
 
 const MEMORIES = {
@@ -10,34 +10,72 @@ const MEMORIES = {
 };
 
 const chapterNames = ['THE STATION', 'THE APARTMENT', 'THE SILENT SCHOOL', 'THE CITY THAT FORGOT ITSELF', 'TOMORROW'];
+const SAVE_PREFIX = 'echoes-of-tomorrow:';
+
+function useSavedState(key, initialValue) {
+  const [value, setValue] = useState(() => {
+    try {
+      const saved = window.localStorage.getItem(`${SAVE_PREFIX}${key}`);
+      return saved === null ? initialValue : JSON.parse(saved);
+    } catch {
+      return initialValue;
+    }
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem(`${SAVE_PREFIX}${key}`, JSON.stringify(value));
+  }, [key, value]);
+
+  return [value, setValue];
+}
+
+function clearStationDetailSave() {
+  [
+    'station-booth-open', 'station-active-area', 'station-hands', 'station-machine-inspected',
+    'station-cleaner', 'station-answers', 'station-case-unlocked', 'station-filter-stored',
+    'station-poster-open', 'station-poster-order', 'station-filter-position',
+    'station-filter-angle', 'station-coordinate', 'station-map-open', 'station-glyph-order',
+  ].forEach(key => window.localStorage.removeItem(`${SAVE_PREFIX}${key}`));
+}
+
+function clearSavedGame() {
+  Object.keys(window.localStorage)
+    .filter(key => key.startsWith(SAVE_PREFIX))
+    .forEach(key => window.localStorage.removeItem(key));
+  window.location.reload();
+}
 
 function TypeLine({ children, dim = false }) {
   return <p className={dim ? 'type-line dim' : 'type-line'}>{children}</p>;
 }
 
 export default function EchoesOfTomorrow() {
-  const [screen, setScreen] = useState('TITLE');
-  const [chapter, setChapter] = useState(0);
-  const [echoOn, setEchoOn] = useState(false);
-  const [clues, setClues] = useState([]);
-  const [memories, setMemories] = useState([]);
+  const [screen, setScreen] = useSavedState('screen', 'TITLE');
+  const [chapter, setChapter] = useSavedState('chapter', 0);
+  const [echoOn, setEchoOn] = useSavedState('echo-on', false);
+  const [clues, setClues] = useSavedState('clues', []);
+  const [memories, setMemories] = useSavedState('memories', []);
   const [pendingMemory, setPendingMemory] = useState(null);
   const [notice, setNotice] = useState('');
   const [familyOrder, setFamilyOrder] = useState([]);
   const [heldStreet, setHeldStreet] = useState([]);
   const [finalLinks, setFinalLinks] = useState([]);
   const [ending, setEnding] = useState(null);
-  const [trainClues, setTrainClues] = useState([]);
-  const [trainTime, setTrainTime] = useState(90);
-  const [trainFailed, setTrainFailed] = useState(false);
+  const [trainClues, setTrainClues] = useSavedState('train-clues', []);
+  const [trainTime, setTrainTime] = useSavedState('train-time', 90);
+  const [trainFailed, setTrainFailed] = useSavedState('train-failed', false);
   const [trainHint, setTrainHint] = useState('');
-  const [clockOn, setClockOn] = useState(false);
-  const [trainSequence, setTrainSequence] = useState([]);
-  const [trainLockSolved, setTrainLockSolved] = useState(false);
-  const [trainFragments, setTrainFragments] = useState([]);
-  const [titleIntroDone, setTitleIntroDone] = useState(false);
-  const [soundOn, setSoundOn] = useState(true);
+  const [clockOn, setClockOn] = useSavedState('train-clock', false);
+  const [trainSequence, setTrainSequence] = useSavedState('train-sequence', []);
+  const [trainLockSolved, setTrainLockSolved] = useSavedState('train-lock', false);
+  const [trainFragments, setTrainFragments] = useSavedState('train-fragments', []);
+  const [titleIntroDone, setTitleIntroDone] = useSavedState('title-intro', false);
+  const [soundOn, setSoundOn] = useSavedState('sound-on', true);
   const [soundUnlocked, setSoundUnlocked] = useState(false);
+
+  useEffect(() => {
+    clearStationDetailSave();
+  }, []);
 
   const corrupt = chapter >= 3;
   const trainElapsed = 90 - trainTime;
@@ -72,7 +110,7 @@ export default function EchoesOfTomorrow() {
     if (screen !== 'TITLE' || titleIntroDone) return undefined;
     const introTimer = window.setTimeout(() => setTitleIntroDone(true), 9200);
     return () => window.clearTimeout(introTimer);
-  }, [screen, titleIntroDone]);
+  }, [screen, titleIntroDone, setTitleIntroDone]);
 
   useEffect(() => {
     if (!soundOn) return undefined;
@@ -142,7 +180,7 @@ export default function EchoesOfTomorrow() {
     const next = [...trainSequence, symbol];
     if (target[next.length - 1] !== symbol) {
       setTrainSequence([]);
-      revealTrainHint('THỨ TỰ VỪA BỊ TỪ CHỐI. SƠ ĐỒ TRÊN VÉ CHỈ LOẠI DẤU VẾT CẦN ĐẶT TRƯỚC, KHÔNG CHỈ RA MÃ.');
+      revealTrainHint('THỨ TỰ VỪA BỊ TỪ CHỐI. HÃY KIỂM TRA LẠI TRƯỚC KHI TOA TÀU BIẾN MẤT');
       return;
     }
     setTrainSequence(next);
@@ -151,7 +189,7 @@ export default function EchoesOfTomorrow() {
 
   const collectTrainFragment = (symbol) => {
     setTrainFragments(prev => prev.includes(symbol) ? prev : [...prev, symbol]);
-    revealTrainHint(`MẢNH “${symbol}” ĐÃ ĐƯỢC GIỮ LẠI. KHÔNG PHẢI MỌI MẢNH ĐỀU THUỘC VỀ LỐI RA.`);
+    revealTrainHint(`MẢNH “${symbol}” ĐÃ ĐƯỢC GIỮ LẠI. LƯU Ý VỀ SỰ XUẤT HIỆN TRÊN VÉ TÀU!`);
   };
 
   useEffect(() => {
@@ -166,7 +204,7 @@ export default function EchoesOfTomorrow() {
       });
     }, 1000);
     return () => window.clearInterval(timer);
-  }, [screen, trainFailed]);
+  }, [screen, trainFailed, setTrainFailed, setTrainTime]);
 
   useEffect(() => {
     if (screen !== 'TRAIN' || trainPhase !== 'void' || trainFailed || !soundOn) return undefined;
@@ -240,20 +278,20 @@ export default function EchoesOfTomorrow() {
         <div className="overture-grain" aria-hidden="true" />
 
         <section className="prologue-beats" aria-label="Lời mở đầu">
-          <p className="beat beat-one"><small>HỒ SƠ 00.013 · NĂM 2189</small>AURELIA BIẾN MẤT TRONG MỘT ĐÊM.</p>
-          <p className="beat beat-two">SÁNG HÔM SAU,<br />KHÔNG AI CÒN NHỚ THÀNH PHỐ ẤY.</p>
-          <p className="beat beat-three"><small>MỘT TẤM VÉ KHÔNG CÓ TÊN.</small>VÀ MỘT TÍN HIỆU CHỈ MÌNH BẠN NGHE THẤY.</p>
-          <p className="beat beat-signal">PLEASE<br />REMEMBER US.</p>
+          <p className="beat beat-one"><small>HỒ SƠ 00.013 · NĂM 2103</small>AURELIA ĐÃ BIẾN MẤT TRONG MỘT ĐÊM</p>
+          <p className="beat beat-two">...<br />CHU KỲ ĐANG MUỐN RESET LẠI?</p>
+          <p className="beat beat-three"><small>TẤM VÉ DUY NHẤT CÒN TỒN TẠI</small>VÀ MỘT TÍN HIỆU LIÊN TỤC CẢNH BÁO</p>
+          <p className="beat beat-signal">PLEASE<br />REMEMBER US</p>
         </section>
 
         <section className="title-card">
-          <span className="eyebrow">AURELIA RECOVERY SYSTEM · 2189</span>
+          <span className="eyebrow">AURELIA RECOVERY SYSTEM · 2103</span>
           <div className="title-mark" aria-label="Echoes of Tomorrow">
             <span>ECHOES</span><i>OF TOMORROW</i>
           </div>
-          <p>Một thành phố biến mất. Một thế giới đang quên.<br />Một tín hiệu vẫn cầu xin được nhớ.</p>
+          <p>Thành phố biến mất khỏi bản đồ, dòng hồi tưởng đang bắt đầu...<br />Tín hiệu phát ra từ trung tâm...</p>
           <div className="title-actions">
-            <button className="primary" onClick={() => setScreen('TRAIN')}>KHỞI ĐỘNG PROJECT ECHO</button>
+            <button className="primary" onClick={() => setScreen('TRAIN')}>RESET ECHO</button>
             <span>RECOVERY SIGNAL // 00.013</span>
           </div>
         </section>
@@ -284,7 +322,7 @@ export default function EchoesOfTomorrow() {
         <div className="blackout-transmission" aria-hidden="true">
           <p>XIN HÃY TÌM LỐI RA<br />VÀ MANG ĐI HẾT NHỮNG GÌ THUỘC VỀ QUÝ KHÁCH</p>
           <p>THỨ THUỘC VỀ BẠN KHÔNG CHỈ NẰM TRONG HÀNH LÝ</p>
-          <p>ĐỪNG ĐỂ TOA TÀU NHỚ THAY BẠN</p>
+          <p>XIN NHẮC LẠI ĐỪNG ĐỂ QUÊN BẤT KỲ THỨ GÌ TRÊN TOA TÀU NÀY!</p>
         </div>
         <div className="cabin-chaos">
           <i className="debris paper p1" /><i className="debris paper p2" /><i className="debris paper p3" />
@@ -312,16 +350,16 @@ export default function EchoesOfTomorrow() {
             <span className="ticket-front"><small>PROJECT ECHO // ONE WAY</small><b>Passenger: <span>██████</span></b><i>05:41:58</i></span>
             <span className="ticket-back"><small>NO RETURN // 2189</small><span className="route-order" aria-label="Một sơ đồ gồm sân ga, la bàn, đường chân trời và đồng hồ"><i className="route-platform" /><b>→</b><i className="route-compass" /><b>→</b><i className="route-horizon" /><b>→</b><i className="route-clock" /></span></span>
           </button>
-          <button className={`hidden-clock train-clue ${clockOn ? 'clock-powered' : 'clock-off'} ${trainClues.includes('clock') ? 'found' : ''}`} onClick={() => clockOn && noticeTrainClue('clock')} aria-label="Quan sát chiếc đồng hồ bất thường">
+          <button className={`hidden-clock train-clue ${clockOn ? 'clock-powered' : 'clock-off'} ${trainClues.includes('clock') ? 'found' : ''}`} onClick={() => clockOn && noticeTrainClue('clock')} aria-label="Quan sát chiếc đồng hồ kim đang chỉ năm giờ">
             <span className="clock-face">
               <span className="clock-number n12">12</span><span className="clock-number n3">3</span><span className="clock-number n6">6</span><span className="clock-number n9">9</span>
-              <i className="clock-hour" /><i className="clock-minute" /><i className="clock-second" /><b>17</b>
+              <i className="clock-hour" /><i className="clock-minute" /><i className="clock-second" />
             </span>
           </button>
           <div className="train-story">
-            {trainClues.length === 0 && <TypeLine>Đường ray vẫn lao ngược về phía sau, nhưng kim tốc độ đã đứng ở số không.</TypeLine>}
-            {trainClues.includes('destination') && <TypeLine>Giờ đến lặp lại như một lời cầu cứu. 05:42 xuất hiện cả trên chiếc đồng hồ đã chết.</TypeLine>}
-            {trainClues.includes('reflection') && <TypeLine dim>Bóng người trong kính nhìn về phía Đông, nơi một quầng sáng đang mọc dưới đường chân trời.</TypeLine>}
+            {trainClues.length === 0 && <TypeLine>Đường ray đang lao ngược về phía sau và kim tốc độ đã đứng ở vạch số không.</TypeLine>}
+            {trainClues.includes('destination') && <TypeLine>Vòng lặp thời gian như một lời cầu cứu. 05:42 xuất hiện cả trên chiếc đồng hồ đã chết.</TypeLine>}
+            {trainClues.includes('reflection') && <TypeLine dim>Bóng người thấp thoáng nhìn về phía Đông, nơi một quầng sáng đang mọc dưới đường chân trời.</TypeLine>}
             {trainClues.includes('signal') && <TypeLine dim>Nhịp thứ ba khiến dấu E trên vé sáng lên. Những nhịp còn lại không tác động đến bất cứ thứ gì.</TypeLine>}
           </div>
           {trainClues.includes('ticket') && !trainLockSolved && <div className="train-symbol-lock">
@@ -334,7 +372,7 @@ export default function EchoesOfTomorrow() {
           </button>
           <small className="observation-count">OBSERVATIONS // {String(trainClues.length).padStart(2, '0')} · FRAGMENTS // {trainFragments.length}/7 · Một số mảnh chỉ thuộc về toa tàu, không thuộc về lối ra.</small>
         </section>
-        {trainFailed && <div className="void-failure"><span>00:00</span><h2>TOA 07 KHÔNG CÒN TỒN TẠI</h2><p>Bạn nhớ mình từng ngồi trên một chuyến tàu, nhưng không còn nhớ đã xuống ở đâu.</p><button onClick={() => { setTrainTime(90); setTrainClues([]); setTrainFragments([]); setClockOn(false); setTrainSequence([]); setTrainLockSolved(false); setTrainFailed(false); }}>THỬ GHI NHỚ LẠI</button></div>}
+        {trainFailed && <div className="void-failure"><span>00:00</span><h2>TOA 07 KHÔNG CÒN TỒN TẠI</h2><p>Trên chuyến tàu đã xảy ra điều gì đó, mớ ký ức mơ hồ cứ tiếp tục tiếp diễn...</p><button onClick={() => { setTrainTime(90); setTrainClues([]); setTrainFragments([]); setClockOn(false); setTrainSequence([]); setTrainLockSolved(false); setTrainFailed(false); }}>THỬ GHI NHỚ LẠI</button></div>}
         {trainHint && <div className="fleeting-hint"><span>TRANSIENT MEMORY</span><p>{trainHint}</p></div>}
       </main>
     );
@@ -349,8 +387,8 @@ export default function EchoesOfTomorrow() {
           <h1>{restore ? 'SOME THINGS HURT' : 'PLEASE'}</h1>
           <h2>{restore ? 'BECAUSE THEY MATTERED.' : 'REMEMBER US.'}</h2>
           <p>{restore
-            ? 'Thành phố không sống lại. Nhưng tên của nó, và những người từng yêu thương trong đó, đã trở về với ký ức thế giới.'
-            : 'Một hành khách khác ngồi trên chuyến tàu. Tấm vé trong tay họ hoàn toàn trống.'}</p>
+            ? 'Thành phố dường như đã biến mất. Nhưng tên của nó vẫn tồn tại xoay vòng cùng thời gian.'
+            : 'Một hành khách khác ngồi trên chuyến tàu. Tấm vé trong tay cũng trở nên kỳ lạ'}</p>
           <button className="primary" onClick={() => window.location.reload()}>CHƠI LẠI</button>
         </section>
       </main>
@@ -366,6 +404,7 @@ export default function EchoesOfTomorrow() {
           <span>{corrupt ? 'M_P' : 'MAP'}</span>
           <span>{corrupt ? 'OBJECT___' : 'OBJECTIVE'}</span>
           <span>{corrupt ? 'SYS' : 'SYSTEM'}</span>
+          <button className="reset-checkpoint" onClick={clearSavedGame}>RESET SAVE</button>
         </nav>
       </header>
 
@@ -448,16 +487,130 @@ export default function EchoesOfTomorrow() {
   );
 }
 
-function Station({ echoOn, clues, discover, onSolve }) {
-  const symbols = ['☀', '☂', '△', '○', '◇', '☾'];
-  return <div className="location station"><div className="depth-layer depth-a" /><div className="depth-layer depth-b" />
-    <div className="environment"><span className="clock">05:42:17</span><h3>GA AURELIA CENTRAL</h3><p>Đoàn tàu vẫn nằm đó, lạnh và nguyên vẹn. Không có dấu chân nào dẫn đến nó.</p></div>
-    <div className="evidence-grid spatial-hotspots station-hotspots">
-      <button className="hotspot booth" onClick={() => echoOn ? discover('father') : null}><i /><b>QUẦY VÉ BỎ HOANG</b><span>{echoOn ? 'Sau lớp kính, bóng một người cha cúi xuống: “Nếu lạc đường, con cứ đi theo nơi mặt trời...” Giọng nói tan vào tiếng bánh tàu không tồn tại.' : 'Hai dấu tay trẻ con còn in trên kính. Lớp bụi quanh chúng chưa từng bị thời gian chạm tới.'}</span></button>
-      <button className="hotspot poster" onClick={() => discover('poster')}><i /><b>TẤM POSTER BONG TRÓC</b><span>{clues.includes('poster') ? 'Dưới lớp giấy mục: MORNING LINE · EASTBOUND. Mực vẫn còn ấm như vừa được in sáng nay.' : 'Một góc poster tự lay dù nhà ga không có gió.'}</span></button>
-      <button className="hotspot map" onClick={() => discover('map')}><i /><b>BẢN ĐỒ ĐỨNG</b><span>{clues.includes('map') ? 'Tuyến phía Đông kết thúc tại Platform 03. Trên đó chỉ còn một biểu tượng mặt trời.' : 'Mọi con đường đã phai trắng, trừ một vệt mực hướng về phía Đông.'}</span></button>
+function Station({ onSolve }) {
+  const [boothOpen, setBoothOpen] = useState(false);
+  const [activeArea, setActiveArea] = useState(null);
+  const [handsSeen, setHandsSeen] = useState([]);
+  const [machineInspected, setMachineInspected] = useState(false);
+  const [cleaner, setCleaner] = useState(false);
+  const [answers, setAnswers] = useState([]);
+  const [caseUnlocked, setCaseUnlocked] = useState(false);
+  const [filterStored, setFilterStored] = useState(false);
+  const [posterOpen, setPosterOpen] = useState(false);
+  const [posterOrder, setPosterOrder] = useState([4, 1, 5, 0, 3, 2]);
+  const [selectedPosterPiece, setSelectedPosterPiece] = useState(null);
+  const [filterPlaced, setFilterPlaced] = useState(false);
+  const [filterPosition, setFilterPosition] = useState({ x: 12, y: 14 });
+  const [filterAngle, setFilterAngle] = useState(0);
+  const posterBoardRef = useRef(null);
+  const [coordinate, setCoordinate] = useState('');
+  const [mapOpen, setMapOpen] = useState(false);
+  const [glyphOrder, setGlyphOrder] = useState([]);
+  const posterTarget = [0, 1, 2, 3, 4, 5];
+  const caseFound = handsSeen.length === 2;
+  const posterSolved = posterOrder.join('') === posterTarget.join('');
+  const normalizedAngle = ((filterAngle % 360) + 360) % 360;
+  const filterAligned = posterSolved && filterPosition.x >= 39 && filterPosition.x <= 45 && filterPosition.y >= 35 && filterPosition.y <= 41 && normalizedAngle === 0;
+  const glyphs = [{ glyph: '⌁', digit: '4' }, { glyph: '◒', digit: '0' }, { glyph: '⌬', digit: '7' }, { glyph: '△', digit: '2' }, { glyph: '⊙', digit: '5' }, { glyph: '⋔', digit: '1' }];
+  const glyphTarget = ['◒', '⊙', '⌁', '△', '⋔', '⌬'];
+
+  const chooseAnswer = (value) => {
+    const target = ['4', '2', '1'];
+    const next = [...answers, value];
+    if (target[next.length - 1] !== value) return setAnswers([]);
+    setAnswers(next);
+  };
+
+  const chooseGlyph = (glyph) => {
+    const next = [...glyphOrder, glyph];
+    if (glyphTarget[next.length - 1] !== glyph) return setGlyphOrder([]);
+    setGlyphOrder(next);
+    if (next.length === glyphTarget.length) window.setTimeout(() => onSolve('☀'), 550);
+  };
+
+  const swapPosterPiece = (index) => {
+    if (selectedPosterPiece === null) return setSelectedPosterPiece(index);
+    if (selectedPosterPiece === index) return setSelectedPosterPiece(null);
+    setPosterOrder(order => {
+      const next = [...order];
+      [next[selectedPosterPiece], next[index]] = [next[index], next[selectedPosterPiece]];
+      return next;
+    });
+    setSelectedPosterPiece(null);
+  };
+
+  const dragGrille = (event) => {
+    if (!posterBoardRef.current) return;
+    event.currentTarget.setPointerCapture(event.pointerId);
+    const rect = posterBoardRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(68, ((event.clientX - rect.left) / rect.width) * 100 - 16));
+    const y = Math.max(0, Math.min(74, ((event.clientY - rect.top) / rect.height) * 100 - 13));
+    setFilterPosition({ x, y });
+  };
+
+  const settleGrille = () => {
+    const nearTarget = filterPosition.x >= 34 && filterPosition.x <= 50 && filterPosition.y >= 30 && filterPosition.y <= 46;
+    if (nearTarget && normalizedAngle === 0) setFilterPosition({ x: 42, y: 38 });
+  };
+
+  return <div className={`location station station-investigation ${boothOpen ? 'booth-is-open' : ''}`}><div className="depth-layer depth-a" /><div className="depth-layer depth-b" />
+    <div className="station-fog" aria-hidden="true"><i /><i /><i /></div>
+    <div className="environment"><span className="clock station-master-clock"><small>LOCAL TIME</small>05:42:17</span><h3>GA AURELIA CENTRAL</h3><p>Ba khu vực vẫn còn điện: quầy vé, poster tuyến tàu và bản đồ thành phố.</p></div>
+
+    <div className="physical-station-scene" aria-label="Không gian điều tra nhà ga">
+      <button className={`physical-booth-door ${boothOpen ? 'open' : ''}`} onClick={() => !boothOpen && setBoothOpen(true)} aria-label="Mở cửa quầy vé"><span>CỬA QUẦY VÉ</span></button>
+      <div className={`booth-interior ${boothOpen ? 'accessible' : ''}`}>
+        <button className={`handprint hand-a ${handsSeen.includes('left') ? 'seen' : ''}`} onClick={() => setHandsSeen(prev => prev.includes('left') ? prev : [...prev, 'left'])} aria-label="Dấu bàn tay trái"><span>{handsSeen.includes('left') ? '01 ✓' : ''}</span></button>
+        <button className={`handprint hand-b ${handsSeen.includes('right') ? 'seen' : ''}`} onClick={() => setHandsSeen(prev => prev.includes('right') ? prev : [...prev, 'right'])} aria-label="Dấu bàn tay phải"><span>{handsSeen.includes('right') ? '02 ✓' : ''}</span></button>
+        <button className={`physical-ticket-machine ${caseFound ? 'awake' : ''}`} onClick={() => { if (caseFound) { setMachineInspected(true); setActiveArea('machine'); } }} aria-label="Máy bán vé"><i /><span>MÁY BÁN VÉ</span></button>
+        <button className={`physical-lamp ${machineInspected ? 'available' : ''} ${cleaner ? 'taken' : ''}`} onClick={() => machineInspected && setCleaner(true)} aria-label="Bóng đèn trong quầy"><i /></button>
+      </div>
+      <button className={`physical-locked-case scene-case ${caseFound ? 'visible' : ''} ${caseUnlocked ? 'open' : ''}`} onClick={() => caseUnlocked && setActiveArea('case')} aria-label="Vật thể bị khóa"><i /><b>PROPERTY<br />00.013</b><small>{caseUnlocked ? 'UNLOCKED' : 'LOCKED'}</small></button>
+      <button className={`physical-poster ${filterStored ? 'next-objective' : ''} ${posterSolved ? 'restored' : ''}`} onClick={() => { setPosterOpen(true); setActiveArea('poster'); }} aria-label="Poster rách trên cột"><i /><span>POSTER RÁCH</span></button>
+      <button className={`physical-map ${coordinate ? 'coordinate-ready' : ''}`} onClick={() => { setMapOpen(true); setActiveArea('map'); }} aria-label="Bản đồ Aurelia"><i /><span>BẢN ĐỒ THÀNH PHỐ</span></button>
+      <div className="scene-instruction">CLICK TRỰC TIẾP VÀO VẬT THỂ · GIỮ CHUỘT ĐỂ QUAN SÁT</div>
+      {boothOpen && !caseFound && <div className="hand-progress">HANDPRINT RECOVERY // {handsSeen.length}/2</div>}
+      {caseFound && !caseUnlocked && <div className="case-reveal-signal"><i />VẬT THỂ 00.013 ĐÃ PHẢN HỒI · MÁY BÁN VÉ ĐANG CHỜ</div>}
+      {machineInspected && !cleaner && activeArea !== 'machine' && <div className="case-reveal-signal lamp-signal"><i />LỚP NHÒE PHẢN XẠ ÁNH ĐÈN · KIỂM TRA BÓNG ĐÈN TRONG QUẦY</div>}
+      {caseUnlocked && !filterStored && <div className="case-reveal-signal unlocked"><i />KHÓA ĐÃ NHẢ · CLICK VÀO HỘP TRONG QUẦY</div>}
+      {filterStored && !posterSolved && activeArea === null && <div className="case-reveal-signal poster-signal"><i />TẤM LỌC PHẢN ỨNG VỚI POSTER TRÊN CỘT GIỮA</div>}
     </div>
-    <div className="answer-row">{symbols.map((s, i) => <button key={s} onClick={() => onSolve(s)}><small>0{i + 1}</small>{s}</button>)}</div>
+
+    {activeArea === 'machine' && <section className="station-puzzle ticket-booth-puzzle inspection-overlay"><button className="close-inspection" onClick={() => setActiveArea(null)}>×</button>
+      <div className={`ticket-machine ${cleaner ? 'clean' : 'blurred'}`}>
+        <header>MÁY BÁN VÉ // LOGIC RECOVERY</header>
+        {!cleaner && <p className="machine-smear">Ký tự bị nhòe bởi lớp dầu quang học. Một quầng sáng từ bóng đèn phản chiếu trên màn hình.</p>}
+        <div className="logic-question"><span>Ⅰ. Số sân ga đứng sau 3 nhưng trước 5.</span><div>{['3','4','6'].map(x => <button key={x} onClick={() => cleaner && chooseAnswer(x)}>{x}</button>)}</div></div>
+        <div className="logic-question"><span>Ⅱ. Một đoàn tàu có hai đầu nhưng không có…</span><div>{['1','2','4'].map(x => <button key={x} onClick={() => cleaner && chooseAnswer(x)}>{x}</button>)}</div></div>
+        <div className="logic-question"><span>Ⅲ. Chỉ một đường ray rời khỏi Aurelia.</span><div>{['1','3','5'].map(x => <button key={x} onClick={() => cleaner && chooseAnswer(x)}>{x}</button>)}</div></div>
+        <div className="machine-code">INPUT // {answers.join('') || '···'} <button disabled={!cleaner || answers.length !== 3} onClick={() => { if (answers.join('') === '421') { setCaseUnlocked(true); setActiveArea(null); } }}>MỞ KHÓA VẬT THỂ</button></div>
+      </div>
+    </section>}
+
+    {activeArea === 'case' && caseUnlocked && <section className="station-puzzle case-inspection inspection-overlay"><button className="close-inspection" onClick={() => setActiveArea(null)}>×</button><div className="opened-case-object"><i /><span>VÉ KIM LOẠI ĐỤC LỖ // AURELIA<br />PROPERTY OF PASSENGER 00.013</span></div>{!filterStored ? <button className="collect-filter" onClick={() => { setFilterStored(true); setActiveArea(null); }}><i />LƯU VÉ ĐỤC LỖ VÀO HÀNH LÝ</button> : <p>Vật thể này đã nằm trong hành lý.</p>}</section>}
+
+    {posterOpen && activeArea === 'poster' && <section className="station-puzzle poster-puzzle inspection-overlay"><button className="close-inspection" onClick={() => setActiveArea(null)}>×</button>
+      {!posterSolved ? <><p className="puzzle-label">Chọn một mảnh rồi chọn mảnh thứ hai để đổi chỗ. Các đường ray, mặt trời và đường chân trời phải nối liền.</p><div className="real-poster-grid">{posterOrder.map((piece, index) => <button key={index} onClick={() => swapPosterPiece(index)} className={`real-poster-piece piece-${piece} ${selectedPosterPiece === index ? 'selected' : ''}`} aria-label={`Mảnh poster ${index + 1}`}><i /></button>)}</div><button className="puzzle-reset" onClick={() => { setPosterOrder([4, 1, 5, 0, 3, 2]); setSelectedPosterPiece(null); }}>XÁO LẠI POSTER</button></> : <div ref={posterBoardRef} className="assembled-poster real-assembled-poster">
+        <div className="poster-art real-poster-art"><div className="cipher-noise" aria-hidden="true">Q7 MA 2⌁ R9 K4 DC 8H 3X N6 T1 · LQ 84 P7 AX 08 RQ 6M 89</div><div className="grille-coordinate" aria-label="Tọa độ ẩn trong poster"><span>48P</span><span>—</span><span>XQ</span><span>8689</span></div></div>
+        {!filterStored && <p className="locked-note">Mật mã vẫn chứa quá nhiều nét thừa. Vật thể trong hộp 00.013 có cùng kích thước với vùng trung tâm.</p>}
+        {filterStored && !filterPlaced && <button className="place-filter" onClick={() => setFilterPlaced(true)}>LẤY VÉ ĐỤC LỖ TỪ HÀNH LÝ VÀ ĐẶT LÊN POSTER</button>}
+        {filterStored && filterPlaced && <div className={`cardan-grille ${filterAligned ? 'aligned' : ''}`} style={{ left: `${filterPosition.x}%`, top: `${filterPosition.y}%`, transform: `rotate(${filterAngle}deg)` }} onPointerDown={dragGrille} onPointerMove={event => event.buttons === 1 && dragGrille(event)} onPointerUp={settleGrille} onDoubleClick={() => setFilterAngle(angle => angle + 90)} role="application" aria-label="Vé kim loại đục lỗ có thể kéo và nhấp đúp để xoay"><svg viewBox="0 0 420 150" preserveAspectRatio="none" aria-hidden="true"><defs><mask id="cardan-holes"><rect width="420" height="150" fill="white" /><rect x="28" y="48" width="80" height="48" rx="4" fill="black" /><rect x="125" y="48" width="45" height="48" rx="4" fill="black" /><rect x="187" y="48" width="75" height="48" rx="4" fill="black" /><rect x="279" y="48" width="112" height="48" rx="4" fill="black" /></mask><linearGradient id="grille-metal" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#59615d" /><stop offset=".5" stopColor="#151b1a" /><stop offset="1" stopColor="#373e3b" /></linearGradient></defs><rect width="420" height="150" rx="7" fill="url(#grille-metal)" mask="url(#cardan-holes)" /><rect x="4" y="4" width="412" height="142" rx="6" fill="none" stroke="#9b8658" strokeWidth="8" /></svg></div>}
+        {filterStored && filterPlaced && !filterAligned && <div className="grille-instruction">KÉO TẤM GRILLE · NHẤP ĐÚP ĐỂ XOAY</div>}
+        {filterAligned && <button className="coordinate-found" onClick={() => { setCoordinate('48P-XQ8689'); setMapOpen(true); }}>GHI TỌA ĐỘ VỪA ĐỌC LÊN VÉ</button>}
+      </div>}
+    </section>}
+
+    {mapOpen && activeArea === 'map' && <section className="station-puzzle map-puzzle inspection-overlay"><button className="close-inspection" onClick={() => setActiveArea(null)}>×</button>
+      <div className="aurelia-grid">{['48P','17K','63M','82R','XQ','AL','TZ','BN','8689','2401','7310','5942','ECHO','VOID','AUR','013'].map(cell => <button key={cell} className={coordinate.includes(cell) ? 'marked' : ''} onClick={() => coordinate === '48P-XQ8689' && cell === '8689' && setCoordinate('48P-XQ8689-OPEN')}>{cell}<i /></button>)}</div>
+      {coordinate !== '48P-XQ8689-OPEN' ? <p className="map-status">{coordinate ? 'Tọa độ đã được ghi trên vé. Đối chiếu lần lượt ba vùng trên lưới.' : 'Không có tọa độ. Bản đồ không biết phải khôi phục khu vực nào.'}</p> : <div className="glyph-lock">
+        <p>Sáu tượng hình mang sáu chữ số. Đồng hồ nhà ga quyết định thứ tự.</p>
+        <div className="glyph-slots">{[0,1,2,3,4,5].map(i => <i key={i}>{glyphOrder[i] || '·'}</i>)}</div>
+        <div className="glyph-bank">{glyphs.map(item => <button key={item.glyph} onClick={() => chooseGlyph(item.glyph)}><b>{item.glyph}</b><small>{item.digit}</small></button>)}</div>
+        <button className="puzzle-reset" onClick={() => setGlyphOrder([])}>XÓA THỨ TỰ</button>
+      </div>}
+    </section>}
+
+    {(cleaner || filterStored) && <aside className="station-inventory"><span>HÀNH LÝ {filterStored ? '02' : '01'}/04</span>{cleaner && <b>◉ KÍNH PHÂN CỰC</b>}{filterStored && <b>▣ VÉ KIM LOẠI ĐỤC LỖ</b>}</aside>}
   </div>;
 }
 
