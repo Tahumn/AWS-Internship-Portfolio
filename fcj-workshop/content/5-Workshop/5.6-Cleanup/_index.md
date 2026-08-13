@@ -60,5 +60,5 @@ aws elbv2 describe-load-balancers --region $region
 
 Expected result after full cleanup: no workshop NAT Gateway, ALB, running ECS service, RDS instance, or Redis group remains.
 
-This is a **verification criterion for a future cleanup**, not a completed-cleanup result. Screenshots from a different workshop must not be reused, and `cleanup completed` must not be claimed while Cloud Finance remains online for demonstration. After the real cleanup, retain one Resource Groups/Tag Editor or service-list capture showing no resources with the `cloud-finance` prefix, then compare Cost Explorer after the normal Billing update delay.
+These steps are retained as the cleanup procedure to follow after the demonstration period. The Cloud Finance environment is currently kept online for demo purposes, so its resources have not yet been removed. Once cleanup is complete, the result will be verified through Resource Groups, Tag Editor, or resource listings filtered by the `cloud-finance` prefix, followed by a Cost Explorer review after the Billing data has been updated.
 

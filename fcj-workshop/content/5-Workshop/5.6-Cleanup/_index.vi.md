@@ -60,5 +60,5 @@ aws elbv2 describe-load-balancers --region $region
 
 Sau full cleanup không còn NAT Gateway, ALB, ECS service đang chạy, RDS instance hoặc Redis group của workshop.
 
-Kết quả trên là **tiêu chí xác minh cho lần cleanup trong tương lai**. Không sử dụng ảnh xóa tài nguyên của workshop khác và không ghi `cleanup completed` khi Cloud Finance vẫn đang phục vụ demo. Sau khi thực hiện thật, lưu một ảnh Resource Groups/Tag Editor hoặc danh sách dịch vụ không còn tài nguyên mang prefix `cloud-finance`, rồi đối chiếu Cost Explorer sau độ trễ cập nhật của Billing.
+Các bước trên được lưu lại như một quy trình cleanup để áp dụng sau khi kết thúc giai đoạn trình bày. Hiện tại, môi trường Cloud Finance vẫn được duy trì để phục vụ demo nên chưa thực hiện xóa tài nguyên. Khi cleanup hoàn tất, kết quả sẽ được xác nhận bằng Resource Groups, Tag Editor hoặc danh sách tài nguyên theo tiền tố `cloud-finance`, đồng thời kiểm tra lại Cost Explorer sau khi dữ liệu Billing được cập nhật.
 
