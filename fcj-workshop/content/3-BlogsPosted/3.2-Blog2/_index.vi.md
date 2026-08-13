@@ -71,7 +71,7 @@ Thay vì phải đoán trước chính xác sẽ cần bao nhiêu server, ngư�
 
 {{< figure src="/images/blog2.jpg" title="Kiến trúc ứng dụng AWS sử dụng Amazon ECS Fargate và Application Load Balancer" >}}
 
-**Chú thích gợi ý:** Kiến trúc triển khai ứng dụng sử dụng Amazon ECS Fargate, Application Load Balancer, Amazon S3, Amazon SQS và Amazon DynamoDB để phân phối lưu lượng, xử lý bất đồng bộ và lưu trữ dữ liệu.
+Sơ đồ minh họa một kiến trúc tham khảo sử dụng Amazon ECS Fargate và Application Load Balancer cho tầng ứng dụng, kết hợp Amazon S3, Amazon SQS và Amazon DynamoDB cho các nhu cầu lưu trữ và xử lý bất đồng bộ. Đây là hình minh họa cho chủ đề Auto Scaling, không phải kiến trúc đang chạy của Cloud Finance Platform.
 
 ---
 
@@ -105,13 +105,13 @@ Khả năng này giúp việc triển khai trên Cloud linh hoạt hơn so với
 
 ---
 
-## Link bài viết
+## Bài viết đã đăng
 
 ---
 
-{{< figure src="/images/MinhchungBlog2.png" title="AWS IAM Security Best Practices" >}}
+{{< figure src="/images/MinhchungBlog2.png" title="Bài viết về Amazon ECS Service Auto Scaling đã được chia sẻ trên cộng đồng" >}}
 
-https://www.facebook.com/groups/660548818043427/?multi_permalinks=2238712130227080&hoisted_section_header_type=recently_seen
+[Xem bài viết trong cộng đồng First Cloud Journey](https://www.facebook.com/groups/660548818043427/?multi_permalinks=2238712130227080&hoisted_section_header_type=recently_seen)
 
 ---
 

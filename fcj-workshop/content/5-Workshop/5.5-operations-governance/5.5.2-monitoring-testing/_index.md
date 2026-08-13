@@ -26,6 +26,10 @@ Testing proceeds from the inside out:
 
 This order prevents a CloudFront timeout from being misdiagnosed as a Finance or OCR bug. A task in `RUNNING` is not accepted until the health probe succeeds and the ECS deployment becomes steady.
 
+![CloudWatch log for the Gateway health endpoint](/images/5-Workshop/Gateway_Health_Log.png)
+
+The log stream records Uvicorn starting on port 8000 and repeated health probes returning `200 OK`. Because the probe source is shown as loopback, this capture proves container health; it does not replace ALB or end-to-end Service Connect evidence.
+
 ## Infrastructure acceptance matrix
 
 | Test | Expected result | Evidence |
@@ -37,6 +41,19 @@ This order prevents a CloudFront timeout from being misdiagnosed as a Finance or
 | Database isolation | RDS is encrypted and `PubliclyAccessible=False` | RDS configuration/metrics |
 | Queue | API enqueues and worker listens to `notifications` | Notification Worker logs |
 | CI/CD traceability | Git SHA maps to ECR tag and task revision | GitHub Actions, ECR, ECS |
+
+## Evidence-to-claim matrix
+
+| Evidence | Supported conclusion | Not established by this image alone |
+|---|---|---|
+| VPC resource map | Subnets, route tables, IGW, and NAT exist in the documented tiers | Security groups block every unintended path |
+| Gateway CloudWatch log | The process starts and `/health` returns 200 inside the container | An Internet request traverses the complete edge path |
+| ECS Exec `gateway → auth` | The Service Connect data plane and private alias worked at test time | Long-term availability of every service |
+| Healthy ALB target | The ALB health check reaches Gateway | Business flows and database correctness |
+| CloudFront login page | Static delivery and the SPA entry point work | Every backend acceptance test passes |
+| OCR/AI/SES evidence | The demonstrated business scenarios succeeded | Load capacity, HA, or a production SLA |
+
+This matrix prevents a console screenshot from being extended into a claim broader than the evidence supports.
 
 The `401` test is deliberately a positive routing test with a negative authorization outcome. It demonstrates that the request reached Auth and was rejected at the correct boundary. A `504` would indicate an origin or internal routing failure.
 

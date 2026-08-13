@@ -71,7 +71,7 @@ This is one of the clear differences between deploying applications in the cloud
 
 {{< figure src="/images/blog2.jpg" title="AWS application architecture using Amazon ECS Fargate and Application Load Balancer" >}}
 
-**Suggested caption:** Application architecture using Amazon ECS Fargate, Application Load Balancer, Amazon S3, Amazon SQS and Amazon DynamoDB for traffic distribution, asynchronous processing and data storage.
+The diagram shows a reference architecture that uses Amazon ECS Fargate and an Application Load Balancer for the application tier, with Amazon S3, Amazon SQS, and Amazon DynamoDB supporting storage and asynchronous processing. It illustrates the Auto Scaling topic and is not the deployed Cloud Finance Platform architecture.
 
 ---
 
@@ -105,13 +105,13 @@ For my **Cloud Finance Platform**, the current environment keeps `desiredCount =
 
 ---
 
-## Article Link
+## Published Article
 
 ---
 
-{{< figure src="/images/MinhchungBlog2.png" title="AWS IAM Security Best Practices" >}}
+{{< figure src="/images/MinhchungBlog2.png" title="The Amazon ECS Service Auto Scaling article shared with the community" >}}
 
-https://www.facebook.com/groups/660548818043427/?multi_permalinks=2238712130227080&hoisted_section_header_type=recently_seen
+[View the post in the First Cloud Journey community](https://www.facebook.com/groups/660548818043427/?multi_permalinks=2238712130227080&hoisted_section_header_type=recently_seen)
 
 ---
 

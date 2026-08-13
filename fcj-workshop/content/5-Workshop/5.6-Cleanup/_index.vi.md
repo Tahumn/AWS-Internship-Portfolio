@@ -8,6 +8,16 @@ pre: " <b> 5.6. </b> "
 
 ## Chọn tạm dừng hoặc xóa
 
+{{% notice info %}}
+**Trạng thái tại thời điểm hoàn thiện báo cáo:** môi trường Cloud Finance vẫn được duy trì để phục vụ demo và nghiệm thu. Phần này là runbook cleanup đã chuẩn bị, không phải tuyên bố rằng các tài nguyên trong ảnh ở các chương trước đã bị xóa. Full cleanup chỉ được thực hiện sau khi kết thúc đánh giá.
+{{% /notice %}}
+
+| Lựa chọn | Ứng dụng còn hoạt động? | Chi phí còn lại | Khi nên dùng |
+|---|---|---|---|
+| Giữ nguyên | Có | Tất cả tài nguyên đang chạy | Trong thời gian demo/nghiệm thu |
+| Scale ECS về 0 | Không có backend/API | NAT, ALB, RDS, Redis, WAF và storage vẫn tính phí | Tạm dừng ngắn và chấp nhận downtime |
+| Full cleanup | Không | Có thể còn snapshot, log hoặc secret recovery | Sau khi chấm xong và đã backup |
+
 **Tạm dừng ngắn:** scale toàn bộ ECS service về 0. Việc này dừng phí Fargate compute, nhưng NAT Gateway, ALB, RDS, ElastiCache, WAF, Secrets Manager và storage vẫn có thể tiếp tục tính phí.
 
 ~~~powershell
@@ -49,4 +59,6 @@ aws elbv2 describe-load-balancers --region $region
 ~~~
 
 Sau full cleanup không còn NAT Gateway, ALB, ECS service đang chạy, RDS instance hoặc Redis group của workshop.
+
+Kết quả trên là **tiêu chí xác minh cho lần cleanup trong tương lai**. Không sử dụng ảnh xóa tài nguyên của workshop khác và không ghi `cleanup completed` khi Cloud Finance vẫn đang phục vụ demo. Sau khi thực hiện thật, lưu một ảnh Resource Groups/Tag Editor hoặc danh sách dịch vụ không còn tài nguyên mang prefix `cloud-finance`, rồi đối chiếu Cost Explorer sau độ trễ cập nhật của Billing.
 

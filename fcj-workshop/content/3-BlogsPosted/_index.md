@@ -7,7 +7,7 @@ pre: " <b> 3. </b> "
 ---
 
 {{% notice warning %}}
-⚠️ **Note** The blogs below summarize the AWS topics I researched and shared during my internship.
+⚠️ **Note:** The articles below summarize the AWS topics I researched and shared during my internship.
 {{% /notice %}}
 
 ###  [Blog 1 - 7 IAM Best Practices for Better AWS Account Security](3.1-Blog1/)

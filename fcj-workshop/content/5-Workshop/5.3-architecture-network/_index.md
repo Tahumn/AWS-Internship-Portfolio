@@ -20,6 +20,22 @@ The demo VPC uses CIDR 10.0.0.0/16:
 
 Public routes use an Internet Gateway. Private application routes use a NAT Gateway for outbound access. Private data route tables have no Internet default route.
 
+![Cloud Finance VPC resource map](/images/5-Workshop/CloudFinance_VPC_Resource_Map.png)
+
+The deployed resource map confirms six subnets distributed across `ap-southeast-1a` and `ap-southeast-1b`. The public tier connects to the Internet Gateway, the private application tier uses a NAT Gateway for outbound traffic, and the private database tier has a separate route table. The demo uses one NAT Gateway to control cost, so application-tier outbound connectivity still has an Availability Zone dependency.
+
+## As-built deployment inventory
+
+| Layer | Deployed components | Verified state | Claims deliberately excluded |
+|---|---|---|---|
+| Edge | CloudFront, WAF, private S3 origin, ALB origin | SPA loads through CloudFront; both origins are configured | No custom domain/ACM in the baseline |
+| Compute | 9 ECS Fargate services | Tasks and deployments were healthy at acceptance time | One task per service; autoscaling not load-tested |
+| Service networking | ECS Service Connect, `cloud-finance.local` namespace | Gateway called `auth:8000/health` and received HTTP 200 | No multi-Region service-mesh claim |
+| Data | RDS PostgreSQL, ElastiCache Redis | RDS is private/encrypted; Redis is available and encrypted | Redis Multi-AZ/failover is not enabled in the demo |
+| Delivery | ECR, GitHub Actions OIDC | Git-SHA image tags and a successful deployment workflow | No claim of complete automated rollback |
+
+The states in this table are limited to the evidence-capture time. `Healthy` in the demo does not establish a production SLA or proven load capacity.
+
 ## Security groups
 
 Create four security groups:
@@ -72,7 +88,76 @@ The demo balances domain ownership and cost through auth_db, finance_db, ai_db, 
 
 ## Verified data flows
 
-REST travels Browser → CloudFront → ALB → Gateway → Service Connect → domain service → logical database. WebSocket travels through /ws/* without caching. Notifications persist data, enqueue Redis/RQ jobs, and are consumed by the worker before SES delivery. OCR combines Tesseract/Gemini and stores finance metadata; direct S3 object integration remains explicitly pending. The AWS deployment workflow is started manually with `workflow_dispatch`; push events run CI rather than automatically deploying AWS. CI/CD uses GitHub OIDC, ECR, task revisions, rolling updates, S3 sync, and CloudFront invalidation.
+### REST flow
+
+~~~text
+Browser HTTPS
+ -> CloudFront behavior /api/*
+ -> ALB
+ -> Gateway target port 8000
+ -> Service Connect alias
+ -> Domain service
+ -> Logical PostgreSQL database
+ -> Response returns along the same path
+~~~
+
+### WebSocket flow
+
+~~~text
+Browser WSS
+ -> CloudFront /ws/*
+ -> ALB
+ -> Gateway Socket.IO
+ -> Redis Pub/Sub or service event
+ -> Gateway
+ -> Browser
+~~~
+
+CloudFront behavior and the ALB idle timeout must accommodate long-lived connections. API and WebSocket traffic is not cached.
+
+### Asynchronous notification flow
+
+~~~text
+Business service
+ -> Notification API
+ -> Persist to notifications_db
+ -> Enqueue to Redis queue notifications
+ -> Notification Worker consumes the job
+ -> Amazon SES SMTP/TLS
+ -> User email
+~~~
+
+The API does not wait for email delivery to finish, and the worker can retry independently.
+
+### OCR flow
+
+~~~text
+Browser upload
+ -> CloudFront/ALB/Gateway
+ -> OCR Service
+ -> Tesseract + Gemini parsing
+ -> Finance Service / Finance DB metadata
+ -> Transaction and receipt response
+~~~
+
+The S3 receipts bucket has been provisioned, but OCR read/write access through the ECS task role remains pending. The report keeps that distinction explicit rather than presenting the integration as complete.
+
+### CI/CD flow
+
+~~~text
+Manual workflow_dispatch
+ -> GitHub Actions
+ -> OIDC AssumeRole
+ -> Docker build
+ -> ECR
+ -> ECS task revision
+ -> Rolling update
+ -> Frontend build
+ -> S3 sync
+ -> CloudFront invalidation
+~~~
+
+The AWS deployment workflow is started manually with `workflow_dispatch`; push events run CI rather than deploying the AWS environment automatically.
 
 ## Well-Architected assessment
 

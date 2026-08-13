@@ -8,6 +8,16 @@ pre: " <b> 5.6. </b> "
 
 ## Choose pause or delete
 
+{{% notice info %}}
+**State when this report was completed:** the Cloud Finance environment remains online for demonstration and acceptance. This section is a prepared cleanup runbook, not a claim that resources shown in earlier chapters have already been deleted. Full cleanup will be performed only after evaluation ends.
+{{% /notice %}}
+
+| Choice | Does the application remain available? | Remaining cost | Appropriate use |
+|---|---|---|---|
+| Keep running | Yes | All active resources | During demonstration and acceptance |
+| Scale ECS to 0 | No backend/API | NAT, ALB, RDS, Redis, WAF, and storage still incur cost | Short pause with accepted downtime |
+| Full cleanup | No | Snapshots, logs, or secret recovery may still incur cost | After evaluation and backup |
+
 **Short pause:** scale all ECS services to 0. This stops Fargate compute charges, but NAT Gateway, ALB, RDS, ElastiCache, WAF, Secrets Manager, and storage can continue charging.
 
 ~~~powershell
@@ -49,4 +59,6 @@ aws elbv2 describe-load-balancers --region $region
 ~~~
 
 Expected result after full cleanup: no workshop NAT Gateway, ALB, running ECS service, RDS instance, or Redis group remains.
+
+This is a **verification criterion for a future cleanup**, not a completed-cleanup result. Screenshots from a different workshop must not be reused, and `cleanup completed` must not be claimed while Cloud Finance remains online for demonstration. After the real cleanup, retain one Resource Groups/Tag Editor or service-list capture showing no resources with the `cloud-finance` prefix, then compare Cost Explorer after the normal Billing update delay.
 

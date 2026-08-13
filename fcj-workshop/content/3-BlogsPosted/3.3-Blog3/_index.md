@@ -153,19 +153,19 @@ The main principle is simple:
 
 ---
 
-## Article Link
+## Published Article
 
 ---
 
-{{< figure src="/images/MinhChungBlog3.png" title="AWS IAM Security Best Practices" >}}
+{{< figure src="/images/MinhChungBlog3.png" title="The AWS secrets-management article shared with the community" >}}
 
-https://www.facebook.com/groups/660548818043427/?multi_permalinks=2238716976893262&hoisted_section_header_type=recently_seen
+[View the post in the First Cloud Journey community](https://www.facebook.com/groups/660548818043427/?multi_permalinks=2238716976893262&hoisted_section_header_type=recently_seen)
 
 ---
 
 ## References
 
-* AWS Secrets Manager Documentation
-* AWS Systems Manager Parameter Store Documentation
-* IAM Roles for Amazon ECS Tasks
-* AWS Security Best Practices
+* [What is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)
+* [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html)
+* [IAM roles for Amazon ECS tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html)
+* [Pass sensitive data to an Amazon ECS container](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html)

@@ -153,19 +153,19 @@ Nguyên tắc quan trọng nhất có thể tóm gọn như sau:
 
 ---
 
-## Link bài viết
+## Bài viết đã đăng
 
 ---
 
-{{< figure src="/images/MinhChungBlog3.png" title="AWS IAM Security Best Practices" >}}
+{{< figure src="/images/MinhChungBlog3.png" title="Bài viết về quản lý thông tin nhạy cảm trên AWS đã được chia sẻ trên cộng đồng" >}}
 
-https://www.facebook.com/groups/660548818043427/?multi_permalinks=2238716976893262&hoisted_section_header_type=recently_seen
+[Xem bài viết trong cộng đồng First Cloud Journey](https://www.facebook.com/groups/660548818043427/?multi_permalinks=2238716976893262&hoisted_section_header_type=recently_seen)
 
 ---
 
 ## Tài liệu tham khảo
 
-* AWS Secrets Manager Documentation
-* AWS Systems Manager Parameter Store Documentation
-* IAM Roles for Amazon ECS Tasks
-* AWS Security Best Practices
+* [Giới thiệu AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)
+* [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html)
+* [IAM role dành cho Amazon ECS task](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html)
+* [Truyền dữ liệu nhạy cảm vào Amazon ECS container](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html)

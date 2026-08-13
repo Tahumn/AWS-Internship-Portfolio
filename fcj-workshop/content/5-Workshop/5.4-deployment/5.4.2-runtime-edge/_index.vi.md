@@ -12,6 +12,10 @@ Một backend image được tái sử dụng cho chín ECS Fargate service. Com
 
 ![Chín ECS service được quản lý độc lập](/images/5-Workshop/ECS_Service.png)
 
+![Tài nguyên của Gateway task definition revision 4](/images/5-Workshop/Gateway_Task_Definition_Resources.png)
+
+Gateway revision 4 dùng network mode `awsvpc`, tách application task role khỏi task execution role và cấp `0.25 vCPU` cùng `1 GiB` memory. Đây là cấu hình đã triển khai cho demo, không phải kết quả rightsizing từ load test.
+
 Service được triển khai theo thứ tự phụ thuộc: Auth và Finance trước; tiếp theo Notification API/Worker, Planning và Recurring, OCR và AI; Gateway sau cùng. Phản hồi create-service không được xem là thành công. Với từng workload, nhóm kiểm tra ECS event, exit code của stopped task, CloudWatch startup log và `/health` cho đến khi `Desired=1`, `Running=1`, `Pending=0`.
 
 ## Giao tiếp private giữa service
@@ -27,9 +31,17 @@ GET http://auth:8000/health
 
 Test này đồng thời chứng minh DNS resolution, Service Connect proxy, quyền của security group và Auth listener. Trạng thái “enabled” trên Console chỉ chứng minh cấu hình đã được lưu, chưa chứng minh request thực sự đi qua.
 
+![Gateway gọi Auth qua private Service Connect alias](/images/5-Workshop/ServiceConnect_Private_Health.png)
+
+Ảnh ECS Exec ghi nhận request được phát từ container `gateway` tới `http://auth:8000/health`, nhận `HTTP 200` và payload định danh service `auth`. Bằng chứng này xác minh đường gọi private tại thời điểm kiểm thử; nó không được diễn giải thành cam kết availability dài hạn.
+
 ## ALB, CloudFront và WAF
 
 ALB internet-facing trải trên hai public subnet. IP target group chuyển HTTP 8000 đến ENI private của Gateway và probe `/health`. CloudFront có hai trách nhiệm origin: default behavior đọc SPA private trên S3 qua OAC; `/api/*` và `/ws/*` không cache, chuyển traffic động đến ALB. WAF gắn tại CloudFront để lọc request trước khi đến regional origin.
+
+![Gateway target healthy trong ALB target group](/images/5-Workshop/ALB_Target_Healthy.png)
+
+Target group dùng target type `ip` và ghi nhận Gateway healthy trên cổng ứng dụng. Điều này bổ sung bằng chứng cho tuyến ALB → Gateway; ảnh CloudFront bên dưới xác minh lớp edge riêng biệt.
 
 ![Hai origin CloudFront cho frontend S3 và backend ALB](/images/5-Workshop/OriginAmazonCloudFront.png)
 
@@ -42,5 +54,9 @@ SPA route cần custom response 403/404 về `/index.html` với mã 200 để R
 ## Tích hợp ngoài hệ thống
 
 Gemini và SES được gọi từ private application subnet qua NAT. Gemini phục vụ AI và OCR; Tesseract vẫn là một phần xử lý OCR. SMTP credential được inject từ Secrets Manager. Tại thời điểm ghi nhận, SES gửi được đến identity đã verify; gửi production không giới hạn vẫn phụ thuộc AWS phê duyệt. Bucket receipts/exports đã provision nhưng OCR tự động lưu object vẫn được ghi rõ là pending.
+
+![ElastiCache Redis của môi trường demo](/images/5-Workshop/ElastiCache_Redis_Overview.png)
+
+Redis OSS 7.1 chạy trên một node `cache.t4g.micro`, trạng thái `Available`, bật mã hóa at-rest và in-transit. Cluster phục vụ Redis/RQ và cache theo code hiện tại. Vì Multi-AZ và automatic failover đang tắt, đây là baseline tiết kiệm chi phí, chưa phải kiến trúc HA production.
 
 **Checkpoint:** chín service healthy; Gateway resolve được private alias; ALB target healthy; CloudFront phục vụ SPA; request `/api/v1/auth/me` không JWT trả đúng `401` thay vì `504`.

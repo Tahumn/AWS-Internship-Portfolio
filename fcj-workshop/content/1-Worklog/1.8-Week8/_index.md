@@ -8,7 +8,7 @@ pre: " <b> 1.8. </b> "
 ---
 
 {{% notice warning %}}
-⚠️ **Note:** The following content reflects the actual system testing, evaluation and reporting activities carried out during the eighth and final internship week.
+⚠️ **Note:** The dates in the table follow the Week 8 work schedule. Some testing, evaluation, and documentation tasks were completed ahead of schedule; the results below reflect work that was actually completed.
 {{% /notice %}}
 
 ### Week 8 Objectives

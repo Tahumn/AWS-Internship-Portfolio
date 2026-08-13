@@ -83,4 +83,14 @@ Before AWS deployment, the team prepared a monorepo containing FastAPI services,
 | Database | PostgreSQL 16 |
 | Container port | 8000 |
 
+## Pre-deployment checks
+
+The team used three checks before creating AWS resources:
+
+1. **Source:** no secrets are committed; `.env` is covered by `.gitignore`.
+2. **Local:** Docker images build, the frontend production build succeeds, and API health returns 200.
+3. **AWS identity:** `aws sts get-caller-identity` returns the intended account and the CLI is set to the intended Region.
+
+These checks prevent common mistakes such as pushing an image to the wrong account or Region, building the frontend with a localhost API URL, or starting tasks that cannot pull their image.
+
 Three pre-deployment checks were performed: source secret scanning and gitignore review, local Docker/frontend/API validation, and AWS identity/Region verification. These checks prevented deployment to the wrong account, localhost API builds, and missing image errors.

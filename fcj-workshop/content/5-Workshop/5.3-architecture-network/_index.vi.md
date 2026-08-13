@@ -20,6 +20,22 @@ VPC demo có CIDR 10.0.0.0/16:
 
 Public route đi qua Internet Gateway. Private application route đi qua NAT Gateway để outbound. Private data route table không có default route ra Internet.
 
+![Resource map của Cloud Finance VPC](/images/5-Workshop/CloudFinance_VPC_Resource_Map.png)
+
+Resource map của môi trường đã triển khai xác nhận sáu subnet được phân bố trên `ap-southeast-1a` và `ap-southeast-1b`. Public tier nối Internet Gateway; private application tier dùng NAT Gateway cho outbound; private database tier dùng route table riêng. Demo chỉ có một NAT Gateway để giảm chi phí, vì vậy outbound của application tier vẫn có điểm lỗi theo Availability Zone.
+
+## Inventory triển khai thực tế
+
+| Lớp | Thành phần đã triển khai | Trạng thái được xác minh | Phạm vi chưa tuyên bố |
+|---|---|---|---|
+| Edge | CloudFront, WAF, private S3 origin, ALB origin | SPA tải qua CloudFront; hai origin đã cấu hình | Chưa có custom domain/ACM trong baseline |
+| Compute | 9 ECS Fargate service | Task và deployment healthy tại thời điểm nghiệm thu | Một task/service; chưa kiểm thử autoscaling |
+| Service networking | ECS Service Connect, namespace `cloud-finance.local` | Gateway gọi `auth:8000/health` và nhận HTTP 200 | Không tuyên bố service mesh đa Region |
+| Data | RDS PostgreSQL, ElastiCache Redis | RDS private/encrypted; Redis available và mã hóa | Redis chưa bật Multi-AZ/failover trong demo |
+| Delivery | ECR, GitHub Actions OIDC | Image tag theo Git SHA và workflow deploy thành công | Chưa triển khai automated rollback đầy đủ |
+
+Các trạng thái trong bảng được giới hạn ở thời điểm chụp bằng chứng. `Healthy` trong demo không đồng nghĩa với SLA production hoặc khả năng chịu tải đã được chứng minh.
+
 ## Security Group
 
 Tạo bốn nhóm:

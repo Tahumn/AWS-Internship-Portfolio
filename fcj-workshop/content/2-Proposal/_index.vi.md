@@ -17,7 +17,11 @@ Bên cạnh các chức năng quản lý tài chính cơ bản, hệ thống tí
 
 Hệ thống được phát triển theo kiến trúc microservices và triển khai trên Amazon Web Services. Backend gồm 9 service chạy độc lập trên Amazon ECS Fargate. Frontend được lưu trữ trên Amazon S3 và phân phối qua Amazon CloudFront. Dữ liệu nghiệp vụ được lưu trong Amazon RDS for PostgreSQL, Redis được sử dụng làm hàng đợi xử lý thông báo, còn Amazon SES hỗ trợ gửi OTP và email giao dịch.
 
-Mục tiêu của dự án là xây dựng một hệ thống có khả năng triển khai thực tế, bảo mật, dễ giám sát, hỗ trợ CI/CD và có thể mở rộng từ môi trường demo sang production.
+Mục tiêu của dự án là xây dựng một hệ thống có thể triển khai thực tế, bảo mật, dễ giám sát, hỗ trợ CI/CD và có lộ trình rõ ràng để phát triển từ môi trường demo lên môi trường vận hành chính thức.
+
+{{% notice info %}}
+**Trạng thái tài liệu:** bản đề xuất được lập trước khi triển khai, sau đó được cập nhật để phản ánh đúng kiến trúc thực tế. Các kết quả kỳ vọng ở cuối tài liệu vẫn được giữ làm tiêu chí đánh giá; bằng chứng nghiệm thu tương ứng được trình bày tại Mục 5 – Workshop.
+{{% /notice %}}
 
 ### 2. Tuyên bố vấn đề
 
@@ -71,6 +75,20 @@ Giải pháp mang lại các lợi ích:
 
 Đây là dự án học thuật và thực tập, vì vậy giá trị chính không được đánh giá bằng thời gian hoàn vốn tài chính. Giá trị của dự án nằm ở khả năng áp dụng kiến thức phát triển phần mềm, microservices, container, DevOps, bảo mật và triển khai cloud vào một hệ thống hoạt động hoàn chỉnh.
 
+#### Phạm vi đề xuất
+
+| Trong phạm vi | Ngoài phạm vi triển khai ban đầu |
+|---|---|
+| Web app responsive, 9 ECS service và một Gateway | Native mobile app và triển khai multi-Region |
+| Một RDS chứa 6 logical database | Database-per-service bằng các RDS instance vật lý riêng |
+| Redis/RQ cho queue và worker | Chuyển sang SQS/DLQ |
+| Gemini và Tesseract cho AI/OCR | Chuyển sang Amazon Bedrock khi vận hành chính thức |
+| SES gửi đến địa chỉ đã xác minh | SES Production Access không giới hạn người nhận |
+| S3 private origin cho frontend | OCR tự động lưu receipt object vào S3 |
+| Một task cho mỗi ECS service | Autoscaling và kiến trúc HA đã qua load test |
+
+Các mục nằm ngoài phạm vi ban đầu được giữ làm hướng mở rộng, không được trình bày như những thành phần đã triển khai hoặc nghiệm thu.
+
 ### 3. Kiến trúc giải pháp
 
 Cloud Finance Platform được triển khai trong một AWS Region. Hệ thống sử dụng Amazon VPC với các Public Subnet, Private Application Subnet và Private Database Subnet được phân bố trên hai Availability Zone.
@@ -100,7 +118,7 @@ Amazon RDS for PostgreSQL được sử dụng làm cơ sở dữ liệu quan h�
 - Planning DB.
 - Recurring DB.
 
-Mô hình này bảo đảm quyền sở hữu dữ liệu theo từng service ở cấp logical database, đồng thời tối ưu chi phí cho môi trường demo. Trong môi trường production, các database có thể được tách thành các RDS instance độc lập khi có yêu cầu cao hơn về hiệu năng, bảo mật hoặc khả năng mở rộng.
+Mô hình này vẫn phân định dữ liệu của từng service ở cấp logical database, đồng thời phù hợp với ngân sách của môi trường demo. Khi vận hành chính thức, các database có thể được tách thành những RDS instance độc lập nếu cần tăng khả năng cách ly, hiệu năng hoặc khả năng mở rộng.
 
 Amazon ElastiCache for Redis được sử dụng làm hàng đợi giữa Notification API và Notification Worker. AWS Secrets Manager lưu trữ thông tin nhạy cảm. Amazon CloudWatch thu thập log và metrics. Amazon SES gửi OTP và email thông báo. AI Agent và OCR Service tích hợp với Gemini API thông qua kết nối outbound từ NAT Gateway.
 
@@ -272,7 +290,7 @@ Dự án được thực hiện qua các giai đoạn:
 
 ### 6. Ước tính ngân sách
 
-Chi phí được ước tính cho môi trường demo triển khai tại AWS Region Asia Pacific (Singapore) – `ap-southeast-1`. Phép tính giả định hệ thống hoạt động liên tục khoảng 730 giờ mỗi tháng, mỗi ECS Service duy trì một task và lưu lượng sử dụng ở mức thấp.
+Chi phí được lập vào tháng 08/2026 cho môi trường demo tại AWS Region Asia Pacific (Singapore) – `ap-southeast-1`. Phép tính giả định hệ thống hoạt động liên tục khoảng 730 giờ mỗi tháng, mỗi ECS Service duy trì một task và lưu lượng sử dụng ở mức thấp. Đây là khoảng dự toán phục vụ proposal, không phải hóa đơn Cost Explorer; số liệu chưa bao gồm thuế, credit, Free Tier hoặc biến động tỷ giá và đơn giá AWS.
 
 | Dịch vụ AWS | Cấu hình demo | Chi phí ước tính/tháng |
 |---|---|---:|
@@ -338,7 +356,7 @@ Hệ thống áp dụng các biện pháp sau để giới hạn chi phí:
 - RDS Single-AZ.
 - Redis single-node.
 - Mỗi ECS Service duy trì `desiredCount = 1`.
-- CloudWatch Log Group sử dụng chính sách retention giới hạn.
+- CloudWatch Log Group chỉ lưu log trong khoảng thời gian cần thiết.
 - AWS Budgets được cấu hình để cảnh báo chi phí.
 - Các tài nguyên không cần thiết được dừng hoặc xóa sau quá trình demo.
 
@@ -346,15 +364,17 @@ Hệ thống áp dụng các biện pháp sau để giới hạn chi phí:
 
 #### Ma trận rủi ro
 
-- **Chi phí AWS vượt dự kiến**: Ảnh hưởng cao, xác suất trung bình.
-- **ECS Task không khởi động được**: Ảnh hưởng cao, xác suất trung bình.
-- **Lỗi kết nối giữa các microservice**: Ảnh hưởng cao, xác suất trung bình.
-- **Lỗi database migration**: Ảnh hưởng cao, xác suất trung bình.
-- **Rò rỉ thông tin nhạy cảm**: Ảnh hưởng rất cao, xác suất thấp.
-- **Gemini API không khả dụng hoặc thay đổi model**: Ảnh hưởng trung bình, xác suất trung bình.
-- **Amazon SES bị giới hạn trong Sandbox**: Ảnh hưởng trung bình, xác suất cao trong giai đoạn demo.
-- **NAT Gateway Single-AZ gặp sự cố**: Ảnh hưởng cao, xác suất thấp.
-- **S3 Receipts/Exports chưa tích hợp hoàn chỉnh**: Ảnh hưởng trung bình, xác suất hiện hữu.
+| Rủi ro | Xác suất | Ảnh hưởng | Trạng thái tại thời điểm báo cáo | Biện pháp chính |
+|---|---|---|---|---|
+| Chi phí AWS vượt dự kiến | Trung bình | Cao | Đang kiểm soát | AWS Budgets, giới hạn thời gian lưu log và quy trình dọn dẹp tài nguyên |
+| ECS Task không khởi động | Trung bình | Cao | Đã từng phát sinh | Health check, ECS event, stopped reason và CloudWatch log |
+| Kết nối giữa microservice lỗi | Trung bình | Cao | Đã kiểm thử đường Gateway → Auth | Service Connect, SG self-reference và health endpoint |
+| Database migration lỗi | Trung bình | Cao | Đã có quy trình kiểm soát | Chạy task riêng, kiểm tra `ExitCode=0` trước rollout |
+| Rò rỉ thông tin nhạy cảm | Thấp | Rất cao | Chưa ghi nhận | Secrets Manager, OIDC và không commit `.env` |
+| Gemini API/model thay đổi | Trung bình | Trung bình | Rủi ro bên ngoài còn tồn tại | Cấu hình model qua secret và chuẩn bị phương án thay thế |
+| SES Sandbox giới hạn người nhận | Cao | Trung bình | Đang tồn tại trong demo | Dùng địa chỉ đã xác minh và xin Production Access khi cần |
+| Lưu lượng outbound phụ thuộc một NAT Gateway trong một AZ | Thấp | Cao | Chấp nhận để giảm chi phí demo | Khi vận hành chính thức, dùng một NAT Gateway cho mỗi AZ |
+| S3 Receipts/Exports chưa tích hợp hoàn chỉnh | Hiện hữu | Trung bình | Chưa hoàn thiện | Bổ sung quyền cho ECS task role và hoàn thiện luồng lưu object trong mã nguồn |
 
 #### Chiến lược giảm thiểu
 
@@ -377,27 +397,32 @@ Hệ thống áp dụng các biện pháp sau để giới hạn chi phí:
 - Khôi phục database từ RDS snapshot khi cần thiết.
 - Chuyển sang thao tác nhập giao dịch thủ công nếu AI hoặc OCR tạm thời không khả dụng.
 - Sử dụng email identity đã xác minh trong thời gian chờ SES Production Access.
-- Tách logical database thành các RDS instance riêng khi production yêu cầu cách ly cao hơn.
+- Tách logical database thành các RDS instance riêng khi môi trường chính thức cần mức cách ly cao hơn.
 
 ### 8. Kết quả kỳ vọng
 
 #### Kết quả kỹ thuật
 
-- Hoàn thiện nền tảng quản lý tài chính cá nhân hoạt động trên AWS.
-- Triển khai thành công 9 microservice trên Amazon ECS Fargate.
-- Thiết lập giao tiếp nội bộ bằng ECS Service Connect.
-- Triển khai frontend bằng Amazon S3 và CloudFront.
-- Kết nối hệ thống với RDS PostgreSQL và Redis.
-- Tích hợp AI Agent, Gemini và OCR.
-- Hỗ trợ OTP và thông báo email bằng Amazon SES.
-- Thiết lập giám sát bằng Amazon CloudWatch.
-- Bảo vệ hệ thống bằng AWS WAF, IAM và Security Group.
-- Xây dựng quy trình CI/CD bằng GitHub Actions OIDC.
-- Cung cấp giao diện responsive cho máy tính và thiết bị di động.
+| Kết quả đề xuất | Trạng thái cuối | Cách đối chiếu |
+|---|---|---|
+| Nền tảng tài chính cá nhân hoạt động trên AWS | Đã triển khai trong môi trường demo | CloudFront URL và kiểm thử nghiệp vụ |
+| 9 microservice chạy trên ECS Fargate | Đã triển khai và xác minh | ECS Services, task health và CloudWatch |
+| Giao tiếp nội bộ bằng Service Connect | Đã xác minh Gateway → Auth | ECS Exec trả HTTP 200 từ `auth:8000/health` |
+| Frontend trên private S3 và CloudFront | Đã triển khai | OAC, CloudFront origins và trang đăng nhập |
+| RDS PostgreSQL và Redis | Đã triển khai | RDS metrics và ElastiCache overview |
+| AI Agent, Gemini và OCR | Đã kiểm thử theo kịch bản demo | Kết quả AI và OCR trong Workshop |
+| OTP và email qua SES | Đã kiểm thử trong giới hạn Sandbox | Bằng chứng gửi đến địa chỉ đã xác minh |
+| Giám sát bằng CloudWatch | Đã triển khai ở mức cơ bản | Log group và Gateway health log |
+| WAF, IAM và Security Group | Đã có cấu hình nền tảng | Web ACL, role/policy và ma trận kết nối |
+| CI/CD bằng GitHub Actions OIDC | Đã triển khai | Workflow run, ECR Git SHA và ECS revision |
+| Giao diện responsive | Đã kiểm thử chức năng cơ bản | Trình duyệt desktop/mobile; chưa phải accessibility audit đầy đủ |
+| OCR tự động lưu file hóa đơn vào S3 | Chưa hoàn tất | Bucket đã được tạo; phần tích hợp trong mã nguồn chưa hoàn thiện |
+
+`Đã triển khai` có nghĩa là tài nguyên đã tồn tại trong môi trường demo. Cụm từ `đã xác minh` chỉ được dùng khi có kiểm thử hoặc bằng chứng tương ứng trong Workshop. Hai trạng thái này không đồng nghĩa với cam kết SLA, tính sẵn sàng cao hoặc khả năng chịu tải của môi trường chính thức.
 
 #### Giá trị dài hạn
 
-- Có thể mở rộng từ môi trường demo sang production.
+- Có thể phát triển từ môi trường demo lên môi trường vận hành chính thức.
 - Có thể chuyển RDS và Redis sang Multi-AZ.
 - Có thể triển khai NAT Gateway cho từng Availability Zone.
 - Có thể áp dụng ECS Service Auto Scaling.

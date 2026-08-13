@@ -241,20 +241,20 @@ Chỉ với những thay đổi cơ bản như bật MFA, loại bỏ Access Key
 
 ---
 
-## Link bài viết
+## Bài viết đã đăng
 
 ---
 
-{{< figure src="/images/Blog1IAM.png" title="AWS IAM Security Best Practices" >}}
+{{< figure src="/images/Blog1IAM.png" title="Bài viết về các nguyên tắc bảo mật IAM đã được chia sẻ trên cộng đồng" >}}
 
-https://www.facebook.com/groups/660548818043427/?multi_permalinks=2237480747016885&hoisted_section_header_type=recently_seen
+[Xem bài viết trong cộng đồng First Cloud Journey](https://www.facebook.com/groups/660548818043427/?multi_permalinks=2237480747016885&hoisted_section_header_type=recently_seen)
 
 ---
 
 ## Tài liệu tham khảo
 
-* [Security best practices in IAM](DAN_LINK_IAM_SECURITY_BEST_PRACTICES_VAO_DAY)
-* [Root user best practices for your AWS account](DAN_LINK_ROOT_USER_BEST_PRACTICES_VAO_DAY)
-* [AWS Multi-factor authentication in IAM](DAN_LINK_AWS_MFA_DOCUMENTATION_VAO_DAY)
-* [Manage access keys for IAM users](DAN_LINK_ACCESS_KEY_DOCUMENTATION_VAO_DAY)
-* [What is AWS CloudTrail?](DAN_LINK_CLOUDTRAIL_DOCUMENTATION_VAO_DAY)
+* [Các nguyên tắc bảo mật IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
+* [Các nguyên tắc bảo vệ AWS account root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html)
+* [Xác thực đa yếu tố cho AWS account root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/enable-mfa-for-root.html)
+* [Bảo vệ và quản lý access key](https://docs.aws.amazon.com/IAM/latest/UserGuide/securing_access-keys.html)
+* [Giới thiệu AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)

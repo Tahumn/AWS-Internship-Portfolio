@@ -26,6 +26,10 @@ Kiểm thử được thực hiện từ trong ra ngoài:
 
 Thứ tự này tránh nhầm CloudFront timeout thành lỗi Finance/OCR. Task ở trạng thái `RUNNING` chưa được nghiệm thu cho đến khi health probe thành công và ECS deployment đạt steady state.
 
+![CloudWatch log của Gateway health endpoint](/images/5-Workshop/Gateway_Health_Log.png)
+
+Log stream ghi nhận Uvicorn khởi động trên cổng 8000 và nhiều health probe liên tiếp trả `200 OK`. Vì source của probe hiển thị là loopback, ảnh này chứng minh container health; nó không thay thế bằng chứng ALB hoặc Service Connect end-to-end.
+
 ## Ma trận nghiệm thu hạ tầng
 
 | Kiểm tra | Kết quả mong đợi | Bằng chứng |
@@ -37,6 +41,19 @@ Thứ tự này tránh nhầm CloudFront timeout thành lỗi Finance/OCR. Task 
 | Cô lập database | RDS encrypted, `PubliclyAccessible=False` | cấu hình/metric RDS |
 | Queue | API enqueue, worker nghe queue `notifications` | log Notification Worker |
 | Truy vết CI/CD | Git SHA ánh xạ ECR tag và task revision | GitHub Actions, ECR, ECS |
+
+## Ma trận bằng chứng và mức kết luận
+
+| Bằng chứng | Có thể kết luận | Không thể kết luận riêng từ ảnh |
+|---|---|---|
+| VPC resource map | Subnet, route table, IGW và NAT tồn tại đúng phân tầng | Security Group chặn mọi đường ngoài ý muốn |
+| Gateway CloudWatch log | Process khởi động và `/health` trả 200 trong container | Request Internet đi hết tuyến edge |
+| ECS Exec `gateway → auth` | Service Connect data plane và private alias hoạt động tại thời điểm test | Availability dài hạn của mọi service |
+| ALB target healthy | ALB health check đến Gateway thành công | Luồng nghiệp vụ và database đúng |
+| CloudFront login page | Static delivery và SPA entry point hoạt động | Mọi backend acceptance test đều pass |
+| OCR/AI/SES evidence | Các scenario nghiệp vụ được trình diễn thành công | Load capacity, HA hoặc SLA production |
+
+Ma trận này tránh suy rộng từ một ảnh Console sang tuyên bố lớn hơn bằng chứng hỗ trợ.
 
 Test `401` là kiểm tra routing dương với kết quả authorization âm. Nó chứng minh request đã đến Auth và bị từ chối đúng ranh giới. `504` mới biểu thị lỗi origin hoặc đường nội bộ.
 

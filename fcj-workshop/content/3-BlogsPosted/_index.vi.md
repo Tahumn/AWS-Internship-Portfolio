@@ -1,5 +1,5 @@
 ---
-title: "Các bài blogs"
+title: "Các bài blog"
 date: 2026-08-05
 weight: 3
 chapter: false
@@ -7,7 +7,7 @@ pre: " <b> 3. </b> "
 ---
 
 {{% notice warning %}}  
-⚠️ **Lưu ý:** Các blog dưới đây tổng hợp những chủ đề AWS mình đã tìm hiểu và chia sẻ trong quá trình thực tập.
+⚠️ **Lưu ý:** Các bài viết dưới đây tổng hợp những chủ đề AWS mình đã tìm hiểu và chia sẻ trong quá trình thực tập.
 {{% /notice %}}
 
 ###  [Blog 1 - 7 IAM Best Practices giúp bảo vệ AWS Account hiệu quả hơn](3.1-Blog1/)

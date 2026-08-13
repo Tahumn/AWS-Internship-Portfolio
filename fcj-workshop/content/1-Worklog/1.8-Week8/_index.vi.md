@@ -8,7 +8,7 @@ pre: " <b> 1.8. </b> "
 ---
 
 {{% notice warning %}}
-⚠️ **Lưu ý:** Nội dung dưới đây phản ánh các hoạt động kiểm thử, đánh giá và hoàn thiện báo cáo thực tế trong tuần thứ tám của chương trình thực tập.
+⚠️ **Lưu ý:** Các ngày trong bảng thể hiện lịch phân bổ công việc của tuần thứ tám. Một số nội dung kiểm thử, đánh giá và hoàn thiện tài liệu đã được chủ động thực hiện sớm hơn; kết quả ghi nhận bên dưới phản ánh công việc thực tế đã hoàn thành.
 {{% /notice %}}
 
 ### Mục tiêu tuần 8

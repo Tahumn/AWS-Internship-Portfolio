@@ -19,6 +19,10 @@ The platform follows a microservices architecture and is deployed on Amazon Web 
 
 The project aims to deliver a secure, observable, maintainable, and deployable cloud application with automated CI/CD and a clear path from a cost-optimized demonstration environment to a production architecture.
 
+{{% notice info %}}
+**Document status:** this proposal was prepared before deployment and updated afterward to match the system that was actually built. The expected outcomes remain the evaluation criteria, while Section 5 – Workshop presents the corresponding acceptance evidence.
+{{% /notice %}}
+
 ### 2. Problem Statement
 
 #### What Is the Problem?
@@ -70,6 +74,20 @@ The solution provides the following benefits:
 - Centralized logs and monitoring through Amazon CloudWatch.
 
 As an academic internship project, its value is not measured primarily by direct financial return. Its principal value is the practical application of software engineering, microservices, containers, DevOps, security, database management, and cloud deployment in a complete working system.
+
+#### Proposed Scope
+
+| In scope | Outside the initial scope |
+|---|---|
+| Responsive web application, 9 ECS services, and one Gateway | Native mobile application and multi-Region deployment |
+| One RDS instance with 6 logical databases | Database-per-service using separate physical RDS instances |
+| Redis/RQ queue and worker | Migration to SQS/DLQ |
+| Gemini and Tesseract for AI/OCR | Production migration to Amazon Bedrock |
+| SES delivery to verified identities | Unrestricted-recipient SES Production Access |
+| Private S3 origin for the frontend | Automatic OCR receipt-object persistence in S3 |
+| One task for each ECS service | Autoscaling and a load-tested HA architecture |
+
+Items outside the initial scope remain possible extensions and are not presented as deployed or accepted components.
 
 ### 3. Solution Architecture
 
@@ -272,7 +290,7 @@ The project is implemented through the following phases:
 
 ### 6. Budget Estimation
 
-The cost is estimated for the demonstration environment deployed in the AWS Asia Pacific (Singapore) Region — `ap-southeast-1`. The estimate assumes that the system operates continuously for approximately 730 hours per month, each ECS Service maintains one running task, and overall traffic remains low.
+The estimate was prepared in August 2026 for the demonstration environment in AWS Asia Pacific (Singapore) — `ap-southeast-1`. It assumes approximately 730 operating hours per month, one running task per ECS service, and low traffic. These figures are proposal planning ranges rather than a Cost Explorer bill; taxes, credits, Free Tier benefits, exchange-rate movements, and AWS price changes are excluded.
 
 | AWS Service | Demonstration Configuration | Estimated Monthly Cost |
 |---|---|---:|
@@ -346,15 +364,17 @@ The demonstration environment reduces costs by using:
 
 #### Risk Matrix
 
-- **Unexpected AWS costs**: High impact, medium probability.
-- **ECS task startup failures**: High impact, medium probability.
-- **Microservice communication failures**: High impact, medium probability.
-- **Database migration failures**: High impact, medium probability.
-- **Exposure of sensitive credentials**: Very high impact, low probability.
-- **Gemini API or model availability changes**: Medium impact, medium probability.
-- **Amazon SES Sandbox restrictions**: Medium impact, high probability during the demonstration phase.
-- **Single-AZ NAT Gateway failure**: High impact, low probability.
-- **Incomplete S3 Receipts/Exports integration**: Medium impact, currently present.
+| Risk | Probability | Impact | Status at report time | Primary response |
+|---|---|---|---|---|
+| AWS cost exceeds the estimate | Medium | High | Under active control | AWS Budgets, limited log retention, and a resource-cleanup procedure |
+| ECS task fails to start | Medium | High | Previously encountered | Health checks, ECS events, stopped reasons, and CloudWatch logs |
+| Microservice communication fails | Medium | High | Gateway → Auth path tested | Service Connect, SG self-reference, and health endpoints |
+| Database migration fails | Medium | High | Controlled process established | Separate task and `ExitCode=0` validation before rollout |
+| Sensitive information is exposed | Low | Very high | No incident recorded | Secrets Manager, OIDC, and no committed `.env` |
+| Gemini API/model changes | Medium | Medium | External risk remains | Secret-based model configuration and replacement plan |
+| SES Sandbox restricts recipients | High | Medium | Present in the demo | Verified identities and Production Access request when needed |
+| Outbound traffic depends on one NAT Gateway in one AZ | Low | High | Accepted to control demo cost | One NAT Gateway per AZ in production |
+| S3 Receipts/Exports integration is incomplete | Present | Medium | Pending | Complete the ECS task role and application object flow |
 
 #### Mitigation Strategies
 
@@ -383,17 +403,22 @@ The demonstration environment reduces costs by using:
 
 #### Technical Outcomes
 
-- A complete personal finance platform operating on AWS.
-- Nine microservices deployed on Amazon ECS Fargate.
-- Internal communication through ECS Service Connect.
-- Frontend delivery through Amazon S3 and CloudFront.
-- Integration with RDS PostgreSQL and Redis.
-- AI Agent, Gemini, and OCR integration.
-- OTP and transactional email support through Amazon SES.
-- Centralized monitoring through Amazon CloudWatch.
-- Security controls using AWS WAF, IAM, and Security Groups.
-- Automated CI/CD using GitHub Actions OIDC.
-- Responsive interfaces for desktop and mobile devices.
+| Proposed outcome | Final status | Verification method |
+|---|---|---|
+| Personal finance platform operating on AWS | Deployed in the demo environment | CloudFront URL and business acceptance tests |
+| 9 microservices on ECS Fargate | Deployed and verified | ECS Services, task health, and CloudWatch |
+| Internal communication through Service Connect | Gateway → Auth verified | ECS Exec returned HTTP 200 from `auth:8000/health` |
+| Frontend on private S3 and CloudFront | Deployed | OAC, CloudFront origins, and login page |
+| RDS PostgreSQL and Redis | Deployed | RDS metrics and ElastiCache overview |
+| AI Agent, Gemini, and OCR | Tested in demo scenarios | AI and OCR results in the Workshop |
+| OTP and email through SES | Tested within Sandbox limits | Delivery evidence for a verified identity |
+| Monitoring through CloudWatch | Core monitoring in place | Log groups and Gateway health log |
+| WAF, IAM, and Security Groups | Core controls configured | Web ACL, role/policy, and connection matrix |
+| CI/CD through GitHub Actions OIDC | Deployed | Workflow run, Git-SHA ECR tag, and ECS revision |
+| Responsive interface | Basic behavior tested | Desktop/mobile browser checks; not a complete accessibility audit |
+| Automatic OCR receipt-object persistence in S3 | Not complete | Bucket provisioned; application code integration remains unfinished |
+
+`Deployed` means that the resource exists in the demo environment. `Verified` is used only when the Workshop contains a corresponding test or evidence. Neither term implies a production SLA, high availability, or proven load capacity.
 
 #### Long-Term Value
 

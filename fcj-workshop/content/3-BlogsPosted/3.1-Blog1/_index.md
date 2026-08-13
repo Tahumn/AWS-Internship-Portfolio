@@ -241,20 +241,20 @@ Basic improvements such as enabling MFA, removing unused Access Keys, narrowing 
 
 ---
 
-## Article Link
+## Published Article
 
 ---
 
-{{< figure src="/images/Blog1IAM.png" title="AWS IAM Security Best Practices" >}}
+{{< figure src="/images/Blog1IAM.png" title="The IAM security best-practices article shared with the community" >}}
 
-https://www.facebook.com/groups/660548818043427/?multi_permalinks=2237480747016885&hoisted_section_header_type=recently_seen
+[View the post in the First Cloud Journey community](https://www.facebook.com/groups/660548818043427/?multi_permalinks=2237480747016885&hoisted_section_header_type=recently_seen)
 
 ---
 
 ## Reference Materials
 
-* [Security best practices in IAM](PASTE_AWS_IAM_SECURITY_BEST_PRACTICES_LINK_HERE)
-* [Root user best practices for your AWS account](PASTE_ROOT_USER_BEST_PRACTICES_LINK_HERE)
-* [AWS Multi-factor authentication in IAM](PASTE_AWS_MFA_DOCUMENTATION_LINK_HERE)
-* [Manage access keys for IAM users](PASTE_ACCESS_KEY_DOCUMENTATION_LINK_HERE)
-* [What is AWS CloudTrail?](PASTE_CLOUDTRAIL_DOCUMENTATION_LINK_HERE)
+* [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
+* [Root user best practices for your AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html)
+* [Multi-factor authentication for the AWS account root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/enable-mfa-for-root.html)
+* [Secure access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/securing_access-keys.html)
+* [What is AWS CloudTrail?](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)

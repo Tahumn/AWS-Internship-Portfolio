@@ -85,7 +85,17 @@ This is not only a proposed architecture. The team deployed and tested a working
 
 ## Completion criteria
 
-The deployment is considered complete when CloudFront serves the SPA over HTTPS, API traffic reaches Gateway through ALB, Service Connect resolves private services, all nine ECS services run, the ALB target is healthy, RDS/Redis remain private, core functions pass, CI/CD uses OIDC, and CloudWatch/Budgets provide operational evidence.
+The environment is considered complete only when all of the following hold:
+
+1. CloudFront serves the React frontend over HTTPS.
+2. `/api/v1` requests traverse CloudFront, ALB, and Gateway.
+3. Gateway resolves service names through Service Connect.
+4. All nine ECS services show `Running=1` and `Pending=0`.
+5. The Gateway target is healthy in the ALB target group.
+6. RDS and Redis are not publicly accessible.
+7. Sign-in, transactions, AI, OCR, budgets, goals, and notifications work.
+8. GitHub Actions can build and update the environment without stored long-lived AWS access keys.
+9. CloudWatch contains per-service logs and AWS Budgets provides cost alerts.
 
 ## Research and implementation methodology
 
@@ -95,25 +105,72 @@ The project followed a **research – design – experiment – deploy – measu
 
 The team started from the working local codebase and identified nine independent processes, startup commands, ports, databases, and dependencies. This kept the architecture code-aligned and prevented unsupported baseline components such as API Gateway, Cognito, Lambda OCR, SQS, or MSK from appearing as deployed dependencies.
 
-The analysis answered whether clients use one Gateway, where WebSocket terminates, whether authentication is application-owned, whether OCR is a container or Lambda function, whether notifications use Redis/RQ or SQS, whether AI uses Gemini or Bedrock, and whether physical or logical database isolation is appropriate for the demo.
+The team answered these concrete questions before drawing the architecture:
+
+- Does the client call one Gateway or each service directly?
+- Where does the WebSocket connection terminate?
+- Is authentication application-owned or delegated to Cognito?
+- Is OCR an event-driven Lambda function or a long-running container?
+- Do notifications use SQS or Redis/RQ?
+- Does AI use Bedrock or Gemini?
+- Does each service require a physical database, or are logical databases sufficient?
+- Which resources require Multi-AZ, and which can be reduced for the demo?
 
 ### Phase 2 — Local validation and dependency mapping
 
 Docker Compose was used to run the frontend, PostgreSQL, Redis, and microservices. Health endpoints, migrations, service URLs, and business flows were validated before mapping them to AWS.
 
+The resulting dependency map was:
+
+```text
+Browser
+  -> Gateway
+      -> Auth
+      -> Finance
+      -> AI -> Gemini
+      -> OCR -> Tesseract/Gemini -> Finance
+      -> Planning
+      -> Recurring
+      -> Notifications API -> Redis/RQ -> Worker -> SMTP
+```
+
 ### Phase 3 — Private-by-default AWS design
 
 The architecture was divided into edge, ingress/application, data, and operations/delivery layers. Every diagram connection had to map to a route, security-group rule, IAM permission, or application configuration that could be verified.
 
+The four layers were:
+
+1. **Edge:** CloudFront, WAF, and S3.
+2. **Ingress/Application:** ALB, ECS Fargate, and Service Connect.
+3. **Data:** RDS PostgreSQL and ElastiCache in private subnets.
+4. **Operations/Delivery:** CloudWatch, Secrets Manager, ECR, and GitHub Actions OIDC.
+
 ### Phase 4 — Checkpoint-based deployment
 
 The team progressed through network, security groups, ECR, databases, migrations, ECS health, Service Connect, ALB health, CloudFront routing, and CI/CD checkpoints. A new layer was introduced only after the previous layer had a measurable success condition.
+
+The checkpoints were explicit:
+
+1. VPC, subnets, and routes are correct.
+2. Security groups allow only the intended paths.
+3. ECR contains the image.
+4. RDS and Redis are `Available`.
+5. Migration exits with `ExitCode=0`.
+6. Each ECS service is healthy.
+7. Service Connect resolves private DNS names.
+8. The ALB target is healthy.
+9. CloudFront serves the frontend and API.
+10. CI/CD can redeploy successfully.
 
 ### Phase 5 — Observation and improvement
 
 CloudWatch logs, ECS events, task stop reasons, target health, and HTTP responses were used for root-cause analysis. For each incident, the team recorded the symptom, hypothesis, diagnostic command, root cause, and final correction.
 
 This approach developed practical understanding across application code, containers, networking, IAM, data, observability, delivery, and cost—not only a working website.
+
+## Learning outcomes
+
+The team did more than publish a working website. The implementation connected application code with containers, networking, IAM, data, observability, delivery, and cost. That experience also made the boundary between a **cost-controlled demo environment** and a **high-availability production target** explicit.
 
 ## Deployed application evidence
 
